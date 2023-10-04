@@ -27,15 +27,18 @@
         // Constructeur Méthode de connexion à la base de données
         public function getConnection(){
             // On supprime la connexion précédente
+
             $this->fermerConnexion();
             // On essaie de se connecter à la base
-            // Singleton : la classe PDO sera instanciée qu'une seule fois dans l'application. 
+            // Singleton : la classe PDO sera instanciée qu'une seule fois dans l'application.
+
             try{
                 $this->cnx = new PDO($this->sgbd.":host=" . $this->host . ";dbname=" . $this->dbname, $this->user, $this->passwd);
                 $this->cnx->exec("set names utf8");
             }catch(PDOException $exception){
                 echo "Connexion à la base de données impossible : " . $exception->getMessage();
             }
+            
             return $this->cnx;
         }
 
