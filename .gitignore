@@ -4,5 +4,5 @@ node_modules/
 # package config
 package*.json
 
-# font directories
-#fonts/
+#others files
+*.html
