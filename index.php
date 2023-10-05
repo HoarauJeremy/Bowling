@@ -3,7 +3,7 @@
     // Toute interaction passe par l'index et est transmise
     // directement au contrôleur responsable du traitement
 
-    require_once("controleur/controleur.php");
+    require_once("controler/controleur.php");
     $message = "";
 
     $action = isset($_GET['action']) ? $_GET['action'] : NULL;
