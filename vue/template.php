@@ -87,8 +87,14 @@
     <div class="main-content mx-auto mt-8 p-4">
         <main>
             <section>
-                <h2 class="text-3xl font-semibold">Bienvenue sur Votre Site Web</h2>
-                <p>Ceci est le contenu principal de votre site web.</p>
+                <article>
+                    <div id="message">
+                        <?= $message = isset($message) ? $message : NULL; ?>
+                    </div>
+                    <div id="contenu">
+                        <?= $contenu = isset($contenu) ? $contenu : NULL; ?>
+                    </div>
+                </article>
             </section>
         </main>
     </div>
