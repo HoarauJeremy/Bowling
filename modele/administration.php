@@ -13,7 +13,6 @@
         public $email;
 
         // Colonne Reservation
-        public int $idReservation;
         public string $numReservation;
         public int $NbrPersonne;
         public $DateDebutReservation;
@@ -41,7 +40,6 @@
         public function getEmailClients()       {return $this->email;}
 
         // getter Reservations
-        public function getIdReservation()          {return $this->idReservation;}
         public function getNumReservation()         {return $this->numReservation;}
         public function getNbrPersonne()            {return $this->NbrPersonne;}
         public function getDateDebutReservation()   {return $this->DateDebutReservation;}
@@ -56,7 +54,6 @@
         public function setEmailClients($Email)       {$this->email = $Email;}
 
         // getter Reservations
-        public function setIdReservation($idReservation)                    {$this->idReservation = $idReservation;}
         public function setNumReservation($numReservation)                  {$this->numReservation = $numReservation;}
         public function setNbrPersonne($NbrPersonne)                        {$this->NbrPersonne = $NbrPersonne;}
         public function setDateDebutReservation($DateDebutReservation)      {$this->DateDebutReservation = $DateDebutReservation;}

@@ -5,7 +5,7 @@ class controleurAdmin {
 
     public function __construct() {
         require_once("modele/managerAdministration.php");
-        $this->manageAdmin = new mangerAdministration();
+        $this->manageAdmin = new managerAdministration();
     }
 
     public function Dispatcher($action, $id = null) {
