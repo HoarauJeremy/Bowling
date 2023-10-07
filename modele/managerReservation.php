@@ -1,9 +1,9 @@
 <?php
-    require_once("modele/managerReservation");
+    require_once("modele/modele.php");
 
     class managerReservation extends Connexiondb {
         public function __construct() {
-            parent::__construct();
+            parent :: __construct();
         }
     }
 ?>

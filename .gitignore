@@ -6,3 +6,6 @@ package*.json
 
 #others files
 *.html
+
+#fonts
+fonts/*

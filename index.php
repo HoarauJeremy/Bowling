@@ -6,11 +6,12 @@
 
     require_once("controler/controleur.php");
     $message = "";
-
+    $contenu = "";
+    
     $action = isset($_GET['action']) ? $_GET['action'] : NULL;
     $val = isset($_GET['val']) ? $_GET['val'] : NULL;
 
     $controller = new Controleur();
     $controller->dispatcher($action, $val);
-    
+
 ?>

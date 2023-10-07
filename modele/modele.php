@@ -15,8 +15,8 @@
             $this->host   = "127.0.0.1";
             $this->port   = 3306;
             $this->dbname = ""; // Nom de la BD            
-            $this->user   = ""; // Utilisateur 
-            $this->passwd = ""; // Mot de Passe
+            $this->user   = "329923"; // Utilisateur 
+            $this->passwd = "Abc_1234"; // Mot de Passe
             $this->sgbd   = "mysql";
 
             $this->cnx = null;

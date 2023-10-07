@@ -21,6 +21,10 @@ class controleurAdmin {
                 $reservations = $this->manageAdmin->getReservations();
                 // include 'vue/vueReservation.php';
                 break;
+
+            case 'connnexion':                 
+                include 'vue/vueConnexion.php';
+                break;
             
             default:
                 // On appel la page d'accueil par défaut
