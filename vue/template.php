@@ -49,30 +49,60 @@
 
 </head>
 <body>
-    <header>
-        <!-- Logo -->
-        <div class="logo">
-            <img src="logo.png" alt="Your Logo" width="100">
-        </div>
-        
-        <!-- Nom de l'entreprise -->
-        <div class="bg-gray-300 py-2 text-center text-black">
-            <div class="bg-gray-300 inline-block px-4 py-2 rounded-md">
-                <h1 class="text-2xl font-semibold">Le Nom de Votre Entreprise</h1>
+<header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
+       <!-- Bar de navigation -->
+        <!-- <nav class="bg-red-600 container mx-auto"> -->
+        <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between md:flex-col md:justify-center">
+            <div class="md:w-full md:flex md:h-28 md:items-center">
+                <!-- Logo -->
+                <a href="index.php" class="flex md:ml-10 md:mr-16">
+                    <span id="logo" class="w-16 h-16 bg-red-500">
+                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="100">
+                    </span>
+                </a>
+                
+                <!-- Nom de l'entreprise -->
+                <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
+                    <!-- <div class="bg-gray-300 inline-block px-4 py-2 rounded-md"> -->
+                        <h1 class="text-2xl font-semibold">Le Bowling du Front de Mer</h1>
+                    <!-- </div> -->
+                </div>
             </div>
-        </div>
+            
+            <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
+                text-white border-b backdrop-blur-sm md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
+                md:static md:z-10 md:transform-none md:border-none md:flex-row">
+                
+                <ul class="w-11/12 h-5/6 mt-4 mx-auto py-4 px-2 bg-background rounded-xl text-center text-2xl font-bold font-Roboto 
+                md:px-0 md:flex md:flex-row md:items-center md:rounded-none md:w-9/12 md:p-0 md:mt-0">
+            
+                    <li id="nav-item" class="py-4 text-text font-NotoSans font-extrabold text-5xl mx-auto w-11/12 mt-8 md:hidden">
+                        <h1>Menu</h1>
+                    </li>
 
-        <!-- Bar de navigation -->
-        <nav class="bg-red-600 container mx-auto">
-            <div class="py-4 flex justify-center items-center">
-                <ul class="flex space-x-4 text-black">
-                    <li class="nav-item"><a href="index.php">Accueil</a></li>
-                    <li class="nav-item"><a href="#action?reserver">Réserver</a></li>
-                    <li class="nav-item"><a href="?action=contacter">Nous Contacter</a></li>
-                    <li class="nav-item"><a href="#action?client">Espace Client</a></li>
-                    <li class="nav-item group relative">
-                        <!-- Menu déroulant Langue -->
-                        <a href="#action?" class="group-hover:text-gray-300">Langue</a>
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="#action?accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                    </li>
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="#action?reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
+                    </li>
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="#action?contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                    </li>
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="#action?client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
+                    </li>
+            
+                    <!-- Menu déroulant Langue -->
+                    <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
+                        <a href="#action?" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
                         <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
                             <li><a href="#action?langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
                             <li><a href="#action?langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
@@ -80,6 +110,11 @@
                     </li>
                 </ul>
             </div>
+
+            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-7 md:hidden">
+                <img src="media/images/burger-menu-svgrepo-com.svg" alt="" />
+            </button>
+
         </nav>
     </header>
 
