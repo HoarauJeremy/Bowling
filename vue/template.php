@@ -56,9 +56,9 @@
             <div class="md:w-full md:flex md:h-28 md:items-center">
                 <!-- Logo -->
                 <a href="index.php" class="flex md:ml-10 md:mr-16">
-                    <span id="logo" class="w-16 h-16 bg-red-500">
-                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="100">
-                    </span>
+                    <span id="logo" class="h-auto w-auto">
+                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="120" height="120">
+                    </span> 
                 </a>
                 
                 <!-- Nom de l'entreprise -->
