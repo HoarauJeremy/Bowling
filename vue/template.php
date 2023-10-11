@@ -70,7 +70,7 @@
             </div>
             
             <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
-                text-white border-b backdrop-blur-sm md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
+                text-white border-b backdrop-blur-lg md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
                 md:static md:z-10 md:transform-none md:border-none md:flex-row">
                 
                 <ul class="w-11/12 h-5/6 mt-4 mx-auto py-4 px-2 bg-background rounded-xl text-center text-2xl font-bold font-Roboto 
@@ -92,7 +92,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="#action?contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
@@ -111,7 +111,7 @@
                 </ul>
             </div>
 
-            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-7 md:hidden">
+            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-14 md:hidden">
                 <img src="media/images/burger-menu-svgrepo-com.svg" alt="" />
             </button>
 
