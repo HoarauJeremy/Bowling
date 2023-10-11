@@ -56,7 +56,7 @@
             <div class="md:w-full md:flex md:h-28 md:items-center">
                 <!-- Logo -->
                 <a href="index.php" class="flex md:ml-10 md:mr-16">
-                    <span id="logo" class="w-16 h-16 bg-red-500">
+                    <span id="logo" class="w-auto h-auto">
                         <img src="media/images/LogoBowling.png" alt="Your Logo" width="100">
                     </span>
                 </a>
@@ -92,7 +92,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="#action?contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0

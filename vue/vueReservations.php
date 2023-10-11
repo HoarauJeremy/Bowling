@@ -1,10 +1,10 @@
 <?php
 
-    require_once("modele/administrations.php");
+    require_once("modele/administration.php");
 
     $titre = "Bowling du Front de Mer - Reservations";
     $reservations = $this->manageAdmin->getReservations();
-    $contenu = "<h2>Liste des Reservations</h2>";
+    $contenu = "<h2 class='mt-56'>Liste des Reservations</h2>";
     $contenu .= "<section>";
     $contenu .= "<table id='reservations' class='table'>
                 <thead>
@@ -25,7 +25,7 @@
         $contenu .="<td class='p-2'>".$reservation->getDateDebutReservation()."</td>";
         $contenu .="<td class='p-2'>".$reservation->getDateDeFinReservation()."</td>";
         $contenu .="<td class='p-2'>
-                        <a title='Détails' href='?action=editer&val=".$reservation->getNumReservation()."'>Détails</a>
+                        <a title='Détails' href='?action=details&val=".$reservation->getNumReservation()."'>Détails</a>
                         | 
                         <a title='Suppression' href='?action=supprimer&val=".$reservation->getNumReservation()."' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cette reservation?\");'>Suppression</a>
                         | 
