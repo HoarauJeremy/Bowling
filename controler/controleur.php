@@ -10,14 +10,14 @@ class Controleur {
 
     public function __construct(){
 
-        require_once("modele/managerUtilisateur.php");
-        $this -> manageUtilisateur = new managerUtilisateur();
+        /* require_once("modele/managerUtilisateur.php");
+        $this -> manageUtilisateur = new managerUtilisateur(); */
 
-        require_once("modele/managerClient.php");
-        $this -> manageClient = new managerClient();
+        /* require_once("modele/managerClient.php");
+        $this -> manageClient = new managerClient(); */
 
-        require_once("modele/managerReservation.php");
-        $this -> manageReservation = new managerReservation();
+        /* require_once("modele/managerReservation.php");
+        $this -> manageReservation = new managerReservation(); */
 
         /* require_once("modele/managerAdministration");
         $this -> manageAdministration = new managerAdministration(); */
@@ -33,17 +33,13 @@ class Controleur {
 
                     break;
                 }
-        
+                */
             
             case 'contacter' :
-                if(){
-
-                }else{
-
-                    break;
-                }
+                include 'vue/vueContact.php';
+                break;
         
-            
+            /*
             case 'client' :
                 if(){
 

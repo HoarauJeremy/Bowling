@@ -2,15 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Your Website Title</title>
+    <title><?= $titre; ?></title>
     <meta name="description" content="Description of your website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Ajout d'un potentielle fichier CSS personnalisé -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
     
     <!-- Ajout de Tailwind CSS -->
-    <link rel="stylesheet" href="../media/css/output.css">
+    <link rel="stylesheet" href="./media/css/output.css">
     
     <style>
         /* Bar verticale pour le menu */
@@ -66,9 +66,9 @@
         <nav class="bg-red-600 container mx-auto">
             <div class="py-4 flex justify-center items-center">
                 <ul class="flex space-x-4 text-black">
-                    <li class="nav-item"><a href="#action?accueil">Accueil</a></li>
+                    <li class="nav-item"><a href="index.php">Accueil</a></li>
                     <li class="nav-item"><a href="#action?reserver">Réserver</a></li>
-                    <li class="nav-item"><a href="#action?contacter">Nous Contacter</a></li>
+                    <li class="nav-item"><a href="?action=contacter">Nous Contacter</a></li>
                     <li class="nav-item"><a href="#action?client">Espace Client</a></li>
                     <li class="nav-item group relative">
                         <!-- Menu déroulant Langue -->
@@ -84,7 +84,8 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <div class="main-content mx-auto mt-8 p-4">
+    <!-- <div class="main-content mx-auto mt-8 p-4"> -->
+    <div class="w-full mt-8 p-4">
         <main>
             <section>
                 <article>

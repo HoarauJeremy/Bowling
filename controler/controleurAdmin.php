@@ -19,7 +19,7 @@ class controleurAdmin {
 
             case 'reservations':
                 $reservations = $this->manageAdmin->getReservations();
-                // include 'vue/vueReservation.php';
+                // include 'vue/vueReservations.php';
                 break;
 
             case 'connnexion':                 

@@ -12,7 +12,7 @@
 
         // Constructeur initialisation des données
         public function __construct(){
-            $this->host   = "127.0.0.1";
+            $this->host   = "mysql-bowlingdufrontdemer.alwaysdata.net";
             $this->port   = 3306;
             $this->dbname = "bowlingdufrontdemer_db"; // Nom de la BD            
             $this->user   = "329923"; // Utilisateur 
