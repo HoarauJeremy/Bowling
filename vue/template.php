@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     
     <!-- Ajout de Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../media/css/output.css">
+    
     <style>
         /* Bar verticale pour le menu */
         .nav-item:not(:last-child) {
