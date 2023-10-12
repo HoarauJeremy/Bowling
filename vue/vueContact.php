@@ -1,7 +1,7 @@
 <?php
     $titre = "Bowling du Front de Mer - Contact";
-    $contenu = "<div class='h-auto mx-auto'>";
-    $contenu .= "<section >";
+    $contenu = "<div class='mt-56 h-auto mx-auto'>";
+    $contenu .= "<section>";
     $contenu .= "<div class='w-full text-4xl font-NotoSans font-extrabold'>
                     <h2 class='text-center'>Nous Contacter</h2>
                 </div>";

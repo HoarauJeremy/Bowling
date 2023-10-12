@@ -664,6 +664,10 @@ video {
   margin-top: 2rem;
 }
 
+.mt-56 {
+  margin-top: 14rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -793,10 +797,6 @@ video {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.self-center {
-  align-self: center;
 }
 
 .rounded-full {

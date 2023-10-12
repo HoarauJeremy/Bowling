@@ -10,7 +10,21 @@ class controleurAdmin {
 
     public function Dispatcher($action, $id = null) {
         switch ($action) {
-            case 'editer':
+            case 'modifier':
+                $element = $this->manageAdmin->getReservation($id);
+                require_once("modele/administration.php");
+                $reservation = new $reservation($element);
+                // include 'vue/';
+                break;
+            
+                case 'supprimer':
+                $element = $this->manageAdmin->getReservation($id);
+                require_once("modele/administration.php");
+                $reservation = new $reservation($element);
+                // include 'vue/';
+                break;
+            
+                case 'details':
                 $element = $this->manageAdmin->getReservation($id);
                 require_once("modele/administration.php");
                 $reservation = new $reservation($element);
@@ -19,7 +33,7 @@ class controleurAdmin {
 
             case 'reservations':
                 $reservations = $this->manageAdmin->getReservations();
-                // include 'vue/vueReservations.php';
+                include 'vue/vueReservations.php';
                 break;
 
             case 'connnexion':                 
