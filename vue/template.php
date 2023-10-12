@@ -56,9 +56,9 @@
             <div class="md:w-full md:flex md:h-28 md:items-center">
                 <!-- Logo -->
                 <a href="index.php" class="flex md:ml-10 md:mr-16">
-                    <span id="logo" class="w-auto h-auto">
-                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="100">
-                    </span>
+                    <span id="logo" class="h-auto w-auto">
+                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="120" height="120">
+                    </span> 
                 </a>
                 
                 <!-- Nom de l'entreprise -->
@@ -70,7 +70,7 @@
             </div>
             
             <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
-                text-white border-b backdrop-blur-sm md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
+                text-white border-b backdrop-blur-lg md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
                 md:static md:z-10 md:transform-none md:border-none md:flex-row">
                 
                 <ul class="w-11/12 h-5/6 mt-4 mx-auto py-4 px-2 bg-background rounded-xl text-center text-2xl font-bold font-Roboto 
@@ -111,7 +111,7 @@
                 </ul>
             </div>
 
-            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-7 md:hidden">
+            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-14 md:hidden">
                 <img src="media/images/burger-menu-svgrepo-com.svg" alt="" />
             </button>
 
