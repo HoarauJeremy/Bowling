@@ -5,6 +5,7 @@
     // directement au contrôleur responsable du traitement
 
     require_once("controler/controleur.php");
+   
     $message = "";
     $contenu = "";
     
@@ -12,5 +13,6 @@
     $val = isset($_GET['val']) ? $_GET['val'] : NULL;
 
     $controller = new Controleur();
+
     $controller->dispatcher($action, $val);
 ?>
