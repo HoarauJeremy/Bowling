@@ -51,17 +51,13 @@
 <body>
 <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
        <!-- Bar de navigation -->
-        <!-- <nav class="bg-red-600 container mx-auto"> -->
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
-            <!-- <div class="md:w-full md:flex md:h-28 md:items-center"> -->
-                <!-- Logo -->
-                <a href="index.php" class="flex md:ml-10 md:mr-16">
-                    <span id="logo" class="h-auto w-auto">
-                        <img src="media/images/LogoBowling.png" alt="Your Logo" width="120" height="120">
-                    </span> 
-                </a>
-                
-            <!-- </div> -->
+            <!-- Logo -->
+            <a href="index.php" class="flex md:ml-10 md:mr-16">
+                <span id="logo" class="h-auto w-auto">
+                    <img src="media/images/LogoBowling.png" alt="Your Logo" width="120" height="120">
+                </span> 
+            </a>
             
             <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
                 text-white border-b backdrop-blur-lg md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
@@ -120,9 +116,15 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <!-- <div class="main-content mx-auto mt-8 p-4"> -->
     <div class="w-full mt-8 p-4">
-        <main>  
+        <main>
+            <!-- Nom de l'entreprise -->
+            <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
+            <!-- <div class="bg-gray-300 inline-block px-4 py-2 rounded-md"> -->
+                <h1 class="text-2xl font-semibold">Le Bowling du Front de Mer</h1>
+            <!-- </div> -->
+            </div>
+
             <section>
                 <article>
                     <div id="message">
