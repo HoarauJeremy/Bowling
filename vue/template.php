@@ -76,12 +76,12 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="#action?accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                        <a href="?action=accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="#action?reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
+                        <a href="?action=reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
@@ -91,27 +91,30 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="#action?client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
+                        <a href="?action=client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
                     </li>
             
                     <!-- Menu déroulant Langue -->
                     <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
-                        <a href="#action?" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
+                        <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
                         <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
-                            <li><a href="#action?langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
-                            <li><a href="#action?langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
+                            <li><a href="?action=langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
+                            <li><a href="?action=langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
 
-            <div class="bg-lime-500 w-28 h-3">
-            
-            </div>
-
             <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-14 md:hidden">
                 <img src="media/images/burger-menu-svgrepo-com.svg" alt="" />
             </button>
+
+            <a href="?action=connexion" class="flex md:ml-10 md:mr-16">
+                <span id="logo" class="h-auto w-auto py-2">
+                    <img src="media/images/LogoConnexion.png" alt="Your Logo" width="120" height="120">
+                    <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Connecter</p>
+                </span> 
+            </a>
 
         </nav>
     </header>
@@ -119,14 +122,7 @@
     <!-- Conteneur du contenue principale -->
     <!-- <div class="main-content mx-auto mt-8 p-4"> -->
     <div class="w-full mt-8 p-4">
-        <main>
-            <!-- Nom de l'entreprise -->
-            <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
-            <!-- <div class="bg-gray-300 inline-block px-4 py-2 rounded-md"> -->
-                <h1 class="text-2xl font-semibold">Le Bowling du Front de Mer</h1>
-            <!-- </div> -->
-            </div>
-
+        <main>  
             <section>
                 <article>
                     <div id="message">
