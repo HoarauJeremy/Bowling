@@ -1,6 +1,9 @@
 # Dependency directories
 node_modules/
 
+# VsCode directories
+.vscode/
+
 # package config
 package*.json
 

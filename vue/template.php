@@ -12,7 +12,7 @@
     <!-- Ajout de Tailwind CSS -->
     <link rel="stylesheet" href="./media/css/output.css">
     
-    <style>
+    <!-- <style>
         /* Bar verticale pour le menu */
         .nav-item:not(:last-child) {
             border-right: 1px solid black; /* bar verticale */
@@ -45,12 +45,12 @@
             margin: 0 auto; /* Centré le bloc d'information principale */
             padding: 20px; /* Ajout du padding pour l'espacement du contenue */
         }
-    </style>
+    </style> -->
 
 </head>
 <body>
 <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
-       <!-- Bar de navigation -->
+        <!-- Bar de navigation -->
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
@@ -82,7 +82,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="index.php?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
@@ -116,7 +116,7 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <div class="w-full mt-8 p-4">
+    <div class="w-full mt-44 p-4">
         <main>
             <!-- Nom de l'entreprise 
             <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
@@ -132,6 +132,7 @@
                     </div>
                     <div id="contenu">
                         <?= $contenu = isset($contenu) ? $contenu : NULL; ?>
+                        <!-- Ne pas oublier de fermer la connection -->
                     </div>
                 </article>
             </section>
