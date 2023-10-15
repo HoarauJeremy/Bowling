@@ -75,7 +75,7 @@
         }
 
         /**
-         * definit le format de la date en version  française
+         * definit le format de la date en version française
          * @param $dateCreate
          * @return string
          */

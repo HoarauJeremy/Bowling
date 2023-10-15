@@ -10,9 +10,9 @@
     <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
     
     <!-- Ajout de Tailwind CSS -->
-    <link rel="stylesheet" href="media/css/output.css">
+    <link rel="stylesheet" href="./media/css/output.css">
     
-    <style>
+    <!-- <style>
         /* Bar verticale pour le menu */
         .nav-item:not(:last-child) {
             border-right: 1px solid black; /* bar verticale */
@@ -45,7 +45,7 @@
             margin: 0 auto; /* Centré le bloc d'information principale */
             padding: 20px; /* Ajout du padding pour l'espacement du contenue */
         }
-    </style>
+    </style> -->
 
 </head>
 <body>

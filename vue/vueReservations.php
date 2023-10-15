@@ -4,7 +4,7 @@
 
     $titre = "Bowling du Front de Mer - Reservations";
     $reservations = $this->manageAdmin->getReservations();
-    $contenu = "<div class=' w-5/6 md:w-3/5 mx-auto'>
+    $contenu = "<div class='mt-32 w-5/6 md:w-3/5 mx-auto'>
                     <h2>Liste des Reservations</h2>";
     $contenu .= "<section>";
     $contenu .= "<table id='reservations' class='table'>
