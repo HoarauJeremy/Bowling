@@ -38,6 +38,10 @@ class Controleur {
             case 'contacter' :
                 include 'vue/vueContact.php';
                 break;
+
+            case 'connexion' :
+                include 'vue/vueConnexion.php';
+                break;
         
             /*
             case 'client' :
