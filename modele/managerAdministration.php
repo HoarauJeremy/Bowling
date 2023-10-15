@@ -29,10 +29,16 @@
             return $adherents;
         }
 
-        // Récupère les données d'une reservation déterminé par son code
+        // Récupère les données d'une reservation et du client déterminé par le numero de la reservation
         public function getReservation($id)
         {
-            $sql = "SELECT * FROM Reservation WHERE NumReservation = ?;";
+            // $sql = "SELECT * FROM Reservation r INNER JOIN Clients c ON r.EmailClients = c.EmailClients WHERE NumReservation = ?;";
+            $sql = "SELECT r.NumReservation, r.NbrPersonne, r.DateDeReservation, r.DebutReservation, r.FinReservation,
+                c.*, p.NomPiste, f.NomFormule FROM Reservation r 
+                INNER JOIN Clients c ON r.EmailClients = c.EmailClients 
+                INNER JOIN Piste p ON r.IdPiste = p.IdPiste
+                INNER JOIN Formule f on r.IdFormule = f.IdFormule
+                WHERE NumReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
             $adherent = $rqt->fetch();
@@ -68,5 +74,17 @@
             return $resultat;
         }
 
+        /**
+         * definit le format de la date en version  française
+         * @param $dateCreate
+         * @return string
+         */
+        static function formatDate($dateCreate) {
+            $jour = $dateCreate->format('d');
+            $annee = $dateCreate->format('y');
+            $heure = $dateCreate->format('H:i:s');        
+            $mois = array(1=>" janvier "," février "," mars "," avril "," mai "," juin "," juillet "," août "," septembre "," octobre "," novembre "," décembre ");
+            return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
+        }
+
     }
-    

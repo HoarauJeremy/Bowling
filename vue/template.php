@@ -82,7 +82,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="index.php?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
@@ -113,7 +113,7 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <div class="w-full mt-8 p-4">
+    <div class="w-full mt-44 p-4">
         <main>
             <!-- Nom de l'entreprise -->
             <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
@@ -127,6 +127,7 @@
                     </div>
                     <div id="contenu">
                         <?= $contenu = isset($contenu) ? $contenu : NULL; ?>
+                        <!-- Ne pas oublier de fermer la connection -->
                     </div>
                 </article>
             </section>

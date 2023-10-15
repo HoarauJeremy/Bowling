@@ -4,7 +4,8 @@
 
     $titre = "Bowling du Front de Mer - Reservations";
     $reservations = $this->manageAdmin->getReservations();
-    $contenu = "<h2 class='mt-56'>Liste des Reservations</h2>";
+    $contenu = "<div class=' w-5/6 md:w-3/5 mx-auto'>
+                    <h2>Liste des Reservations</h2>";
     $contenu .= "<section>";
     $contenu .= "<table id='reservations' class='table'>
                 <thead>
@@ -22,8 +23,8 @@
         $reservation = new administration($ligne);
         $contenu .="<tr class='border-t h-16 border-black bg-gray-100'>
                         <th scope='row' class='p-2'>".$reservation->getNumReservation()."</th>";
-        $contenu .="<td class='p-2'>".$reservation->getDateDebutReservation()."</td>";
-        $contenu .="<td class='p-2'>".$reservation->getDateDeFinReservation()."</td>";
+        $contenu .="<td class='p-2'>".$reservation->getDebutReservation()."</td>";
+        $contenu .="<td class='p-2'>".$reservation->getFinReservation()."</td>";
         $contenu .="<td class='p-2'>
                         <a title='Détails' href='?action=details&val=".$reservation->getNumReservation()."'>Détails</a>
                         | 
@@ -33,7 +34,9 @@
                     </td></tr>";
     }
     $contenu .="</tbody></table>";
-    $contenu .= "</section>";
+    $contenu .= "</section>
+                </div>";
+
 
     include "template.php";
 ?>
