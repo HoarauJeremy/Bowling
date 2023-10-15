@@ -15,7 +15,11 @@ module.exports = {
       },
 
       margin:{
-        normal : [70],
+        normal: [70],
+      },
+
+      spacing:{
+        normal: [70],
       },
 
       padding:{
