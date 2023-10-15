@@ -1,6 +1,6 @@
 <?php
     $titre = "Bowling du Front de Mer - Connexion";
-    $contenu = "<div class='w-5/6 md:w-3/5 my-36 mx-auto text-center'>";
+    $contenu = "<div class='w-5/6 md:w-3/5 my-40 mx-auto text-center'>";
         $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center' action='' method='POST'>";
             $contenu .= "<img src='media/images/LogoConnexion.png' alt='Your Logo' width='120' height='120' class=''>";
             $message = "";
