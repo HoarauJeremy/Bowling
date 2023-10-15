@@ -13,13 +13,19 @@ module.exports = {
         'secondary': '#a8a3a3',
         'accent': '#bd7575',
       },
+
+      margin:{
+        normal : [70],
+      },
+
       padding:{
         p7_5 : [30],
       },
+
       fontFamily:{
         NotoSans: ['Noto Sans SC', 'sans-serif'],
         Roboto: ['Roboto', 'sans-serif;']
-      },       
+      },   
     },
   },
   plugins: [],
