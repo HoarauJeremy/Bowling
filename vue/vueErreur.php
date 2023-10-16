@@ -1,7 +1,4 @@
 <?php
-    
-    $erreur = $_SERVER["REDIRECT_STATUS"];
-    
     $titre = "Bowling du Front de Mer - Erreur"; 
     $contenu .= "<div class='flex flex-col items-center text-center mt-20'>";
         $contenu .= "<h1 class='font-Roboto font-extrabold text-2xl'>La page recherchée n'a pas été trouvée.</h1>";
