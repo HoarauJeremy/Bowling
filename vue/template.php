@@ -55,7 +55,7 @@
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
                 <span id="logo" class="h-auto w-auto">
-                    <img src="media/images/LogoBowling.png" alt="Your Logo" width="120" height="120">
+                    <img src="media/images/LogoBowling.png" alt="Logo" width="120" height="120">
                 </span> 
             </a>
             
@@ -107,7 +107,7 @@
 
             <a href="?action=connexion" class="flex md:ml-10 md:mr-16">
                 <span id="logo" class="h-auto w-auto py-2">
-                    <img src="media/images/LogoConnexion.png" alt="Your Logo" width="120" height="120">
+                    <img src="media/images/LogoConnexion.png" alt="Connexion" width="120" height="120">
                     <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Connecter</p>
                 </span> 
             </a>
@@ -116,7 +116,7 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <div class="w-full mt-44 p-4">
+    <div class="w-full mt-48 p-4">
         <main>
             <!-- Nom de l'entreprise 
             <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
