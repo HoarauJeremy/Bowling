@@ -10,12 +10,12 @@ class controleurAdmin {
 
     public function Dispatcher($action, $id = null) {
         switch ($action) {
-            /* case 'modifier':
-                $element = $this->manageAdmin->updateReservation($id);
+            case 'modifier':
+                $element = $this->manageAdmin->getReservation($id);
                 require_once("modele/administration.php");
-                $reservation = new $reservation($element);
-                // include 'vue/';
-                break; */
+                $modifreservation = new administration($element);
+                include 'vue/vueModifAdmin.php';
+                break;
             
             /* case 'supprimer':
                 $element = $this->manageAdmin->deleteReservation($id);

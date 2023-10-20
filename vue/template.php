@@ -48,7 +48,7 @@
     </style> -->
 
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
         <!-- Bar de navigation -->
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
@@ -139,7 +139,7 @@
         </main>
     </div>
 
-    <footer class="text-center py-4 bg-gray-300">
+    <footer class="mt-auto text-center py-4 bg-gray-300">
         <p>&copy; 2023 Le Nom de Votre Site Web</p>
     </footer>
 </body>

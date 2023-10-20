@@ -13,14 +13,13 @@
 		public string $prenom;
 		public $email;
 
-		// Colonne Reservation
+		//  Vue vueReservation
 		public string $numReservation;
+		public string $client;
 		public int $NbrPersonne;
 		public $DateDeReservation;
 		public $DebutReservation;
 		public $FinReservation;
-		
-		// Colone Formule et Piste
 		public $formule;
 		public $piste;
 
@@ -45,12 +44,11 @@
 
 		// getter Reservations
 		public function getNumReservation()     	{return $this->numReservation;}
+		public function getClient() 				{return $this->client;}
 		public function getNbrPersonne()			{return $this->NbrPersonne;}
 		public function getDateDeReservation()		{return $this->DateDeReservation;}
 		public function getDebutReservation()		{return $this->DebutReservation;}
 		public function getFinReservation()			{return $this->FinReservation;}
-		
-		// getter Formule et Piste
 		public function getNomPiste()				{return $this->piste;}
 		public function getNomFormule()				{return $this->formule;}
 
@@ -62,12 +60,11 @@
 
 		// setter Reservations
 		public function setNumReservation($numReservation)			{$this->numReservation = $numReservation;}
+		public function setClient($client) 							{$this->client = $client;}
 		public function setNbrPersonne($NbrPersonne)				{$this->NbrPersonne = $NbrPersonne;}
 		public function setDateDeReservation($DateDeReservation)	{$this->DateDeReservation = $DateDeReservation;}
 		public function setDebutReservation($DateDebutReservation)	{$this->DebutReservation = $DateDebutReservation;}
 		public function setFinReservation($DateDeFinReservation)	{$this->FinReservation = $DateDeFinReservation;}
-
-		// setter Formule et Piste 
 		public function setNomFormule($NomFormule) 					{$this->formule = $NomFormule;}
 		public function setNomPiste($NomPiste) 						{$this->piste = $NomPiste;}
 
