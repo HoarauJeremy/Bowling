@@ -76,7 +76,7 @@
         static function formatDate($dateCreate) {
             $jour = $dateCreate->format('d');
             $annee = $dateCreate->format('Y');
-            $heure = $dateCreate->format('H:i:s');        
+            $heure = $dateCreate->format('H\hi');        
             $mois = array(1=>" janvier "," février "," mars "," avril "," mai "," juin "," juillet "," août "," septembre "," octobre "," novembre "," décembre ");
             return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
         }

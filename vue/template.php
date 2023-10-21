@@ -116,7 +116,7 @@
     </header>
 
     <!-- Conteneur du contenue principale -->
-    <div class="w-full mt-48 p-4">
+    <div class="w-full mt-48 pt-4 md:p-4">
         <main>
             <!-- Nom de l'entreprise 
             <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">

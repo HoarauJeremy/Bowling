@@ -19,9 +19,9 @@
                             <li class=''><strong>" . $reservation->getNomPiste() . " </strong></li>
                         </ul>
 
-                        <div class='w-full h-auto p-3 flex justify-end items-center'>
-                            <a title='Modification' class='bg-orange-500 py-2 px-3 mx-1 rounded shadow' href='?action=modifier&val=".$reservation->getNumReservation()."'>Modifier</a>
-                            <a title='Suppression' class='bg-red-500 py-2 px-3 mx-1 rounded shadow' href='?action=supprimer&val=".$reservation->getNumReservation()."' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cette reservation?\");'>Supprimer</a>
+                        <div class='w-full h-auto p-3 flex justify-end items-center font-medium'>
+                            <a title='Modification' class='bg-orange-500 hover:bg-orange-600 py-2 px-3 mx-1 rounded shadow shadow-secondary' href='?action=modifier&val=".$reservation->getNumReservation()."'>Modifier</a>
+                            <a title='Suppression' class='bg-red-500 hover:bg-red-600 py-2 px-3 mx-1 rounded shadow shadow-secondary' href='?action=supprimer&val=".$reservation->getNumReservation()."' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cette reservation?\");'>Supprimer</a>
                         </div>
 
                     </section>
