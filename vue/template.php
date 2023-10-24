@@ -132,8 +132,8 @@
                     </div>
                     <div id="contenu">
                         <?= $contenu = isset($contenu) ? $contenu : NULL; ?>
-                        <!-- Ne pas oublier de fermer la connection -->
                     </div>
+                    <!-- Ne pas oublier de fermer la connection -->
                 </article>
             </section>
         </main>

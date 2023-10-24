@@ -4,10 +4,13 @@
 
     $titre = "Bowling du Front de Mer - Reservations";
     $reservations = $this->manageAdmin->getReservations();
-    $contenu = "<div class='w-full md:w-3/5 md:mx-auto'>
-                    <h2 class='text-2xl font-bold'>Liste des Reservations</h2>";
+    $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4'>
+                    <div class='px-1 flex flex-row md:justify-between justify-around'>
+                        <h2 class='text-2xl font-bold'>Liste des Reservations : </h2>
+                        <a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?action=ajouter'>Ajouter</a>
+                    </div>";
     $contenu .= "<section class='p-1'>";
-    $contenu .= "<table id='reservations' class='table w-full mt-2'>
+    $contenu .= "<table id='reservations' class='table w-full mt-2 border border-gray-500'>
                 <thead>
                     <tr class='text-lg'>
                         <th scope='col' class='p-1 w-1/4 break-all md:p-3'>Reservation</th>
@@ -21,7 +24,7 @@
     foreach ($reservations as $cle => $ligne)
     {
         $reservation = new administration($ligne);
-        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-100 text-center'>
+        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center'>
                         <th scope='row' class='p-2'>".$reservation->getNumReservation()."</th>
                         <td class='p-1'>".$reservation->getDebutReservation()."</td>
                         <td class='p-1'>".$reservation->getFinReservation()."</td>

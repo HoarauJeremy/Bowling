@@ -7,7 +7,7 @@
     $dateDebutReservation = $this->manageAdmin->formatDate(date_create($reservation->getDebutReservation()));
     $dateFinReservation = $this->manageAdmin->formatDate(date_create($reservation->getFinReservation()));
 
-    $contenu = "<div class=' w-5/6 md:w-3/5 mx-auto p-3'>
+    $contenu = "<div class='w-5/6 md:w-3/5 mx-auto p-3'>
                     <h2 class='text-2xl font-bold underline'>Fiche Reservation n° : ".$reservation->getNumReservation()."</h2>
                     <section class='my-2 md:pl-2'> 
                         <ul>
