@@ -39,6 +39,16 @@
             $rqt->closeCursor();
             return $adherent;
         }
+        
+        public function getRes($id)
+        {
+            $sql = "SELECT * FROM Reservation WHERE NumReservation = ?;";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute(array($id));
+            $adherent = $rqt->fetch();
+            $rqt->closeCursor();
+            return $adherent;
+        }
 
         // Supprime les données d'une reservation déterminé par son id
         public function deleteReservation($id)

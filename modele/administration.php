@@ -23,6 +23,9 @@
 		public $formule;
 		public $piste;
 
+		public int $p;
+		public $f;
+
 		public function __construct(array $donnees) {
 			$this->hydrate($donnees);
 		}
@@ -51,6 +54,8 @@
 		public function getFinReservation()			{return $this->FinReservation;}
 		public function getNomPiste()				{return $this->piste;}
 		public function getNomFormule()				{return $this->formule;}
+		public function getIdPiste() {return $this->p;}
+		public function getIdFormule() {return $this->f;}
 
 		// setter Clients
 		public function setIdUser($idClient)						{$this->idClient = $idClient;}
@@ -67,6 +72,8 @@
 		public function setFinReservation($DateDeFinReservation)	{$this->FinReservation = $DateDeFinReservation;}
 		public function setNomFormule($NomFormule) 					{$this->formule = $NomFormule;}
 		public function setNomPiste($NomPiste) 						{$this->piste = $NomPiste;}
+		public function setIdPiste($p) {$this->p = $p;}
+		public function setIdFormule($f) {$this->f = $f;}
 
 	}
 

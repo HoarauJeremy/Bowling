@@ -1,6 +1,6 @@
 <?php
 
-class controleurAdmin {
+class controleurAdmin  {
     public $manageAdmin;
 
     public function __construct() {
@@ -11,18 +11,17 @@ class controleurAdmin {
     public function Dispatcher($action, $id = null) {
         switch ($action) {
             case 'modifier':
-                $element = $this->manageAdmin->getReservation($id);
+                $element = $this->manageAdmin->getRes($id);
                 require_once("modele/administration.php");
                 $modifreservation = new administration($element);
                 include 'vue/vueModifAdmin.php';
                 break;
             
-            /* case 'supprimer':
+            case 'supprimer':
                 $element = $this->manageAdmin->deleteReservation($id);
-                require_once("modele/administration.php");
-                $reservation = new $reservation($element);
-                // include 'vue/';
-                break; */
+                $message = "La réservation n° ".$id." a été supprimé avec succès!";
+                header('Location: index.php?action=&val='.$message);
+                break;
             
             case 'details':
                 $element = $this->manageAdmin->getReservation($id);
