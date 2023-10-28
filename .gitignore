@@ -9,6 +9,8 @@ package*.json
 
 #others files
 *.html
+.htaccess
+error.php
 
 #fonts
 fonts/*

@@ -8,10 +8,11 @@
 		private string $cnx;
 		
 		// Colonne Client
-		public int $idClient;
 		public string $nomClient;
 		public string $prenom;
+		public $dateNaiss;
 		public $email;
+		public $point;
 
 		//  Vue vueReservation
 		public string $numReservation;
@@ -40,10 +41,11 @@
 		}
 
 		// getter Clients
-		public function getIdUser()					{return $this->idClient;}
 		public function getNomClients()				{return $this->nomClient;}
 		public function getPrenomClients()			{return $this->prenom;}
+		public function getDateNaissClients()		{return $this->dateNaiss;}
 		public function getEmailClients()			{return $this->email;}
+		public function getPointClients()			{return $this->point;}
 
 		// getter Reservations
 		public function getNumReservation()     	{return $this->numReservation;}
@@ -58,10 +60,11 @@
 		public function getIdFormule() {return $this->f;}
 
 		// setter Clients
-		public function setIdUser($idClient)						{$this->idClient = $idClient;}
 		public function setNomClients($Nom)							{$this->nomClient = $Nom;}
 		public function setPrenomClients($Prenom)					{$this->prenom = $Prenom;}
+		public function setDateNaissClients($dateNaiss)				{$this->dateNaiss = $dateNaiss;}
 		public function setEmailClients($Email)						{$this->email = $Email;}
+		public function setPointClients($point)						{$this->point = $point;}
 
 		// setter Reservations
 		public function setNumReservation($numReservation)			{$this->numReservation = $numReservation;}

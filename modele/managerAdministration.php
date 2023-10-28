@@ -40,6 +40,7 @@
             return $adherent;
         }
         
+        // Récupère les données d'une reservation déterminé par le numero de la reservation
         public function getRes($id)
         {
             $sql = "SELECT * FROM Reservation WHERE NumReservation = ?;";
@@ -89,6 +90,19 @@
             $heure = $dateCreate->format('H\hi');        
             $mois = array(1=>" janvier "," février "," mars "," avril "," mai "," juin "," juillet "," août "," septembre "," octobre "," novembre "," décembre ");
             return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
+        }
+
+
+        /**
+         * Definit le format de la date de naissance
+         * @param $dateNaiss
+         * @return string
+         */
+        static function formatDateNaiss($dateNaiss) {
+            $jour = $dateNaiss->format('d');
+            $annee = $dateNaiss->format('Y');
+            $mois = $dateNaiss->format('m');
+            return $jour.'/'. $mois .'/'. $annee;
         }
 
     }

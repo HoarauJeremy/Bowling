@@ -55,7 +55,7 @@
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
                 <span id="logo" class="h-auto w-auto">
-                    <img src="media/images/LogoBowling.png" alt="Logo" width="120" height="120">
+                    <img src="media/images/LogoBowling.png" alt="Logo" width="100" height="100">
                 </span> 
             </a>
             
@@ -107,7 +107,7 @@
 
             <a href="?action=connexion" class="flex md:ml-10 md:mr-16">
                 <span id="logo" class="h-auto w-auto py-2">
-                    <img src="media/images/LogoConnexion.png" alt="Connexion" width="120" height="120">
+                    <img src="media/images/LogoConnexion.png" alt="Connexion" width="100" height="100">
                     <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Connecter</p>
                 </span> 
             </a>
