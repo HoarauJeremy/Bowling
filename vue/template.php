@@ -49,7 +49,7 @@
 
 </head>
 <body class="flex flex-col min-h-screen">
-<header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
+    <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
         <!-- Bar de navigation -->
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
             <!-- Logo -->
@@ -72,12 +72,12 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?action=accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                        <a href="index.php?action=accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?action=reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
+                        <a href="index.php?action=reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
@@ -87,7 +87,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?action=client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
+                        <a href="index.php?action=client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
                     </li>
             
                     <!-- Menu déroulant Langue -->
@@ -139,8 +139,10 @@
         </main>
     </div>
 
-    <footer class="mt-auto text-center py-4 bg-gray-300">
-        <p>&copy; 2023 Le Nom de Votre Site Web</p>
+    <footer class="mt-auto py-6 bg-gray-300 flex items-center justify-evenly md:flex-row flex-col text-lg">
+        <a class='pt-1' href="index.php?action=mention">Mention légales</a>
+        <p class='pt-1'>&copy; Le Bowling du Front de Mer</p>
+        <a class='pt-1' href="index.php?action=cookie">Cookies</a>
     </footer>
 </body>
 </html>

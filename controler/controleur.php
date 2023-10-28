@@ -51,8 +51,7 @@ class Controleur {
 
                     break;
                 }
-        
-            
+
             case 'langue' :
                 if(){
 
@@ -60,6 +59,15 @@ class Controleur {
 
                     break;
                 } */
+            
+            case 'mention':
+                include 'vue/vueMention.php';
+                break;
+
+            case 'cookie':
+                include 'vue/vueCookies.php';
+                break;
+                
             default:
                 include 'vue/vueAccueil.php';
             break;

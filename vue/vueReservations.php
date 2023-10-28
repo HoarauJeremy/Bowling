@@ -4,7 +4,7 @@
 
     $titre = "Bowling du Front de Mer - Reservations";
     $reservations = $this->manageAdmin->getReservations();
-    $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4'>
+    $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Liste des Reservations : </h2>
                         <a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?action=ajouter'>Ajouter</a>

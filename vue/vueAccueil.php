@@ -2,13 +2,21 @@
 
     $titre = "Accueil";
 
-    $contenu = '
-    <div class="mt-36 hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
-    <!-- <div class="bg-gray-300 inline-block px-4 py-2 rounded-md"> -->
-        <h1 class="text-2xl font-semibold">Le Bowling du Front de Mer</h1>
-    <!-- </div> -->
-    </div>
-    ';
+    $contenu = "
+        <div class='w-full h-full'>
+            <div class='h-96 flex items-center justify-center bg-gray-200'>
+                <h1 class='text-center text-4xl font-semibold break-all'>Le Bowling du Front de Mer</h1>
+            </div>
+
+            <div class='w-full py-2'>
+                <h2 class='text-2xl font-bold font-Roboto text-center my-4'>Réservez votre propre piste!</h2>
+                <div class='py-4 bg-primary mx-auto rounded-md w-11/12 md:w-3/12 my-8'>
+                    <a href='index.php?action=reserver' class='w-full h-full flex justify-center items-center text-2xl text-white font-bold font-Roboto md:text-xl'>Réserver</a>
+                </div>
+            </div>
+        </div>
+    ";
+    
     
     include "template.php";
 
