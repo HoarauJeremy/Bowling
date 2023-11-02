@@ -1,7 +1,7 @@
 <?php
     $titre = "Bowling du Front de Mer - Connexion";
     $contenu = "<div class='w-5/6 md:w-3/5 mx-auto text-center my-40'>";
-        $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center' action='managerUtilisateur.php' method='POST'>";
+        $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center' action='managerConnexion.php' method='POST'>";
             $contenu .= "<img src='media/images/LogoConnexion.png' alt='Your Logo' width='120' height='120' class=''>";
             $message = "";
             $contenu .= "<input class='font-NotoSans text-xl h-20 w-1/2 px-3 py-4 pr-5 mt-20 mr-0 inline-block border-spacing-0.5 border-solid bg-gray-100 box-border' type='email' placeholder='Utilisateur' name='username' required>";
