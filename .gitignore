@@ -5,7 +5,7 @@ node_modules/
 .vscode/
 
 # package config
-package*.json
+
 
 #others files
 *.html
