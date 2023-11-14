@@ -2,7 +2,7 @@
 require_once File::build_path(array("vue", "vueConnexion.php"));
 class ControleurConnexion
 {
-    public function getUtilisateur($username, $password, $cnx)
+    public function Connexion($username, $password, $cnx)
     {
         // Lignes pour empêcher l'insertion de code SQL
         $username = mysqli_real_escape_string($cnx,htmlspecialchars($_POST['username'])); 
@@ -29,6 +29,14 @@ class ControleurConnexion
             }
         }
         mysqli_close($cnx);
+    }
+
+    public function Deconnexion()
+    {
+        $_SESSION['CONNEXION'] = "NON";
+        session_destroy();
+        session_abort();
+        header('Location: index.php');
     }
 }
 
