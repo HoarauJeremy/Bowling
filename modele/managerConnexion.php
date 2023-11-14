@@ -23,8 +23,8 @@
                 $count = $reponse['count(*)'];
                 if($count!=0) // nom d'utilisateur et mot de passe correctes
                     {
-                        //$_SESSION['username'] = $username;
-                        //header('Location: vueProfil.php');
+                        $_SESSION['CONNECTER'] = "OK";
+                        header('Location: vueProfil.php');
                         echo "Connexion réussie";
                     }
                 else
