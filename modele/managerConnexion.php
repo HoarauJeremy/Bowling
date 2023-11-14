@@ -25,18 +25,6 @@
                     {
                         //$_SESSION['username'] = $username;
                         //header('Location: vueProfil.php');
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
                         echo "Connexion réussie";
                     }
                 else
