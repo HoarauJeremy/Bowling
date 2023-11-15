@@ -70,7 +70,7 @@ class Controleur {
                 
             default:
                 include 'vue/vueAccueil.php';
-            break;
+                break;
         }
     }
 }
