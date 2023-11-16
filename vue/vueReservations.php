@@ -27,12 +27,12 @@
         $dateDebutReservation = $this->manageAdmin->formatDate(date_create($reservation->getDebutReservation()));
         $dateFinReservation = $this->manageAdmin->formatDate(date_create($reservation->getFinReservation()));
         
-        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center'>
+        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center group'>
                         <th scope='row' class='p-2'>".$reservation->getNumReservation()."</th>
                         <td class='p-1'>".$dateDebutReservation."</td>
                         <td class='p-1'>".$dateFinReservation."</td>
                         <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold' title='Détails' href='?action=details&val=".$reservation->getNumReservation()."'>Détails</a>
+                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?action=details&val=".$reservation->getNumReservation()."'>Détails</a>
                         </td>
                     </tr>";
     }

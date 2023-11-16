@@ -11,7 +11,7 @@
     
     <!-- Ajout de Tailwind CSS -->
     <link rel="stylesheet" href="./media/css/output.css">
-    
+    <link rel="shortcut icon" href="./media/images/logoBowling.ico" type="image/x-icon">
     <!-- <style>
         /* Bar verticale pour le menu */
         .nav-item:not(:last-child) {
