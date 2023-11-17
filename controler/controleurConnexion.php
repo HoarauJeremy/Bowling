@@ -1,5 +1,4 @@
 <?php
-require_once File::build_path(array("vue", "vueConnexion.php"));
 class ControleurConnexion
 {
     public function Connexion($username, $password, $cnx)

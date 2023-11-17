@@ -1,20 +1,25 @@
 <?php
+require_once('controler/controleurAcceuil.php');
+require_once('controler/controleurAdmin.php');
+require_once('controler/controleurConnexion.php');
 
-    declare(strict_types=1);
-    // Toute interaction passe par l'index et est transmise
-    // directement au contrôleur responsable du traitement
+$url = isset($_GET['url']) ? $_GET['url'] : 'Acceuil';
+$urlParts = explode('/', $url);
 
-    require_once("controler/controleur.php");
-    // require_once("controler/controleurAdmin.php");
+$controllerName = 'controleur'.$urlParts[0];
+$action = isset($urlParts[1]) ? $urlParts[1] : 'Acceuil';
 
-    $message = "";
-    $contenu = "";
-    
-    $action = isset($_GET['action']) ? $_GET['action'] : NULL;
-    $val = isset($_GET['val']) ? $_GET['val'] : NULL;
+var_dump($action);
 
-    $controller = new Controleur();
-    // $controllerAdmin = new controleurAdmin();
-    $controller->dispatcher($action, $val);
-    // $controllerAdmin->Dispatcher($action, $val);
+if (class_exists($controllerName)) {
+    var_dump($controllerName);
+    $controller = new $controllerName;
+    if (method_exists($controller, $action)) {
+        $controller->$action();
+    } else {
+        // Handle invalid action
+    }
+} else {
+    // Handle invalid controller
+}
 ?>
