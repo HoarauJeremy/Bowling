@@ -8,14 +8,12 @@
                         <h2 class='text-2xl font-bold'>Liste des Clients : </h2>
                         <a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?action=ajouter'>Ajouter</a>
                     </div>";
-    $contenu .= "<section class='p-1'>";
-    $contenu .= "<table id='reservations' class='table w-full mt-2 border border-gray-500'>
+    $contenu .= "<section class='p-1 w-full overflow-x-auto'>";
+    $contenu .= "<table id='clients' class='table w-full mt-2 border border-gray-500'>
                 <thead>
                     <tr class='text-lg'>
                         <th scope='col' class='p-1 w-1/4 break-all md:p-3'>Email du client</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Nom du client</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Prenom du client</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>DateNaissClients</th>
+                        <th scope='col' class='p-1 w-1/4 break-keep'>Client</th>
                         <th scope='col' class='p-1 w-1/4 break-keep'>Point du client</th>
                         <th scope='col' class='p-1 w-1/4'>Action</th>
                     </tr>
@@ -26,16 +24,15 @@
     {
         $client = new administration($ligne);    
 
-        $dateNaiss = $this->manageAdmin->formatDateNaiss(date_create($client->getDateNaissClients()));
+        // $dateNaiss = $this->manageAdmin->formatDateNaiss(date_create($client->getDateNaissClients()));
+        $points = ($client->getPointClients()) ? $client->getPointClients() : 0 ;
 
-        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center'>
-                        <th scope='row' class='p-2 w-1/4 break-all'>".$client->getEmailClients()."</th>
-                        <td class='p-1'>".$client->getNomClients()."</td>
-                        <td class='p-1'>".$client->getPrenomClients()."</td>
-                        <td class='p-1'>".$dateNaiss."</td>
-                        <td class='p-1'>".$client->getPointClients()."</td>
+        $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center group'>
+                        <th scope='row' class='p-2 w-1/4'>".$client->getEmailClients()."</th>
+                        <td class='p-1'>".$client->getNomClients()." ".$client->getPrenomClients()."</td>
+                        <td class='p-1'>".$points."</td>
                         <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold' title='Détails' href='?action=details&val=".$client->getEmailClients()."'>Détails</a>
+                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?action=details&val=".$client->getEmailClients()."'>Détails</a>
                         </td>
                     </tr>";
     }
@@ -46,3 +43,31 @@
 
     include "template.php";
 ?>
+
+<script>
+        $(document).ready( function () {
+            $('#clients').DataTable( {
+                language: {
+                    search: "Rechercher&nbsp;:",
+                    showing: "Afficher",
+                    lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+                    info: "Affichage de _START_ &agrave; _END_ sur _TOTAL_",
+                    infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+                    infoFiltered: "(filtr&eacute; sur _MAX_ &eacute;l&eacute;ments au total)",
+                    infoPostFix: "",
+                    loadingRecords: "Chargement en cours...",
+                    zeroRecords: "Aucun &eacute;l&eacute;ment &agrave afficher",
+                    emptyTable: "Aucune donnée disponible dans le tableu",
+                    paginate: {
+                        first: "Premier",
+                        previous: "Précedent ",
+                        next: " Suivant",
+                        last: "Dernier"
+                    }
+                }
+            });
+        } );
+</script>
+
+<!-- <th scope='col' class='p-1 w-1/4 break-keep'>Date de naissance du client</th>
+                        <td class='p-1'>".$dateNaiss."</td> -->

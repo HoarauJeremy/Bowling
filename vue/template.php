@@ -11,7 +11,7 @@
     
     <!-- Ajout de Tailwind CSS -->
     <link rel="stylesheet" href="./media/css/output.css">
-    
+    <link rel="shortcut icon" href="./media/images/logoBowling.ico" type="image/x-icon">
     <!-- <style>
         /* Bar verticale pour le menu */
         .nav-item:not(:last-child) {
@@ -46,6 +46,9 @@
             padding: 20px; /* Ajout du padding pour l'espacement du contenue */
         }
     </style> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 
 </head>
 <body class="flex flex-col min-h-screen">

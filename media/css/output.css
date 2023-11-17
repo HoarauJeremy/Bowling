@@ -598,6 +598,9 @@ video {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .my-40 {
@@ -676,6 +679,10 @@ video {
 
 .h-5\/6 {
   height: 83.333333%;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .h-96 {
@@ -1011,6 +1018,10 @@ video {
   padding-top: 1rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1240,6 +1251,10 @@ video {
 
   .md\:w-2\/5 {
     width: 40%;
+  }
+
+  .md\:w-3\/12 {
+    width: 25%;
   }
 
   .md\:w-3\/12 {
