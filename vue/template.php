@@ -75,8 +75,8 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="index.php?action=accueil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
-                    </li>
+                        <a href="?controleur=Acceuil&method=Acceuil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                    </li>   
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
@@ -109,8 +109,10 @@
             </button>
 
             <a href="?action=connexion" class="flex md:ml-10 md:mr-16">
-                <span id="logo" class="h-auto w-auto py-2">
-                    <img src="media/images/LogoConnexion.png" alt="Connexion" width="100" height="100">
+                <span id="logo" class="h-auto w-auto py-2 ">
+                    <div class="flex flex-col items-center">
+                        <img src="media/images/LogoConnexion.png" alt="Connexion" width="100" height="100">
+                    </div>
                     <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Connecter</p>
                 </span> 
             </a>
