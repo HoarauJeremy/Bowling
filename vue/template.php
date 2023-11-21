@@ -85,7 +85,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="index.php?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="index.php?url=Contacter/PageContact" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
