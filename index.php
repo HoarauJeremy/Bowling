@@ -14,7 +14,7 @@ if (class_exists($controllerName)) {
     if (method_exists($controller, $action)) {
         $controller->$action();
     } else {
-        include("vue/vueAcceuil.php");    
+        include("vue/vueAccueil.php");    
     }
 } else {
     include("vue/vueErreur.php");
