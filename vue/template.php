@@ -123,7 +123,7 @@
                     <div class="flex flex-col items-center">
                     <img src="media/images/LogoDeconnexion.png" alt="Connexion" width="100" height="100">
                     </div>
-                    <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Deconnecter</p>
+                    <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Déconnecter</p>
                     </span> 
                 </a>';
         }
