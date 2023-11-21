@@ -2,7 +2,7 @@
     require_once("modele/modele.php");
 
 
-    class managerAdministration extends Connexiondb {
+    class managerReservations extends Connexiondb {
 
         public function __construct() {
             parent::__construct();
