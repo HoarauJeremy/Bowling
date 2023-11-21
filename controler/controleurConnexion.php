@@ -12,6 +12,11 @@ class ControleurConnexion
         include("vue/vueConnexion.php");
     }
 
+    public function EspaceClient()
+    {
+        include("vue/vueProfil.php");
+    }
+
     public function Connexion()
     {
         $username = ($_POST['username']); 

@@ -88,11 +88,10 @@
                         <a href="index.php?action=contacter" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
                     </li>
 
-                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
-                    border-r border-black ">
-                        <a href="index.php?action=client" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
+                        <a href="<?php echo (isset($_SESSION['CONNECTER']) != "OK") ? 'index.php?url=Connexion/PageConnexion' : 'index.php?url=Connexion/EspaceClient'; ?>" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
                     </li>
-            
+         
                     <!-- Menu déroulant Langue -->
                     <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
                         <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
