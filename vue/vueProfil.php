@@ -16,7 +16,7 @@
                         <div class='h-auto items-center bg-gray-300 rounded-lg ml-10 my-10 text-center'>
                             <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mt-6 mb-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Voir mes Réservations</button>
                             <br>
-                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10' onclick='toggleEdition()'>Changer mes informations</button>
+                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10' onclick='toggleEdition();'>Changer mes informations</button>
                         </div>
                             <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10 visible' id='informationsClient'>
                                 <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
@@ -28,13 +28,15 @@
                             </div>
                             
                             <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10 visible' id='edition' style='display: none;'>
-                                <form action='' method='POST'>
+                                <form action='?url=Profil/modificationUtilisateur' method='POST'>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
                                     <input type='text' name='prenom' placeholder='$prenom' class='font-NotoSans text-left ml-16 mt-2' required><br>
                                     <input type='text' name='nom' placeholder='$nom' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='text' name='naissance' placeholder='$naissance' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='text' name='email' placeholder='$username' class='font-NotoSans text-left ml-16 mt-2' required readonly><br>
+                                    <input type='date' name='naissance' placeholder='$naissance' class='font-NotoSans text-left ml-16 mt-2' required><br>
+                                    <input type='email' name='email' placeholder='$username' class='font-NotoSans text-left ml-16 mt-2' required><br>
                                     <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-NotoSans text-left ml-16 mt-2' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'><br>
+                                    <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-NotoSans text-left ml-16 mt-2' oninput='checkPasswordMatch(this) required'>
+                                    <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
                                     <div class='password-securite-bar h-2 mt-2 rounded'></div>
                                     <button type='submit' class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-2 mt-2 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Sauvegarder</button>
                                 </form>
@@ -56,9 +58,7 @@
             edition.style.display = 'none';
         }
     }
-</script>
 
-<script>
     function passwordStrengh(input) {
         var password = input.value;
 
@@ -74,6 +74,21 @@
         if (caracspecial) securite++;
 
         updatepasswordBar(securite);
+    }
+
+    function checkPasswordMatch(confirmPasswordInput) {
+        var passwordInput = document.querySelector('input[name="password"]');
+        var confirmPassword = confirmPasswordInput.value;
+        var password = passwordInput.value;
+
+        var passwordMatchMessage = document.getElementById('passwordMatchMessage');
+
+        if (confirmPassword != password) {
+            passwordMatchMessage.innerHTML = 'Les mots de passe ne correspondent pas.';
+            passwordMatchMessage.style.color = 'red';
+        } else {
+            passwordMatchMessage.innerHTML = '';
+        }
     }
 
     function updatepasswordBar(securite) {
