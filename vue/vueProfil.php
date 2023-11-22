@@ -1,13 +1,21 @@
 <?php
-    if ($_SESSION['CONNECTER']=="OK") 
-    {
+    require_once('controler/controleurProfil.php');
+    $controleurProfil = new controleurProfil();
+
+    // Appeler la fonction getProfil pour récupérer les informations du profil + Définir les valeurs à des variables pour les utiliser ensuite
+    $profilInfo = $controleurProfil->getProfil();
+    $prenom = $profilInfo['prenom'];
+    $nom = $profilInfo['nom'];
+    $naissance = $profilInfo['naissance'];
+    $ptsfidelite = $profilInfo['ptsfidelite'];
+
         $titre = "Bowling du Front de Mer - Profil";
         $contenu = "<h1 class='font-Roboto text-4xl text-center mb-5'>Bienvenue <strong>$username</strong> !</h1>";
         $contenu .=  "<div class='h-auto flex items-center bg-gray-200'>
                         <div class='h-auto items-center bg-gray-300 rounded-lg ml-10 my-10 text-center'>
-                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mt-6 mb-3 px-10 h-16 w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Voir mes Réservations</button>
+                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mt-6 mb-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Voir mes Réservations</button>
                             <br>
-                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-16 w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Changer mes informations</button>
+                            <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Changer mes informations</button>
                         </div>
 
                         <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10'>
@@ -19,9 +27,6 @@
                             <h1 class='font-NotoSans text-left ml-16 mt-2 mb-2'>Mes points fidélités : $ptsfidelite</h1>
                         </div>
                     </div>";
-    } else {
-        include("vue/vueAcceuil");
-    }
     
     include "template.php";
     ?>

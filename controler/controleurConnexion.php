@@ -1,18 +1,18 @@
 <?php
- session_start();
-class ControleurConnexion
-{
+    session_start();
+    class ControleurConnexion
+    {
     public $manageConnexion;
 
     public function __construct() {
     }
 
-    public function PageConnexion()
+    public function PageConnexion() //Redirige vers la page de connexion
     {
         include("vue/vueConnexion.php");
     }
 
-    public function EspaceClient() //Redirige vers l'espace client de l'utilisateur (La page)
+    public function EspaceClient() //Redirige vers l'espace client de l'utilisateur
     {
         include("vue/vueProfil.php");
     }
