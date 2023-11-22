@@ -4,6 +4,7 @@
 
     // Appeler la fonction getProfil pour récupérer les informations du profil + Définir les valeurs à des variables pour les utiliser ensuite
     $profilInfo = $controleurProfil->getProfil();
+    $username = $_SESSION['username'];
     $prenom = $profilInfo['prenom'];
     $nom = $profilInfo['nom'];
     $naissance = $profilInfo['naissance'];
@@ -27,6 +28,6 @@
                             <h1 class='font-NotoSans text-left ml-16 mt-2 mb-2'>Mes points fidélités : $ptsfidelite</h1>
                         </div>
                     </div>";
-    
+                    var_dump (session_id());
     include "template.php";
     ?>

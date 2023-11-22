@@ -1,4 +1,5 @@
 <?php
+    session_name("Login");
     session_start();
     class ControleurConnexion
     {
@@ -29,6 +30,7 @@
         $count = $managerConnexion->getUtilisateur($username, $password);
 
         if ($count['count(*)'] == "1") {
+            $_SESSION['username'] = $username;
             $_SESSION['CONNECTER'] = "OK";
             include('vue/vueProfil.php');
         } else { //En cas d'entrée de faux identifiants

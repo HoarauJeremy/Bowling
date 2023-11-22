@@ -5,8 +5,8 @@
 
         }
 
-        public function getProfil() {
-            $username = ($_POST['username']);
+        public function getProfil() {      
+            $username = $_SESSION['username'];
 
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
