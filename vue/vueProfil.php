@@ -34,10 +34,12 @@
                                     <input type='text' name='nom' placeholder='$nom' class='font-NotoSans text-left ml-16 mt-2' required><br>
                                     <input type='date' name='naissance' placeholder='$naissance' class='font-NotoSans text-left ml-16 mt-2' required><br>
                                     <input type='email' name='email' placeholder='$username' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-NotoSans text-left ml-16 mt-2' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'><br>
-                                    <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-NotoSans text-left ml-16 mt-2' oninput='checkPasswordMatch(this) required'>
+
+                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Prérequis : 8 caractères minimum, une minuscule, une majuscule et un caractère spécial</h1>
+                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-NotoSans text-left ml-16 mt-2' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'>
+                                    <div class='password-securite-bar h-5 w-48 rounded ml-16 mt-2'></div>
+                                    <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-NotoSans text-left ml-16 mt-2' required oninput='checkPasswordMatch(this)'><br>
                                     <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
-                                    <div class='password-securite-bar h-2 mt-2 rounded'></div>
                                     <button type='submit' class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-2 mt-2 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Sauvegarder</button>
                                 </form>
                             </div>
