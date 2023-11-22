@@ -19,27 +19,28 @@
                             <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10' onclick='toggleEdition();'>Changer mes informations</button>
                         </div>
                             <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10 visible' id='informationsClient'>
-                                <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
-                                <h1 class='font-NotoSans text-left ml-16 mt-2'>Prénom : $prenom</h1>
-                                <h1 class='font-NotoSans text-left ml-16 mt-2'>Nom : $nom</h1>
-                                <h1 class='font-NotoSans text-left ml-16 mt-2'>Naissance : $naissance</h1>
-                                <h1 class='font-NotoSans text-left ml-16 mt-2'>Adresse Mail : $username</h1>
-                                <h1 class='font-NotoSans text-left ml-16 mt-2 mb-2'>Mes points fidélités : $ptsfidelite</h1>
+                                <h1 class='font-Roboto font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
+                                <h1 class='font-Roboto text-left ml-16 mt-2'>Prénom : $prenom</h1>
+                                <h1 class='font-Roboto text-left ml-16 mt-2'>Nom : $nom</h1>
+                                <h1 class='font-Roboto text-left ml-16 mt-2'>Naissance : $naissance</h1>
+                                <h1 class='font-Roboto text-left ml-16 mt-2'>Adresse Mail : $username</h1>
+                                <h1 class='font-Roboto text-left ml-16 mt-2 mb-2'>Mes points fidélités : $ptsfidelite</h1>
                             </div>
                             
                             <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10 visible' id='edition' style='display: none;'>
                                 <form action='?url=Profil/modificationUtilisateur' method='POST'>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
-                                    <input type='text' name='prenom' placeholder='$prenom' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='text' name='nom' placeholder='$nom' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='date' name='naissance' placeholder='$naissance' class='font-NotoSans text-left ml-16 mt-2' required><br>
-                                    <input type='email' name='email' placeholder='$username' class='font-NotoSans text-left ml-16 mt-2' required><br>
+                                    <input type='text' name='prenom' placeholder='$prenom' class='font-Roboto text-left ml-16 mt-2' required><br>
+                                    <input type='text' name='nom' placeholder='$nom' class='font-Roboto text-left ml-16 mt-2' required><br>
+                                    <input type='date' name='naissance' placeholder='$naissance' class='font-Roboto text-left ml-16 mt-2' required><br>
+                                    <input type='email' name='email' placeholder='$username' class='font-Roboto text-left ml-16 mt-2' required><br>
 
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Prérequis : 8 caractères minimum, une minuscule, une majuscule et un caractère spécial</h1>
-                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-NotoSans text-left ml-16 mt-2' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'>
-                                    <div class='password-securite-bar h-5 w-48 rounded ml-16 mt-2'></div>
-                                    <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-NotoSans text-left ml-16 mt-2' required oninput='checkPasswordMatch(this)'><br>
-                                    <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
+                                    <h1 class='font-NotoSans font-extrabold text-left ml-5'><span class='text-red-500'>Rouge : 1/4</span> | <span class='text-orange-600'>Orange 2/4</span> | <span class='text-yellow-500'>Jaune 3/4</span> | <span class='text-green-500'>Vert 4/4</span></h1>
+                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'>
+                                    <div class='passwordBar h-5 w-48 rounded ml-16 mt-2'></div>
+                                    <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2' required oninput='checkPasswordMatch(this)'><br>
+                                    <p class='font-Roboto text-left ml-16 mt-2' id='passwordMatchMessage'></p>
                                     <button type='submit' class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-2 mt-2 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Sauvegarder</button>
                                 </form>
                             </div>
@@ -94,7 +95,7 @@
     }
 
     function updatepasswordBar(securite) {
-        var passwordBar = document.querySelector('.password-securite-bar');
+        var passwordBar = document.querySelector('.passwordBar');
         passwordBar.classList.remove('bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500');
 
         if (securite === 1) {
