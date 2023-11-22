@@ -9,6 +9,12 @@
                             <br>
                             <button class='font-Roboto font-bold first-letter:text-2xl bg-red-800 text-white mb-6 mt-3 px-10 h-16 w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Changer mes informations</button>
                         </div>
+
+                        <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10'>
+                            <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
+                            $username
+                            $password
+                        </div>
                     </div>";
     } else {
         include("vue/vueAcceuil");
