@@ -6,7 +6,7 @@
             parent :: __construct();
         }
 
-        public function getUtilisateur($username, $password)
+        public function getUtilisateur($username, $password) //Vérifie l'authenticité des informations rentrées à celle de la base (1 = OUI / 0 = NON)
         {
             $sql = "SELECT count(*) FROM Utilisateur WHERE LoginUser = :username AND MdpUser = :password";            
             $rqt = $this->cnx->prepare($sql);
@@ -19,6 +19,5 @@
             $rqt->closeCursor();
             return $result;
         }
-        
     }
 ?>

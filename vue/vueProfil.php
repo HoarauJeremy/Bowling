@@ -12,11 +12,11 @@
 
                         <div class='h-auto w-screen bg-gray-300 rounded-lg ml-5 mr-10 my-10'>
                             <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5'>Mes informations :</h1>
-                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Prénom : </h1>
-                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Nom : </h1>
-                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Naissance :</h1>
+                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Prénom : $prenom</h1>
+                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Nom : $nom</h1>
+                            <h1 class='font-NotoSans text-left ml-16 mt-2'>Naissance : $naissance</h1>
                             <h1 class='font-NotoSans text-left ml-16 mt-2'>Adresse Mail : $username</h1>
-                            <h1 class='font-NotoSans text-left ml-16 mt-2 mb-2'>Mes points fidélités :</h1>
+                            <h1 class='font-NotoSans text-left ml-16 mt-2 mb-2'>Mes points fidélités : $ptsfidelite</h1>
                         </div>
                     </div>";
     } else {

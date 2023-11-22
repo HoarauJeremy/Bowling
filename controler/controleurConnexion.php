@@ -12,12 +12,12 @@ class ControleurConnexion
         include("vue/vueConnexion.php");
     }
 
-    public function EspaceClient()
+    public function EspaceClient() //Redirige vers l'espace client de l'utilisateur (La page)
     {
         include("vue/vueProfil.php");
     }
 
-    public function Connexion()
+    public function Connexion() //Gère la connexion de l'utilisateur sur la page
     {
         $username = ($_POST['username']); 
         $password = ($_POST['password']);
@@ -39,8 +39,7 @@ class ControleurConnexion
         }
     }
     
-
-    public function Deconnexion()
+    public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
     {
         session_destroy();
         session_abort();
