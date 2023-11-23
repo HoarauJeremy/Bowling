@@ -1,42 +1,51 @@
 <?php
-class ControleurConnexion
-{
-    public function Connexion($username, $password, $cnx)
+    session_name("Login");
+    session_start();
+    class ControleurConnexion
     {
-        // Lignes pour empêcher l'insertion de code SQL
-        $username = mysqli_real_escape_string($cnx,htmlspecialchars($_POST['username'])); 
-        $password = mysqli_real_escape_string($cnx,htmlspecialchars($_POST['password']));
-    
-        if($username !== "" && $password !== "")
-        {
-            $sql = "SELECT count(*) FROM Utilisateur where LoginUser = '".$username."' AND MdpUser = '".$password."' ";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute();
-            $exec_requete = mysqli_query($cnx,$rqt);
-            $reponse = mysqli_fetch_array($exec_requete);
-    
-            $count = $reponse['count(*)'];
-            if($count!=0) // nom d'utilisateur et mot de passe correctes
-                {
-                    $_SESSION['CONNECTER'] = "OK";
-                    header('Location: vueProfil.php');
-                    echo "Connexion réussie";
-                }
-            else
-                {
-                    header('Location: vueConnexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
-            }
-        }
-        mysqli_close($cnx);
+    public $manageConnexion;
+
+    public function __construct() {
     }
 
-    public function Deconnexion()
+    public function PageConnexion() //Redirige vers la page de connexion
     {
-        $_SESSION['CONNEXION'] = "NON";
+        include("vue/vueConnexion.php");
+    }
+
+    public function EspaceClient() //Redirige vers l'espace client de l'utilisateur
+    {
+        include("vue/vueProfil.php");
+    }
+
+    public function Connexion() //Gère la connexion de l'utilisateur sur la page
+    {
+        $username = ($_POST['username']); 
+        $password = ($_POST['password']);
+    
+        // Inclure le fichier contenant la classe ManagerConnexion
+        require_once('modele/managerConnexion.php');
+        $managerConnexion = new ManagerConnexion();
+    
+        $count = $managerConnexion->getUtilisateur($username, $password);
+
+        if ($count['count(*)'] == "1") {
+            $_SESSION['username'] = $username;
+            $_SESSION['CONNECTER'] = "OK";
+            include('vue/vueProfil.php');
+        } else { //En cas d'entrée de faux identifiants
+            $ErreurConnexion = "Identifiant ou mot de passe incorrect !";
+            include("vue/vueConnexion.php");
+            session_destroy();
+            session_abort();
+        }
+    }
+    
+    public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
+    {
         session_destroy();
         session_abort();
         header('Location: index.php');
     }
 }
-
 ?>
