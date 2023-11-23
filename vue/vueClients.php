@@ -2,7 +2,7 @@
     require_once("modele/administration.php");
 
     $titre = "Bowling du Front de Mer - Clients";
-    $clients = $this->manageAdmin->getClients();
+    $clients = $this->manageClients->getClients();
     $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Liste des Clients : </h2>
@@ -32,7 +32,7 @@
                         <td class='p-1'>".$client->getNomClients()." ".$client->getPrenomClients()."</td>
                         <td class='p-1'>".$points."</td>
                         <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?action=details&val=".$client->getEmailClients()."'>Détails</a>
+                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Clients/client/".$client->getEmailClients()."'>Détails</a>
                         </td>
                     </tr>";
     }

@@ -7,17 +7,6 @@
         public function __construct() {
             parent::__construct();
         }
-        
-        // Extraction des données des adhérents depuis la base de données.
-        public function getClients()
-        {
-            $sql = "SELECT * FROM Clients;";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute();
-            $adherents = $rqt->fetchAll(PDO::FETCH_ASSOC);
-            $rqt->closeCursor(); // Achève le traitement de la requête
-            return $adherents;
-        }
 
         public function getReservations()
         {
@@ -93,16 +82,6 @@
         }
 
 
-        /**
-         * Definit le format de la date de naissance
-         * @param $dateNaiss
-         * @return string
-         */
-        static function formatDateNaiss($dateNaiss) {
-            $jour = $dateNaiss->format('d');
-            $annee = $dateNaiss->format('Y');
-            $mois = $dateNaiss->format('m');
-            return $jour.'/'. $mois .'/'. $annee;
-        }
+        
 
     }
