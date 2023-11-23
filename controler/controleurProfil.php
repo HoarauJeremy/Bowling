@@ -28,7 +28,7 @@
             }
         }
 
-        public function modificationUtilisateur() {
+        public function updateUtilisateur() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];

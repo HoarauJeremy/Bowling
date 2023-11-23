@@ -38,26 +38,19 @@
                     $ptsfidelite = $_POST["ptsfidelite"];
                     $username = $_SESSION['username'];
                 }
-            
-                try {
-                    $this->cnx->beginTransaction();
 
-                    $sql = "UPDATE Reservation SET Email=? WHERE Email=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$email, $username]);
+                $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
 
-                    $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
-            
-                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-                    $sql = "UPDATE Utilsateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$email, $hashedPassword, $username]);
-            
-                    $this->cnx->commit();
-                } catch (PDOException $e) {
-                }
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute([$email, $hashedPassword, $username]);
+
+                $sql = "UPDATE Reservation SET EmailClients=? WHERE EmailClients=?";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute([$email, $username]);
             }
             
     }
