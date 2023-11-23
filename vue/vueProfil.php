@@ -37,7 +37,7 @@
 
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 text-xl'><span class='text-red-800'>Bordeau : 1/5</span> | <span class='text-red-500'>Rouge 2/5</span> | <span class='text-orange-500'>Orange 3/5</span> | <span class='text-yellow-500'>Jaune 4/5</span> | <span class='text-green-500'>Vert 5/5</span></h1>
-                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'>
+                                    <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^-_/&*])[A-Za-z\d!@#$%^-_/&*]{8,}$' required oninput='passwordStrengh(this)'>
                                     <div class='passwordBar h-5 w-52 rounded ml-16 mt-2'></div>
                                     <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg' required oninput='checkPasswordMatch(this)'><br>
                                     <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
@@ -69,7 +69,7 @@
         var minuscule = /[a-z]/.test(password);
         var majuscule = /[A-Z]/.test(password);
         var nombre = /\d/.test(password);
-        var caracspecial = /[!@#$%^&*]/.test(password);
+        var caracspecial = /[!@#$%^-_/&*]/.test(password);
 
         var securite = 0;
         if (longueur) securite++;
