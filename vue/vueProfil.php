@@ -35,8 +35,8 @@
                                     <input type='date' name='naissance' placeholder='$naissance' class='font-Roboto text-left ml-16 mt-2 text-lg' required><br>
                                     <input type='email' name='email' placeholder='$username' class='font-Roboto text-left ml-16 mt-2 text-lg' required><br>
 
-                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, une minuscule, une majuscule et un caractère spécial</h1>
-                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 text-xl'><span class='text-red-500'>Rouge : 1/4</span> | <span class='text-orange-600'>Orange 2/4</span> | <span class='text-yellow-500'>Jaune 3/4</span> | <span class='text-green-500'>Vert 4/4</span></h1>
+                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>
+                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 text-xl'><span class='text-red-800'>Bordeau : 1/5</span> | <span class='text-red-500'>Rouge 2/5</span> | <span class='text-orange-500'>Orange 3/5</span> | <span class='text-yellow-500'>Jaune 4/5</span> | <span class='text-green-500'>Vert 5/5</span></h1>
                                     <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$' required oninput='passwordStrengh(this)'>
                                     <div class='passwordBar h-5 w-52 rounded ml-16 mt-2'></div>
                                     <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg' required oninput='checkPasswordMatch(this)'><br>
@@ -65,12 +65,14 @@
     function passwordStrengh(input) {
         var password = input.value;
 
+        var longueur = /.{8,}/.test(password);
         var minuscule = /[a-z]/.test(password);
         var majuscule = /[A-Z]/.test(password);
         var nombre = /\d/.test(password);
         var caracspecial = /[!@#$%^&*]/.test(password);
 
         var securite = 0;
+        if (longueur) securite++;
         if (minuscule) securite++;
         if (majuscule) securite++;
         if (nombre) securite++;
@@ -96,15 +98,17 @@
 
     function updatepasswordBar(securite) {
         var passwordBar = document.querySelector('.passwordBar');
-        passwordBar.classList.remove('bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500');
+        passwordBar.classList.remove('bg-red-800', 'bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500');
 
         if (securite === 1) {
-            passwordBar.classList.add('bg-red-500');
+            passwordBar.classList.add('bg-red-800');
         } else if (securite === 2) {
-            passwordBar.classList.add('bg-orange-500');
+            passwordBar.classList.add('bg-red-500');
         } else if (securite === 3) {
-            passwordBar.classList.add('bg-yellow-500');
+            passwordBar.classList.add('bg-orange-500');
         } else if (securite === 4) {
+            passwordBar.classList.add('bg-yellow-500');
+        } else if (securite === 5) {
             passwordBar.classList.add('bg-green-500');
         }
     }
