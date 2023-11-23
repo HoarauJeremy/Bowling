@@ -3,7 +3,7 @@
     require_once("modele/administration.php");
 
     $titre = "Bowling du Front de Mer - Reservations";
-    $reservations = $this->manageAdmin->getReservations();
+    $reservations = $this->manageReservations->getReservations();
     $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Liste des Reservations : </h2>
@@ -24,15 +24,15 @@
     foreach ($reservations as $cle => $ligne)
     {
         $reservation = new administration($ligne);
-        $dateDebutReservation = $this->manageAdmin->formatDate(date_create($reservation->getDebutReservation()));
-        $dateFinReservation = $this->manageAdmin->formatDate(date_create($reservation->getFinReservation()));
-        
+        $dateDebutReservation = $this->manageReservations->formatDate(date_create($reservation->getDebutReservation()));
+        $dateFinReservation = $this->manageReservations->formatDate(date_create($reservation->getFinReservation()));
+
         $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center group'>
                         <th scope='row' class='p-2'>".$reservation->getNumReservation()."</th>
                         <td class='p-1'>".$dateDebutReservation."</td>
                         <td class='p-1'>".$dateFinReservation."</td>
                         <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?action=details&val=".$reservation->getNumReservation()."'>Détails</a>
+                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Reservations/reservation/".$reservation->getNumReservation()."'>Détails</a>
                         </td>
                     </tr>";
     }

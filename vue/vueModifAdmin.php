@@ -1,6 +1,10 @@
 <?php
     $titre = "Bowling du Front de Mer - Modification de la reservation";
-    $element = $this->manageAdmin->getRes($_GET['val']);
+    
+    $url = explode("/", $_GET['url']);
+    $val = array_slice($url, 2);
+    $element = $this->manageReservations->getRes(...($val));
+
     $reservation = new administration($element);
 
     $contenu = "<div class=' w-5/6 md:w-3/5 mx-auto p-3'>
@@ -57,8 +61,8 @@
                         </div>
 
                         <div class='w-full h-auto p-3 flex justify-end items-center'>
-                        <a title='Sauvegarder' class='bg-accent py-2 px-3 mx-1 rounded shadow hover:bg-primary' href='?action=modifier&val=".$reservation->getNumReservation()."'>Sauvegarder</a>
-                        <a title='Annuler' href='?action=reservations'
+                        <a title='Sauvegarder' class='bg-accent py-2 px-3 mx-1 rounded shadow hover:bg-primary' href='?url=Reservations/modifier/".$reservation->getNumReservation()."'>Sauvegarder</a>
+                        <a title='Annuler' href='?url=Reservations/reservations'
                         class='bg-background py-2 px-3 mx-1 rounded shadowshadow-secondary text-primary
                         font-bold border border-primary hover:bg-primary hover:text-background transition-colors'>Annuler</a>
                         </div>
