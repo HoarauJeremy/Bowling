@@ -28,21 +28,22 @@
             }
         }
 
-        public function modfiicationUtilisateur() {
-
+        public function modificationUtilisateur() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];
                 $naissance = $_POST["naissance"];
                 $email = $_POST["email"];
                 $password = $_POST["password"];
+                $ptsfidelite = $_POST["ptsfidelite"];
+                $username = $_SESSION['username'];
             }
 
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
 
-            $managerProfil->updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password);
+            $managerProfil->updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite);
             header('Location: vue/vueProfil.php');
-            }
         }
+    }
 ?>
