@@ -26,8 +26,23 @@
                 }
             }
 
-        public function modificationUtilisateur(){
-            
-        }
+            function updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password) {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $prenom = $_POST["prenom"];
+                $nom = $_POST["nom"];
+                $naissance = $_POST["naissance"];
+                $email = $_POST["email"];
+                $password = $_POST["password"];
+            }
+
+                $sql = ("UPDATE Clients (NomClients, PrenomClients, DateNaissClients, EmailClients) VALUES (?, ?, ?, ?)");
+                $rqt = $this->cnx->prepare($sql);                
+                $rqt->execute([$nom, $prenom, $naissance, $email]);
+
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                $sql = ("UPDATE Utilisateur (LoginUser, MdpUser) VALUES (?, ?)");
+                $rqt = $this->cnx->prepare($sql);                
+                $rqt->execute([$email, $hashedPassword]);
+            }
     }
 ?>
