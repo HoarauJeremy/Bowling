@@ -39,18 +39,43 @@
                     $username = $_SESSION['username'];
                 }
 
-                $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                $sql = "SELECT count(*) FROM Reservation WHERE EmailClients=?"; //Vérifie su l'email est associé à une réservation
                 $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
+                $rqt->execute([$username]);
+                $result = $rqt->fetchColumn();
+                
+                if ($result === 1){ //Si oui, récupérer le numéro de la réservation et changer l'email de la réservation
+                    $sql = "SELECT NumReservation FROM Reservation WHERE EmailClients=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$username]);
+                    $result = $rqt->fetchAll(PDO::FETCH_ASSOC);
+                    $numReservation = $result[0]['NumReservation'];
+                    $sql = "UPDATE Reservation SET EmailClients=? WHERE NumReservation=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    var_dump($rqt);
+                    $rqt->execute([$email, $numReservation]);
 
-                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-                $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
-                $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$email, $hashedPassword, $username]);
+                    $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
 
-                $sql = "UPDATE Reservation SET EmailClients=? WHERE EmailClients=?";
-                $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$email, $username]);
+
+                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                    $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$email, $hashedPassword, $username]);
+
+                    } else { //Si non, alors changer les informations du client
+                        $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                        $rqt = $this->cnx->prepare($sql);
+                        $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
+
+
+                        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                        $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                        $rqt = $this->cnx->prepare($sql);
+                        $rqt->execute([$email, $hashedPassword, $username]);
+                    }
             }
             
     }
