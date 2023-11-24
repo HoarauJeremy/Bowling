@@ -38,10 +38,9 @@
                 $ptsfidelite = $_POST["ptsfidelite"];
                 $username = $_SESSION['username'];
             }
-
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
-
+            
             $managerProfil->updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite);
             header('Location: vue/vueProfil.php');
         }

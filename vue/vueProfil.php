@@ -1,14 +1,12 @@
 <?php
     require_once('controler/controleurProfil.php');
     $controleurProfil = new controleurProfil();
-
     $profilInfo = $controleurProfil->getProfil();
     $username = $_SESSION['username'];
     $prenom = $profilInfo['prenom'];
     $nom = $profilInfo['nom'];
     $naissance = $profilInfo['naissance'];
     $ptsfidelite = $profilInfo['ptsfidelite'];
-
         $titre = "Bowling du Front de Mer - Profil";
         $contenu = "<h1 class='font-Roboto text-4xl text-center mb-5'>Bienvenue <strong>$username</strong> !</h1>";
         $contenu .= "<div class='h-auto flex items-center bg-gray-200'>
@@ -27,6 +25,7 @@
                             </div>
                             
                             <div class='h-auto w-screen bg-white rounded-lg ml-5 mr-10 my-10 visible' id='edition' style='display: none;'>
+                                <form action='?url=Profil/modificationUtilisateur' method='POST'>
                                 <form action='?url=Profil/updateUtilisateur' method='POST'>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Mes informations :</h1>
                                     <input type='text' name='prenom' placeholder='$prenom' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
@@ -34,9 +33,8 @@
                                     <input type='date' name='naissance' placeholder='$naissance' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='email' name='email' placeholder='$username' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='text' name='ptsfidelite' value='$ptsfidelite' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' readonly><br>
-
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>
-                                    <h1 class='font-NotoSans font-extrabold text-left ml-5 text-xl'><span class='text-red-800'>Bordeau : 1/5</span> | <span class='text-red-500'>Rouge 2/5</span> | <span class='text-orange-500'>Orange 3/5</span> | <span class='text-yellow-500'>Jaune 4/5</span> | <span class='text-green-500'>Vert 5/5</span></h1>
+                                    
                                     <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^-_/&*])[A-Za-z\d!@#$%^-_/&*]{8,}$' required oninput='passwordStrengh(this)'>
                                     <div class='passwordBar h-5 w-52 rounded ml-16 mt-2'></div>
                                     <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required oninput='checkPasswordMatch(this)'><br>
@@ -46,13 +44,12 @@
                             </div>
                     </div>";
     include "template.php";
-    ?>
+?>
 
 <script>
     function toggleEdition() {
         var informationsClient = document.getElementById('informationsClient');
         var edition = document.getElementById('edition');
-
         if (informationsClient.style.display === 'block') {
             informationsClient.style.display = 'none';
             edition.style.display = 'block';
@@ -64,20 +61,17 @@
 
     function passwordStrengh(input) {
         var password = input.value;
-
         var longueur = /.{8,}/.test(password);
         var minuscule = /[a-z]/.test(password);
         var majuscule = /[A-Z]/.test(password);
         var nombre = /\d/.test(password);
         var caracspecial = /[!@#$%^-_/&*]/.test(password);
-
         var securite = 0;
         if (longueur) securite++;
         if (minuscule) securite++;
         if (majuscule) securite++;
         if (nombre) securite++;
         if (caracspecial) securite++;
-
         updatepasswordBar(securite);
     }
 
@@ -85,9 +79,7 @@
         var passwordInput = document.querySelector('input[name="password"]');
         var confirmPassword = confirmPasswordInput.value;
         var password = passwordInput.value;
-
         var passwordMatchMessage = document.getElementById('passwordMatchMessage');
-
         if (confirmPassword != password) {
             passwordMatchMessage.innerHTML = 'Les mots de passe ne correspondent pas.';
             passwordMatchMessage.style.color = 'red';
@@ -99,7 +91,6 @@
     function updatepasswordBar(securite) {
         var passwordBar = document.querySelector('.passwordBar');
         passwordBar.classList.remove('bg-red-800', 'bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500');
-
         if (securite === 1) {
             passwordBar.classList.add('bg-red-800');
         } else if (securite === 2) {
