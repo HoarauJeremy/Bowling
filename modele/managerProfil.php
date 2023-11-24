@@ -90,7 +90,11 @@
                         $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
                         $rqt = $this->cnx->prepare($sql);
                         $rqt->execute([$email, $hashedPassword, $username]);
-                        header('Location: vue/vueAcceuil.php');
+                        
+                        require_once('controler/controleurConnexion.php');
+                        $managerConnexion = new ControleurConnexion();
+                    
+                        $managerConnexion->Deconnexion();
                     }
             }
 
