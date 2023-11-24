@@ -5,7 +5,6 @@ require_once('controler/controleurConnexion.php');
 require_once('controler/controleurClients.php');
 require_once('controler/controleurContacter.php');
 require_once('controler/controleurReservations.php');
-require_once('controler/controleurSupprimer.php');
 require_once('controler/controleurProfil.php');
 
 $url = isset($_GET['url']) ? $_GET['url'] : 'Acceuil';
