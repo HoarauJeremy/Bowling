@@ -26,6 +26,7 @@
                 }
             }
 
+
             function updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
                 require_once('controler/controleurProfil.php');
             
@@ -38,6 +39,13 @@
                     $ptsfidelite = $_POST["ptsfidelite"];
                     $username = $_SESSION['username'];
                 }
+
+                    $sql = "UPDATE Reservation SET Email=? WHERE Email=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$email, $username]);
+                    $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
 
                 $sql = "SELECT count(*) FROM Reservation WHERE EmailClients=?"; //Vérifie su l'email est associé à une réservation
                 $rqt = $this->cnx->prepare($sql);
@@ -64,6 +72,10 @@
                     $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
                     $rqt = $this->cnx->prepare($sql);
                     $rqt->execute([$email, $hashedPassword, $username]);
+                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                    $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                    $rqt = $this->cnx->prepare($sql);
+                    $rqt->execute([$email, $hashedPassword, $username]);
 
                     } else { //Si non, alors changer les informations du client
                         $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
@@ -77,6 +89,6 @@
                         $rqt->execute([$email, $hashedPassword, $username]);
                     }
             }
-            
+
     }
 ?>
