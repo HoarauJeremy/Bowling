@@ -6,6 +6,16 @@
             parent :: __construct();
         }
 
+        public function getMDP($username){
+            $sql = "SELECT MdpUser FROM Utilisateur WHERE LoginUser = :username";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->bindParam(':username', $username, PDO::PARAM_STR);
+            $rqt->execute();
+            $result = $rqt->fetchColumn();
+            $rqt->closeCursor();
+            return $result;
+        }
+
         public function getInformationsUtilisateur($username) {
             try {
                 $sql = "SELECT * FROM Clients WHERE EmailClients = :username";
@@ -27,7 +37,7 @@
             }
 
 
-            function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
+        public function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
                 require_once('controler/controleurProfil.php');
             
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
