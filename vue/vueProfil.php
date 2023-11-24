@@ -2,7 +2,6 @@
     require_once('controler/controleurProfil.php');
     $controleurProfil = new controleurProfil();
 
-    // Appeler la fonction getProfil pour récupérer les informations du profil + Définir les valeurs à des variables pour les utiliser ensuite
     $profilInfo = $controleurProfil->getProfil();
     $username = $_SESSION['username'];
     $prenom = $profilInfo['prenom'];
@@ -28,12 +27,13 @@
                             </div>
                             
                             <div class='h-auto w-screen bg-white rounded-lg ml-5 mr-10 my-10 visible' id='edition' style='display: none;'>
-                                <form action='?url=Profil/modificationUtilisateur' method='POST'>
+                                <form action='?url=Profil/updateUtilisateur' method='POST'>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Mes informations :</h1>
                                     <input type='text' name='prenom' placeholder='$prenom' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='text' name='nom' placeholder='$nom' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='date' name='naissance' placeholder='$naissance' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='email' name='email' placeholder='$username' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
+                                    <input type='text' name='ptsfidelite' value='$ptsfidelite' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' readonly><br>
 
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 text-xl'><span class='text-red-800'>Bordeau : 1/5</span> | <span class='text-red-500'>Rouge 2/5</span> | <span class='text-orange-500'>Orange 3/5</span> | <span class='text-yellow-500'>Jaune 4/5</span> | <span class='text-green-500'>Vert 5/5</span></h1>
