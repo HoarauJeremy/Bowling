@@ -28,7 +28,7 @@
             }
         }
 
-        public function updateUtilisateur() {
+        public function updateClient() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];
@@ -38,11 +38,11 @@
                 $ptsfidelite = $_POST["ptsfidelite"];
                 $username = $_SESSION['username'];
             }
+
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
             
-            $managerProfil->updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite);
-            header('Location: vue/vueProfil.php');
+            $managerProfil->updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite);
         }
     }
 ?>

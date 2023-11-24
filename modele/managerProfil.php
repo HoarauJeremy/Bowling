@@ -27,7 +27,7 @@
             }
 
 
-            function updateInformationsUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
+            function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
                 require_once('controler/controleurProfil.php');
             
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,19 +40,12 @@
                     $username = $_SESSION['username'];
                 }
 
-                    $sql = "UPDATE Reservation SET Email=? WHERE Email=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$email, $username]);
-                    $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
-
                 $sql = "SELECT count(*) FROM Reservation WHERE EmailClients=?"; //Vérifie su l'email est associé à une réservation
                 $rqt = $this->cnx->prepare($sql);
                 $rqt->execute([$username]);
                 $result = $rqt->fetchColumn();
                 
-                if ($result === 1){ //Si oui, récupérer le numéro de la réservation et changer l'email de la réservation
+                if ($result >= 1){ //Si oui, récupérer le numéro de la réservation et changer l'email de la réservation
                     $sql = "SELECT NumReservation FROM Reservation WHERE EmailClients=?";
                     $rqt = $this->cnx->prepare($sql);
                     $rqt->execute([$username]);
@@ -87,6 +80,7 @@
                         $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
                         $rqt = $this->cnx->prepare($sql);
                         $rqt->execute([$email, $hashedPassword, $username]);
+                        header('Location: vue/vueAcceuil.php');
                     }
             }
 
