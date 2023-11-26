@@ -2,11 +2,13 @@
     require_once('controler/controleurProfil.php');
     $controleurProfil = new controleurProfil();
     $profilInfo = $controleurProfil->getProfil();
+
     $username = $_SESSION['username'];
     $prenom = $profilInfo['prenom'];
     $nom = $profilInfo['nom'];
     $naissance = $profilInfo['naissance'];
     $ptsfidelite = $profilInfo['ptsfidelite'];
+
         $titre = "Bowling du Front de Mer - Profil";
         $contenu = "<h1 class='font-Roboto text-4xl text-center mb-5'>Bienvenue <strong>$username</strong> !</h1>";
         $contenu .= "<div class='h-auto flex items-center bg-gray-200'>
@@ -25,8 +27,7 @@
                             </div>
                             
                             <div class='h-auto w-screen bg-white rounded-lg ml-5 mr-10 my-10 visible' id='edition' style='display: none;'>
-                                <form action='?url=Profil/modificationUtilisateur' method='POST'>
-                                <form action='?url=Profil/updateUtilisateur' method='POST'>
+                                <form action='?url=Profil/updateClient' method='POST'>
                                     <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Mes informations :</h1>
                                     <input type='text' name='prenom' placeholder='$prenom' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                                     <input type='text' name='nom' placeholder='$nom' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
@@ -38,7 +39,7 @@
                                     <div class='passwordBar h-5 w-52 rounded ml-16 mt-2'></div>
                                     <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required oninput='checkPasswordMatch(this)'><br>
                                     <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
-                                    <button type='submit' class='font-Roboto font-bold text-2xl bg-red-800 text-white mb-2 mt-2 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Sauvegarder</button>
+                                    <button type='submit' id='submit' class='font-Roboto font-bold text-2xl bg-red-800 text-white mb-5 mt-2 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Sauvegarder</button>
                                 </form>
                             </div>
                     </div>";
