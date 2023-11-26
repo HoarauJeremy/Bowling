@@ -8,6 +8,7 @@
             parent::__construct();
         }
 
+        // Récupère l'nesemble des réservation ainsi que leurs informations
         public function getReservations()
         {
             $sql = "SELECT * FROM Reservation;";

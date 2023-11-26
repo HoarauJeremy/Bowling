@@ -17,15 +17,19 @@
             return $clients;
         }
 
+        // Extraction des données d'un adhérent définit par son identifiant
         public function getClient($id) {
             $sql = "";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
             $client = $rqt->fetch(PDO::FETCH_ASSOC);
             $rqt->closeCursor();
+
+            // Renvoie du résultat de la requête sous forme de tableau
             return $client;
         }
 
+        
         public function addClient() {
 
         }
