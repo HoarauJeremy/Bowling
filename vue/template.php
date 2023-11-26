@@ -75,7 +75,7 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="?controleur=Acceuil&method=Acceuil" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                        <a href="?url=Acceuil/" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
                     </li>   
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0

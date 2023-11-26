@@ -8,7 +8,7 @@
     $reservation = new administration($element);
 
     $contenu = "<div class=' w-5/6 md:w-3/5 mx-auto p-3'>
-                    <h2 class='text-2xl font-bold underline'>Reservation n° : ".$reservation->getNumReservation()."</h2>
+                    <h2 class='text-2xl font-bold underline'>Reservation n° : ".$reservation->getIdReservation()."</h2>
                     <section class='my-2 md:pl-2'> 
 
                         <div class='w-full h-full text-xl md:text-lg'>
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class='w-full h-auto p-3 flex justify-end items-center'>
-                        <a title='Sauvegarder' class='bg-accent py-2 px-3 mx-1 rounded shadow hover:bg-primary' href='?url=Reservations/modifier/".$reservation->getNumReservation()."'>Sauvegarder</a>
+                        <a title='Sauvegarder' class='bg-accent py-2 px-3 mx-1 rounded shadow hover:bg-primary' href='?url=Reservations/modifier/".$reservation->getIdReservation()."'>Sauvegarder</a>
                         <a title='Annuler' href='?url=Reservations/reservations'
                         class='bg-background py-2 px-3 mx-1 rounded shadowshadow-secondary text-primary
                         font-bold border border-primary hover:bg-primary hover:text-background transition-colors'>Annuler</a>
