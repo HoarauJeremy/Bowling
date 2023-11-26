@@ -33,7 +33,7 @@
         // Récupère les données d'une reservation déterminé par le numero de la reservation
         public function getRes($id)
         {
-            $sql = "SELECT * FROM Reservation WHERE NumReservation = ?;";
+            $sql = "SELECT * FROM Reservation WHERE IdReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
             $adherent = $rqt->fetch();
@@ -44,7 +44,7 @@
         // Supprime les données d'une reservation déterminé par son id
         public function deleteReservation($id)
         {
-            $sql = "DELETE FROM Reservation WHERE NumReservation = ?;";
+            $sql = "DELETE FROM Reservation WHERE IdReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
             $resultat = $rqt->execute(array($id));
             return $resultat;
@@ -53,7 +53,7 @@
         // Ajouter une reservation
         public function addReservation(array $reservation)
         {
-            $sql = "INSERT INTO adherent(NumReservation, NbrPersonne, PrixReservation, DateDebutReservation, DateDeFinReservation, IdFormule, IdPiste) VALUES(?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO adherent(IdReservation, NbrPersonne, PrixReservation, DateDebutReservation, DateDeFinReservation, IdFormule, IdPiste) VALUES(?,?,?,?,?,?,?,?)";
             $rqt = $this->cnx->prepare($sql);
             $resultat  = $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6]));
             return $resultat;
