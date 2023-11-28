@@ -6,7 +6,8 @@
             parent :: __construct();
         }
 
-        public function getUtilisateur($username, $password) //Vérifie l'authenticité des informations rentrées à celle de la base (1 = OUI / 0 = NON)
+        //Vérifie l'authenticité des informations rentrées à celle de la base (1 = OUI / 0 = NON)
+        public function getUtilisateur($username, $password) 
         {
             $sql = "SELECT count(*) FROM Utilisateur WHERE LoginUser = :username AND MdpUser = :password";            
             $rqt = $this->cnx->prepare($sql);
@@ -17,6 +18,8 @@
             $rqt->execute();
             $result = $rqt->fetch(PDO::FETCH_ASSOC);
             $rqt->closeCursor();
+
+            //
             return $result;
         }
     }

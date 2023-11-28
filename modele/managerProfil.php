@@ -6,6 +6,7 @@
             parent :: __construct();
         }
 
+        // Fonction renvoyant le mot de passe d'un utilisateur en fonction de son login
         public function getMDP($username){
             $sql = "SELECT MdpUser FROM Utilisateur WHERE LoginUser = :username";
             $rqt = $this->cnx->prepare($sql);
@@ -13,9 +14,13 @@
             $rqt->execute();
             $result = $rqt->fetchColumn();
             $rqt->closeCursor();
+
+            // Renvoie du mot de passe de l'utilisateur
             return $result;
         }
 
+        // Fonction renvoyant l'ensemble des informations d'un utilisateur en fonction de son email
+        // La fonction affiche un message d'erreur si une erreur se produit et renvoie un tableau vide
         public function getInformationsUtilisateur($username) {
             try {
                 $sql = "SELECT * FROM Clients WHERE EmailClients = :username";
@@ -26,17 +31,24 @@
                 if ($rqt->rowCount() > 0) {
                     $result = $rqt->fetch(PDO::FETCH_ASSOC);
                     $rqt->closeCursor();
+
+                    // Renvoie des informations de l'utilisateur
                     return $result;
                 } else {
+
+                    // Si aucune information n'est présente, renvoie un tableau vide
                     return [];
                 }
                 } catch (PDOException $e) {
+
+                    // Affichage du message d'erreur
                     echo "Erreur SQL : " . $e->getMessage();
                     return [];
                 }
             }
 
 
+        // Fonction permettant la mise à jour des informations d'un utilisateur
         public function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
                 require_once('controler/controleurProfil.php');
             
@@ -50,12 +62,14 @@
                     $username = $_SESSION['username'];
                 }
 
-                $sql = "SELECT count(*) FROM Reservation WHERE EmailClients=?"; //Vérifie su l'email est associé à une réservation
+                // Vérifie si l'email est associé à une réservation
+                $sql = "SELECT count(*) FROM Reservation WHERE EmailClients=?"; 
                 $rqt = $this->cnx->prepare($sql);
                 $rqt->execute([$username]);
                 $result = $rqt->fetchColumn();
                 
-                if ($result >= 1){ //Si oui, récupérer le numéro de la réservation et changer l'email de la réservation
+                // Si oui, récupérer le numéro de la réservation et changer l'email de la réservation
+                if ($result >= 1){ 
                     $sql = "SELECT NumReservation FROM Reservation WHERE EmailClients=?";
                     $rqt = $this->cnx->prepare($sql);
                     $rqt->execute([$username]);
@@ -80,7 +94,9 @@
                     $rqt = $this->cnx->prepare($sql);
                     $rqt->execute([$email, $hashedPassword, $username]);
 
-                    } else { //Si non, alors changer les informations du client
+                    } 
+                        // Sinon, alors changer les informations du client
+                        else { 
                         $sql = "UPDATE Clients SET NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
                         $rqt = $this->cnx->prepare($sql);
                         $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite, $username]);

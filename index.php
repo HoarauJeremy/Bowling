@@ -11,7 +11,7 @@ $url = isset($_GET['url']) ? $_GET['url'] : 'Acceuil';
 $urlParts = explode('/', $url);
 
 $controllerName = 'controleur'.$urlParts[0];
-$action = isset($urlParts[1]) ? $urlParts[1] : 'Reservations';
+$action = isset($urlParts[1]) ? $urlParts[1] : 'Acceuil';
 
 $val = array_slice($urlParts, 2);
 

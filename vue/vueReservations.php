@@ -27,13 +27,15 @@
         $dateDebutReservation = $this->manageReservations->formatDate(date_create($reservation->getDebutReservation()));
         $dateFinReservation = $this->manageReservations->formatDate(date_create($reservation->getFinReservation()));
 
+        $detail= ($reservation->getidUser() != null) ? "<a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Reservations/reservation/".$reservation->getIdReservation()."'>Détails</a>" : "" ;
+
         $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center group'>
-                        <th scope='row' class='p-2'>".$reservation->getNumReservation()."</th>
+                        <th scope='row' class='p-2'>".$reservation->getIdReservation()."</th>
                         <td class='p-1'>".$dateDebutReservation."</td>
                         <td class='p-1'>".$dateFinReservation."</td>
-                        <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Reservations/reservation/".$reservation->getNumReservation()."'>Détails</a>
-                        </td>
+                        <td class='p-1'>".
+                            $detail
+                        ."</td>
                     </tr>";
     }
     $contenu .="</tbody></table>";
