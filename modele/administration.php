@@ -46,8 +46,8 @@
 		public function getFinReservation()			{return $this->FinReservation;}
 		public function getNomPiste()				{return $this->piste;}
 		public function getNomFormule()				{return $this->formule;}
-		public function getIdPiste() 				{return $this->p;}
-		public function getIdFormule() 				{return $this->f;}
+		public function getIdPiste() 								{return $this->p;}
+		public function getIdFormule() 								{return $this->f;}
 		public function getIdUser() 				{return $this->IdUser;}
 
 		// setter Reservations
@@ -60,8 +60,8 @@
 		public function setFinReservation($DateDeFinReservation)	{$this->FinReservation = $DateDeFinReservation;}
 		public function setNomFormule($NomFormule) 					{$this->formule = $NomFormule;}
 		public function setNomPiste($NomPiste) 						{$this->piste = $NomPiste;}
-		public function setIdPiste($p) 								{$this->p = $p;}
-		public function setIdFormule($f) 							{$this->f = $f;}
+		public function setIdPiste($p) 																{$this->p = $p;}
+		public function setIdFormule($f) 														{$this->f = $f;}
 		public function setIdUser($IdUser) 							{$this->IdUser = $IdUser;}
 
 	}

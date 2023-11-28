@@ -14,12 +14,14 @@
             $informationsUtilisateur = $managerProfil->getInformationsUtilisateur($username);
 
             if (is_array($informationsUtilisateur)) {
+                $iduser = $informationsUtilisateur['IdUser'];
                 $prenom = $informationsUtilisateur['PrenomClients'];
                 $nom = $informationsUtilisateur['NomClients'];
                 $naissance = $informationsUtilisateur['DateNaissClients'];
                 $ptsfidelite = $informationsUtilisateur['PointClients'];  
 
                 return [
+                    'iduser'=> $iduser,
                     'prenom' => $prenom,
                     'nom' => $nom,
                     'naissance' => $naissance,
