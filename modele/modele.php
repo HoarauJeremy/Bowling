@@ -27,7 +27,7 @@
         // Constructeur Méthode de connexion à la base de données
         public function getConnection(){
 
-            // On supprime la connexion précédente
+            // Supression de la connexion précédente
             $this->fermerConnexion();
 
             // On essaie de se connecter à la base

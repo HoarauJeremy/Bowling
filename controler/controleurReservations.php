@@ -47,4 +47,14 @@ class controleurReservations
         }
     }
 
+    public function ShowReservations () {
+        $reservations = $this->manageReservations->getReservations();
+        include 'vue/vueAllReservations.php';
+    }
+
+    public function IsThereReservation($date){
+        $statut = ($this->manageReservations->IsThereReservation($date));
+        return $statut;
+    }
+
 }
