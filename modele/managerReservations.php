@@ -99,7 +99,5 @@
             $rqt->execute();
             $reservation = $rqt->fetch();
             return $reservation;
-        static function foe($dateCreate) {
         }
-
     }
