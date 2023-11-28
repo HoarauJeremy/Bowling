@@ -18,7 +18,7 @@
         }
 
         public function getClient($id) {
-            $sql = "";
+            $sql = "SELECT * FROM Clients where idUser = ?";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
             $client = $rqt->fetch(PDO::FETCH_ASSOC);
@@ -26,8 +26,23 @@
             return $client;
         }
 
-        public function addClient() {
+        public function addClient($nom, $prenom, $dateN, $email) {
+            $sql = "INSERT INTO Clients(NomClients, PrenomClients, DateNaissClients, EmailClients) VALUES 0(:nom, :prenom, :dateNaiss, :email)";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->bindParam(":nom", $nom, PDO::PARAM_STR);
+            $rqt->bindParam(":prenom", $prenom, PDO::PARAM_STR);
+            $rqt->bindParam(":dateNaiss", $dateN);
+            $rqt->bindParam(":email", $email, PDO::PARAM_STR);
+            $rqt->execute();
+        }
 
+        function getReservationClient($id) {
+            $sql = "SELECT c.* FROM Clients c INNER JOIN Reservation r ON c.IdUser = r.IdUser WHERE IdUser = ?";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute(array($id));
+            $client = $rqt->fetch(PDO::FETCH_ASSOC);
+            $rqt->closeCursor();
+            return $client;
         }
         
         /**

@@ -1,12 +1,12 @@
 <?php
-    require_once("modele/administration.php");
+    require_once("modele/client.php");
 
     $titre = "Bowling du Front de Mer - Clients";
     $clients = $this->manageClients->getClients();
     $contenu = "<div class='w-full md:w-3/5 md:mx-auto mt-4'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Liste des Clients : </h2>
-                        <a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?action=ajouter'>Ajouter</a>
+                        <!--<a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?url=Clients/ajouter'>Ajouter</a>-->
                     </div>";
     $contenu .= "<section class='p-1 w-full overflow-x-auto'>";
     $contenu .= "<table id='clients' class='table w-full mt-2 border border-gray-500'>
@@ -22,7 +22,7 @@
 
     foreach ($clients as $cle => $ligne)
     {
-        $client = new administration($ligne);    
+        $client = new client($ligne);    
 
         // $dateNaiss = $this->manageAdmin->formatDateNaiss(date_create($client->getDateNaissClients()));
         $points = ($client->getPointClients()) ? $client->getPointClients() : 0 ;
@@ -32,7 +32,7 @@
                         <td class='p-1'>".$client->getNomClients()." ".$client->getPrenomClients()."</td>
                         <td class='p-1'>".$points."</td>
                         <td class='p-1'>
-                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Clients/client/".$client->getEmailClients()."'>Détails</a>
+                            <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Clients/client/".$client->getIdUser()."'>Détails</a>
                         </td>
                     </tr>";
     }

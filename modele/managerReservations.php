@@ -73,7 +73,7 @@
          * @param $dateCreate
          * @return string
          */
-        static function formatDate($dateCreate) {
+        static function formatDate(DateTime $dateCreate) {
             $jour = $dateCreate->format('d');
             $annee = $dateCreate->format('Y');
             $heure = $dateCreate->format('H\hi');        
@@ -81,7 +81,7 @@
             return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
         }
 
-
-        
+        static function foe($dateCreate) {
+        }
 
     }
