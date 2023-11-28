@@ -74,7 +74,7 @@
          * @param $dateCreate
          * @return string
          */
-        static function formatDate($dateCreate) {
+        static function formatDate(DateTime $dateCreate) {
             $jour = $dateCreate->format('d');
             $annee = $dateCreate->format('Y');
             $heure = $dateCreate->format('H\hi');        
@@ -99,6 +99,7 @@
             $rqt->execute();
             $reservation = $rqt->fetch();
             return $reservation;
+        static function foe($dateCreate) {
         }
 
     }

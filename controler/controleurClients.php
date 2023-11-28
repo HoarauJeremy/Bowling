@@ -18,30 +18,44 @@ class controleurClients
     public function client ($id) {
         $client = $this->manageClients->getClient($id);
         if ($client != null) {
-            require_once("modele/administration.php");
-            $res = new administration($client);
+            require_once("modele/client.php");
+            $res = new client($client);
             include 'vue/vueClient.php';
         } else {
             include 'vue/vueErreur.php';
         }
     }
 
-    /* public function reservation ($id) {
-        $reservation = $this->manageClients->getClient($id);
+    public function reservations ($id) {
+        $reservation = $this->manageClients->getReservationClient($id);
         if ($reservation != null) {
-            require_once("modele/administration.php");
-            $res = new administration($reservation);
-            include 'vue/vueReservation.php';
+            require_once("modele/client.php");
+            $res = new client($reservation);
+            include 'vue/vueReservationsClients.php';
         } else {
             include 'vue/vueErreur.php';
         }
     }
 
+    public function ajouter() {
+        include 'vue/vueAjoutClients.php';
+    }
+
+    public function add() {
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $dateN = $_POST['date'];
+        $email = $_POST['email'];
+        
+        $this->manageClients->addClient($nom, $prenom, $dateN, $email);
+    }
+    
+    /*
     public function modifier ($id) {
         $element = $this->manageClients->getClient($id);
         if ($element != null) {
-            require_once("modele/administration.php");
-            $modifreservation = new administration($element);
+            require_once("modele/client.php");
+            $modifreservation = new client($element);
             include 'vue/vueModifAdmin.php';
         } else {
             include 'vue/vueErreur.php';
