@@ -41,53 +41,47 @@
                 }
             }
 
-        public function getType($username) {
-            $sql = "SELECT typeUSer FROM Utilisateur WHERE LoginUser = :username";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->bindParam(':username', $username, PDO::PARAM_STR);
-            $rqt->execute();
-            $result = $rqt->fetch(PDO::FETCH_ASSOC);
-            $rqt->closeCursor();
-            return $result;
-        }
+            public function getType($username) {
+                $sql = "SELECT typeUser FROM Utilisateur WHERE LoginUser = :username";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->bindParam(':username', $username, PDO::PARAM_STR);
+                $rqt->execute();
+                $result = $rqt->fetch(PDO::FETCH_ASSOC);
+                return $result;
+            }
 
         // Fonction permettant la mise à jour des informations d'un utilisateur
         public function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
-                require_once('controler/controleurProfil.php');
-            
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $iduser = $_POST["iduser"];
-                    $prenom = $_POST["prenom"];
-                    $nom = $_POST["nom"];
-                    $naissance = $_POST["naissance"];
-                    $email = $_POST["email"];
-                    $password = $_POST["password"];
-                    $ptsfidelite = $_POST["ptsfidelite"];
-                    $username = $_SESSION['username'];
-                }
-
-                $sql = "SELECT EmailClients FROM Clients WHERE EmailClients=?";
-                $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$email]);
-
-                if ($rqt->fetchColumn() < 1) {
-                    $sql = "UPDATE Clients SET IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$iduser, $nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
-
-                    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-                    $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
-                    $rqt = $this->cnx->prepare($sql);
-                    $rqt->execute([$email, $hashedPassword, $username]);
-                    
-                    require_once('controler/controleurConnexion.php');
-                    $managerConnexion = new ControleurConnexion();
-                
-                    $managerConnexion->Deconnexion();
-                } else {
-                    $ErreurEmail = "L'email saisi est déjà utilisé par un autre compte !";
-                    include("vue/vueProfil.php");
-                }
+            require_once('controler/controleurProfil.php');
+        
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $iduser = $_POST["iduser"];
+                $username = $_SESSION['username'];
             }
+        
+            $sql = "SELECT EmailClients FROM Clients WHERE EmailClients=?";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute([$email]);
+        
+            if ($rqt->fetchColumn() < 1) {
+                $sql = "UPDATE Clients SET IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute([$iduser, $nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
+        
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                $rqt = $this->cnx->prepare($sql);
+                $rqt->execute([$email, $hashedPassword, $username]);
+        
+                require_once('controler/controleurConnexion.php');
+                $managerConnexion = new ControleurConnexion();
+        
+                $managerConnexion->Deconnexion();
+            } else {
+                $ErreurEmail = "L'email saisi est déjà utilisé par un autre compte !";
+                include("vue/vueProfil.php");
+            }
+        }
+        
     }
 ?>
