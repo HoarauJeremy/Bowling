@@ -1,7 +1,0 @@
-<?php
-    class controleurInscription {
-        public function PageInscription() { //Redirige vers la page d'inscription
-            include("vue/vueInscription.php");
-        }
-    }
-?>

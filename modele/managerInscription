@@ -6,6 +6,4 @@
             parent :: __construct();
         }
     }
-
-    
 ?>

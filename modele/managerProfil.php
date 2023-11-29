@@ -41,17 +41,15 @@
                 }
             }
 
-            // --- 
-            public function getType($username) {
-                $sql = "SELECT typeUSer FROM Clients Where = :username";
-                $rqt = $this->cnx->prepare($sql);
-                $rqt->bindParam(':username', $username, PDO::PARAM_STR);
-                $rqt->execute();
-                $result = $rqt->fetch(PDO::FETCH_ASSOC);
-                $rqt->closeCursor();
-                return $result;
-            }
-            // --- 
+        public function getType($username) {
+            $sql = "SELECT typeUSer FROM Utilisateur WHERE LoginUser = :username";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->bindParam(':username', $username, PDO::PARAM_STR);
+            $rqt->execute();
+            $result = $rqt->fetch(PDO::FETCH_ASSOC);
+            $rqt->closeCursor();
+            return $result;
+        }
 
         // Fonction permettant la mise à jour des informations d'un utilisateur
         public function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
