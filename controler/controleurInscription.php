@@ -12,9 +12,12 @@
                 $naissance = $_POST["naissance"];
                 $email = $_POST["email"];
                 $password = $_POST["password"];
+                $ptsfidelite = 0;
             }
 
-            
+            require_once('modele/managerInscription.php');
+            $managerInscription = new managerInscription();
+            $managerInscription->updateClients($id, $prenom, $nom, $naissance, $email, $ptsfidelite);
         }
 
     }

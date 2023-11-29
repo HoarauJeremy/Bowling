@@ -76,7 +76,7 @@
     $contenu .= "</div>";
 
     // Affichage du tableau horaire avec des classes Tailwind pour les styles
-    $contenu .= "<table class='border-collapse border border-gray-400'>";
+    $contenu .= "<table class='border-collapse border mx-auto border-gray-400'>";
     $contenu .= "<tr><th class='border border-gray-400'></th>"; // Cellule vide en haut à gauche
 
     $dateComp = new DateTime($semaineActuelle ?? '2023-11-28 00:00:00');
@@ -101,53 +101,61 @@
         // Affichage des cellules vides au centre du tableau
         foreach ($joursSemaine as $jour) {
             $dateComp->modify('+1 day');
-            $reservations = $this->manageReservations->IsThereReservation($dateComp->format('y-m-d H:00'));
+            //$reservations = $this->manageReservations->IsThereReservation($dateComp->format('y-m-d H:00'));
 
-            if($reservations < 2 ){
-                
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-green-900'></td>"; // Cellule verte
+            $contenu .= "<td class='border border-gray-400 px-4 py-2 '></td>";
+            // if($reservations < 2 ){
+                 
+            //     // Cellule verte
 
-            }elseif ($reservations < 4) {
+            // }elseif ($reservations < 4) {
                 
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-orange-500'></td>"; // Cellule verte
+            //     $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-orange-500'></td>"; // Cellule verte
                 
-            }else{
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-red-800'></td>"; // Cellule verte
-            }
+            // }else{
+            //     $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-red-800'></td>"; // Cellule verte
+            // }
         }
         $dateComp->modify('-7 day');
         $contenu .= "</tr>";
     }
     $contenu .= "</table>";
 
+    // $contenu .= "<form action='?url=Reservations/addRes'>
+    //                 <label for='jours'>Jours de votre rÃ©servation : </label>
+    //                 <input type='date' name='dateRes' required='> <br>
 
+    //                 <label for='nbPersonne'>Nombre de personnes : </label>
+    //                 <input type='number' name='nbPersonne' min='1' max='8' required='> <br>
 
+    //                 <label for='heureStart'>Choissiez une heure de dÃ©but de rÃ©servation :</label>
+    //                 <input type='time' id='heureStart' name='heureStart' min='00:00' max='23:00' required='> <br>
 
-    /* 
-        for ($i=0; $i < 7 ; $i++) { 
-            # code...
-        }
-        foreach ($reservations as $cle => $ligne)
-        {
-            $reservation = new administration($ligne);
-            var_dump($reservation);
-        }
- */
-    $contenu .= "<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
-                    <div class='px-1 flex flex-row md:justify-between justify-around'>
-                        <h2 class='text-2xl font-bold'>Liste des Reservations : </h2>
-                        <a class='px-2 py-1 bg-background rounded shadow shadow-secondary text-primary font-bold border border-primary hover:bg-primary hover:text-background transition-colors' title='Ajouter' href='?action=ajouter'>Ajouter</a>
-                    </div>";
-    $contenu .= "<section class='p-1'>";
-    $contenu .= "<table id='reservations' class='table w-full mt-2 border border-gray-500'>
-                <thead>
-                    <tr class='text-lg'>
-                        <th scope='col' class='p-1 w-1/4 break-all md:p-3'>Reservation</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Début de la réservation</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Fin de la réservation</th>
-                        <th scope='col' class='p-1 w-1/4'>Action</th>
-                    </tr>
-                </thead>
-                <tbody>"; 
+    //                 <label for='heureFin'>Choissiez une heure de fin de rÃ©servation :</label>
+    //                 <input type='time' id='heureFin' name='heureFin' min='00:00' max='23:00' required='> <br>
+    //                 <table>
+    //                     <tbody><tr>
+    //                         <th>Anniversaire</th> <th>Professionnel</th> <th>Autres</th>
+    //                     </tr>
+    //                     <tr>
+    //                         <td>Information pour la formule classique
+    //                             <input type='radio' name='formuleType' value='1' required='>
+    //                         </td>
+    //                         <td>Information pour la formule anniversaire
+    //                             <input type='radio' name='formuleType' value='2' required='>
+    //                         </td>
+    //                         <td>Information pour la formule professionnel
+    //                             <input type='radio' name='formuleType' value='3' required='>
+    //                         </td>
+    //                     </tr>
+    //                 </tbody></table>
+
+    //                 <label for='email'>Entrer votre email pour recevoir votre rÃ©servation : </label>
+    //                 <input type='email' name='email' required='> <br>
+
+    //                 <input type='submit'>
+
+    //             </form>";
+    
     include "template.php";
 ?>
