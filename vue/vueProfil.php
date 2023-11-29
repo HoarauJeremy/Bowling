@@ -10,8 +10,11 @@
     $naissance = $profilInfo['naissance'];
     $ptsfidelite = $profilInfo['ptsfidelite'];
 
+    $ErreurEmail = (isset($ErreurEmail)) ? '<p class="font-Roboto font-bold text-xl text-red-500 text-center mt-2   ">' . $ErreurEmail . '</p>' : NULL ;
+
         $titre = "Bowling du Front de Mer - Profil";
         $contenu = "<h1 class='font-Roboto text-4xl text-center mb-5'>Bienvenue <strong>$username</strong> !</h1>";
+        $contenu .= "$ErreurEmail <br>";
         $contenu .= "<div class='h-auto flex items-center bg-gray-200'>
                         <div class='h-auto items-center bg-white rounded-lg ml-10 my-10 text-center'>
                             <button class='font-Roboto font-bold text-2xl bg-red-800 text-white mt-6 mb-3 px-10 h-auto w-auto border-none cursor-pointer rounded-md hover:bg-red-900 hover:border-solid hover:border-spacing-0.5 mx-10'>Voir mes Réservations</button>
