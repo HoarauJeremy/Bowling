@@ -1,0 +1,11 @@
+<?php
+    require_once("modele/modele.php");
+
+    class managerInscription extends Connexiondb {
+        public function __construct(){
+            parent :: __construct();
+        }
+    }
+
+    
+?>
