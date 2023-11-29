@@ -54,7 +54,92 @@
 <body class="flex flex-col min-h-screen">
     <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
         <!-- Bar de navigation -->
+        <?php if (isset($_SESSION['type']) != "2") { ?>
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.php" class="flex md:ml-10 md:mr-16">
+                <span id="logo" class="h-auto w-auto">
+                    <img src="media/images/LogoBowling.png" alt="Logo" width="150" height="150">
+                </span> 
+            </a>
+            <!-- Logo -->
+
+            
+            <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
+                text-white border-b backdrop-blur-lg md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
+                md:static md:z-10 md:transform-none md:border-none md:flex-row">
+                
+                <ul class="w-11/12 h-5/6 mt-4 mx-auto py-4 px-2 bg-background rounded-xl text-center text-2xl font-bold font-Roboto 
+                md:px-0 md:flex md:flex-row md:items-center md:rounded-none md:w-9/12 md:p-0 md:mt-0">
+            
+                    <!-- A quoi sert cet item ? -->
+                    <li id="nav-item" class="py-4 text-text font-NotoSans font-extrabold text-5xl mx-auto w-11/12 mt-8 md:hidden">
+                        <h1>Menu</h1>
+                    </li>
+                    <!-- A quoi sert cet item ? -->
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="?url=Acceuil/" class="w-full h-full flex justify-center items-center md:text-xl">Accueil</a>
+                    </li>   
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="index.php?url=Reservations/ShowReservations" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
+                    </li>
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
+                    border-r border-black ">
+                        <a href="index.php?url=Contacter/PageContact" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                    </li>
+
+                    <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
+                        <a href="<?php echo (isset($_SESSION['CONNECTER']) != "OK") ? 'index.php?url=Connexion/PageConnexion' : 'index.php?url=Connexion/EspaceClient'; ?>" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
+                    </li>
+         
+                    <!-- Menu déroulant Langue -->
+                    <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
+                        <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
+                        <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
+                            <li><a href="?action=langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
+                            <li><a href="?action=langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
+                        </ul>
+                    </li>
+                    <!-- Menu déroulant Langue -->
+                </ul>
+            </div>
+
+            <button onclick="toggleNav()" aria-label="toggle button" aria-expanded="false" id="menu-btn" class="cursor-pointer w-14 md:hidden">
+                <img src="media/images/burger-menu-svgrepo-com.svg" alt="" />
+            </button>
+        
+        <?php
+            if (isset($_SESSION['CONNECTER']) != "OK")
+                {
+                echo '<a href="?url=Connexion/PageConnexion" class="flex md:ml-10 md:mr-16">
+                            <span id="logo" class="h-auto w-auto py-2 ">
+                            <div class="flex flex-col items-center">
+                            <img src="media/images/LogoConnexion.png" alt="Connexion" width="100" height="100">
+                            </div>
+                            <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Connecter</p>
+                            </span> 
+                        </a>';
+                } else {
+                    echo '<a href="?url=Connexion/Deconnexion" class="flex md:ml-10 md:mr-16">
+                            <span id="logo" class="h-auto w-auto py-2 ">
+                            <div class="flex flex-col items-center">
+                            <img src="media/images/LogoDeconnexion.png" alt="Connexion" width="100" height="100">
+                            </div>
+                            <p class="font-Roboto font-extrabold text-center text-white bg-primary rounded-md px-2">Se Déconnecter</p>
+                            </span> 
+                        </a>';
+                }
+        ?>
+
+        <!-- Bar de navigation -->
+        </nav>
+        <?php } else { ?>
+            <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
                 <span id="logo" class="h-auto w-auto">
@@ -80,12 +165,12 @@
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="index.php?action=reserver" class="w-full h-full flex justify-center items-center md:text-xl">Réserver</a>
+                        <a href="index.php?action=reservations/reservations" class="w-full h-full flex justify-center items-center md:text-xl">Réservation</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
-                        <a href="index.php?url=Contacter/PageContact" class="w-full h-full flex justify-center items-center md:text-xl">Nous Contacter</a>
+                        <a href="index.php?url=Clients/clients" class="w-full h-full flex justify-center items-center md:text-xl">Clients</a>
                     </li>
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
@@ -93,13 +178,13 @@
                     </li>
          
                     <!-- Menu déroulant Langue -->
-                    <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
+                    <!-- <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
                         <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
                         <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
                             <li><a href="?action=langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
                             <li><a href="?action=langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -129,7 +214,8 @@
         }
 ?>
 
-        </nav>
+        <?php } ?>
+
     </header>
 
     <!-- Conteneur du contenue principale -->

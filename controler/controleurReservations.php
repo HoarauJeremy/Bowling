@@ -16,7 +16,7 @@ class controleurReservations
     }
 
     public function reservation ($id) {
-        $reservation = $this->manageReservations->getReservation($id);
+        $reservation = $this->manageReservations->getRes($id);
         if ($reservation != null) {
             require_once("modele/administration.php");
             $res = new administration($reservation);
@@ -24,6 +24,16 @@ class controleurReservations
         } else {
             include 'vue/vueErreur.php';
         }
+    }
+
+    public function ajouter() {
+        $reservations = $this->manageReservations->getReservations();
+        include 'vue/vueAjoutReservations.php';
+    }
+
+    public function add() {
+        $reservation = $this->manageReservations->addReservation();
+
     }
 
     public function modifier ($id) {
@@ -45,6 +55,16 @@ class controleurReservations
         } else {
             include 'vue/vueReservations.php';
         }
+    }
+
+    public function ShowReservations () {
+        $reservations = $this->manageReservations->getReservations();
+        include 'vue/vueAllReservations.php';
+    }
+
+    public function IsThereReservation($date){
+        $statut = ($this->manageReservations->IsThereReservation($date));
+        return $statut;
     }
 
 }

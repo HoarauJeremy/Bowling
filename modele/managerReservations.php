@@ -14,9 +14,9 @@
             $sql = "SELECT * FROM Reservation;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute();
-            $adherents = $rqt->fetchAll(PDO::FETCH_ASSOC);
+            $reservations = $rqt->fetchAll(PDO::FETCH_ASSOC);
             $rqt->closeCursor(); // Achève le traitement de la requête
-            return $adherents;
+            return $reservations;
         }
 
         // Récupère les données d'une reservation et du client déterminé par le numero de la reservation
@@ -25,9 +25,9 @@
             $sql = "SELECT * FROM vueReservation WHERE NumReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
-            $adherent = $rqt->fetch();
+            $reservation = $rqt->fetch();
             $rqt->closeCursor();
-            return $adherent;
+            return $reservation;
         }
         
         // Récupère les données d'une reservation déterminé par le numero de la reservation
@@ -36,9 +36,9 @@
             $sql = "SELECT * FROM Reservation WHERE IdReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
-            $adherent = $rqt->fetch();
+            $reservation = $rqt->fetch();
             $rqt->closeCursor();
-            return $adherent;
+            return $reservation;
         }
 
         // Supprime les données d'une reservation déterminé par son id
@@ -74,7 +74,7 @@
          * @param $dateCreate
          * @return string
          */
-        static function formatDate($dateCreate) {
+        static function formatDate(DateTime $dateCreate) {
             $jour = $dateCreate->format('d');
             $annee = $dateCreate->format('Y');
             $heure = $dateCreate->format('H\hi');        
@@ -82,7 +82,22 @@
             return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
         }
 
+        public function ShowReservations(){
+            $sql = "SELECT * FROM Reservation;";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute();
+            $reservations = $rqt->fetchAll(PDO::FETCH_ASSOC);
+            $rqt->closeCursor(); // Achève le traitement de la requête
 
-        
+            // Renvoie la liste des réservations
+            return $reservations;
+        }
 
+        public function IsThereReservation($date){
+            $sql = "SELECT count(IdPiste) FROM Reservation WHERE DebutReservation > timestamp('$date');";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute();
+            $reservation = $rqt->fetch();
+            return $reservation;
+        }
     }

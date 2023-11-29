@@ -19,7 +19,7 @@
 
         // Extraction des données d'un adhérent définit par son identifiant
         public function getClient($id) {
-            $sql = "";
+            $sql = "SELECT * FROM Clients where idUser = ?";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
             $client = $rqt->fetch(PDO::FETCH_ASSOC);
@@ -29,7 +29,6 @@
             return $client;
         }
 
-        
         public function addClient() {
 
         }
