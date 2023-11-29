@@ -6,7 +6,6 @@
             parent :: __construct();
         }
 
-        // Fonction renvoyant le mot de passe d'un utilisateur en fonction de son login
         public function getMDP($username){
             $sql = "SELECT MdpUser FROM Utilisateur WHERE LoginUser = :username";
             $rqt = $this->cnx->prepare($sql);
@@ -14,13 +13,9 @@
             $rqt->execute();
             $result = $rqt->fetchColumn();
             $rqt->closeCursor();
-
-            // Renvoie du mot de passe de l'utilisateur
             return $result;
         }
 
-        // Fonction renvoyant l'ensemble des informations d'un utilisateur en fonction de son email
-        // La fonction affiche un message d'erreur si une erreur se produit et renvoie un tableau vide
         public function getInformationsUtilisateur($username) {
             try {
                 $sql = "SELECT * FROM Clients WHERE EmailClients = :username";
@@ -40,8 +35,6 @@
                     return [];
                 }
                 } catch (PDOException $e) {
-
-                    // Affichage du message d'erreur
                     echo "Erreur SQL : " . $e->getMessage();
                     return [];
                 }
@@ -53,6 +46,7 @@
                 require_once('controler/controleurProfil.php');
             
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $iduser = $_POST["iduser"];
                     $prenom = $_POST["prenom"];
                     $nom = $_POST["nom"];
                     $naissance = $_POST["naissance"];

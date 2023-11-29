@@ -32,6 +32,7 @@
 
         public function updateClient() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $iduser = $_POST["iduser"];
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];
                 $naissance = $_POST["naissance"];
