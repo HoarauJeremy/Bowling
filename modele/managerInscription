@@ -6,8 +6,17 @@
             parent :: __construct();
         }
 
-        public function updateClients($id, $prenom, $nom, $naissance, $email, $ptsfidelite){
+        public function insertClient($iduser, $prenom, $nom, $naissance, $email, $ptsfidelite, $password){
+            $sql = "INSERT INTO Clients (IdUser, NomClients, PrenomClients, DateNaissClients, EmailClients, PointClients) VALUES (IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=?)";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute([$iduser, $prenom, $nom, $naissance, $email, $ptsfidelite]);
             
+            //Mettre dans un IF pour le client pour vérifier qu'on insère pour le BON idUser
+
+            // $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            // $sql = "INSERT INTO Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+            // $rqt = $this->cnx->prepare($sql);
+            // $rqt->execute([$email, $hashedPassword, $username]);
         }
     }
 ?>
