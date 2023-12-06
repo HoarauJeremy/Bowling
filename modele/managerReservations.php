@@ -83,7 +83,7 @@
         }
 
         public function ShowReservations(){
-            $sql = "SELECT * FROM Reservation;";
+            $sql = "SELECT DebutReservation, FinReservation FROM Reservation;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute();
             $reservations = $rqt->fetchAll(PDO::FETCH_ASSOC);

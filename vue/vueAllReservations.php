@@ -5,14 +5,13 @@
 
     $titre = "Bowling du Front de Mer - Reservations";
     
-    
     $contenu ="<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Quelques information ! </h2>
                     </div>
                         <p>Ici vous retrouverez quelques information concernant nos piste de bowling, notre gamme de formule mais aussi nos horaires de disponibilité.</p>
                 </div>";
-
+/*
     // Récupération du paramètre GET pour la semaine actuelle
     $semaineActuelle = isset($_GET['semaine']) ? $_GET['semaine'] : null;
     $dateDepart = new DateTime($semaineActuelle ?? '2023-11-28 00:00:00'); // Date de départ par défaut (changez si nécessaire)
@@ -70,6 +69,7 @@
     /* var_dump($semainePrecedent);
     var_dump($semaineSuivante);
     exit; */
+    /*
     $contenu .= "<div class='flex justify-between mb-4'>";
     $contenu .= "<a href='?url=Reservations/ShowReservations&semaine=" . $semainePrecedent . "' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Semaine précédente</a>";
     $contenu .= "<a href='?url=Reservations/ShowReservations&semaine=" . $semaineSuivante . "' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Semaine suivante</a>";
@@ -101,11 +101,11 @@
         // Affichage des cellules vides au centre du tableau
         foreach ($joursSemaine as $jour) {
             $dateComp->modify('+1 day');
-            $reservations = $this->manageReservations->IsThereReservation($dateComp->format('y-m-d H:00'));
-
-            if($reservations < 2 ){
+            // $reservations = $this->manageReservations->IsThereReservation($dateComp->format('y-m-d H:00'));
+            
+            $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-green-900'></td>"; // Cellule verte
+            /* if($reservations < 2 ){
                 
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-green-900'></td>"; // Cellule verte
 
             }elseif ($reservations < 4) {
                 
@@ -113,7 +113,7 @@
                 
             }else{
                 $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-red-800'></td>"; // Cellule verte
-            }
+            } *//*
         }
         $dateComp->modify('-7 day');
         $contenu .= "</tr>";
@@ -122,17 +122,27 @@
 
 
 
-
-    /* 
-        for ($i=0; $i < 7 ; $i++) { 
-            # code...
-        }
+    for ($i=0; $i < 7 ; $i++) { 
+        # code...
+    }
+    */ 
         foreach ($reservations as $cle => $ligne)
         {
             $reservation = new administration($ligne);
-            var_dump($reservation);
+            // var_dump($reservation->getDebutReservation());
+            // echo $reservation->getDebutReservation();
         }
- */
+        var_dump($reservations);
+        $reservationTab = json_encode($reservations);
+
+        $contenu .= "
+            <div id='corps'>
+                <div id='contenue'>
+                </div>
+            </div>
+        ";
+        
+/*
     $contenu .= "<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>
                         <h2 class='text-2xl font-bold'>Liste des Reservations : </h2>
@@ -148,6 +158,22 @@
                         <th scope='col' class='p-1 w-1/4'>Action</th>
                     </tr>
                 </thead>
-                <tbody>"; 
+                <tbody>"; */
     include "template.php";
 ?>
+
+<script>
+    // let reservationTab = JSON.parse('<?php  echo $reservationTab; ?>')
+    // console.log(reservationTab);
+
+    // let contenu = document.querySelector("#contenue");
+    // for (let index = 0; index < reservationTab.length; index++) {
+    //     const element = reservationTab[index];
+    //     // contenu.innerHTML = reservationTab[index];
+        
+    //     const dateReservations = document.createElement("div");
+    //     dateReservations.innerText = element.DebutReservation;
+
+    //     contenu.appendChild(dateReservations);
+    // }
+</script>

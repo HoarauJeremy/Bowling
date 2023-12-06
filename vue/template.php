@@ -11,41 +11,8 @@
     
     <!-- Ajout de Tailwind CSS -->
     <link rel="stylesheet" href="./media/css/output.css">
-    <link rel="shortcut icon" href="./media/images/logoBowling.ico" type="image/x-icon">
-    <!-- <style>
-        /* Bar verticale pour le menu */
-        .nav-item:not(:last-child) {
-            border-right: 1px solid black; /* bar verticale */
-            padding-right: 10px; /* ajustement de l'espace pour les bars */
-        }
+    <link rel="shortcut icon" href="./media/images/LogoBowling.ico" type="image/x-icon">
 
-        /* Css pour les menu déroulant */
-        .dropdown-menu {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* CSS pour le contenue du menu déroulant */
-        .dropdown-content {
-            display: ;
-            position: absolute;
-            background-color: #fff;
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-menu:hover .dropdown-content {
-            display: block;
-        }
-
-        /* CSS pour le contenue principale */
-        .main-content {
-            max-width: 800px; /* Ajustement de la taille */
-            margin: 0 auto; /* Centré le bloc d'information principale */
-            padding: 20px; /* Ajout du padding pour l'espacement du contenue */
-        }
-    </style> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
