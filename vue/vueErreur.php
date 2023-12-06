@@ -1,5 +1,5 @@
 <?php
-    $titre = "Bowling du Front de Mer - Erreur"; 
+    $titre = "Erreur - Bowling du Front de Mer"; 
     $contenu = "<div class='flex flex-col items-center text-center'>";
         $contenu .= "<h1 class='font-Roboto font-extrabold text-2xl'>La page recherchée n'a pas été trouvée.</h1>";
         $contenu .= "<img src='media/images/LogoErreur.png' alt='Your Logo' width='350' height='350' class=''>";

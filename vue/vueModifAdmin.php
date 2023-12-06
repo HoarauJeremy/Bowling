@@ -1,5 +1,5 @@
 <?php
-    $titre = "Bowling du Front de Mer - Modification de la reservation";
+    $titre = "Modification - Bowling du Front de Mer";
     
     $url = explode("/", $_GET['url']);
     $val = array_slice($url, 2);

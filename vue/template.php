@@ -16,6 +16,8 @@
     <!-- Ajout des fichiers JS -->
     <script src="./js/menu.js"></script>
     <script src="./js/calendrier.js"></script>
+    <script src="./js/securite.js"></script>
+    <script src="./js/datatable.js"></script>
 
 </head>
 <body class="flex flex-col min-h-screen">

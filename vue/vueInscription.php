@@ -1,5 +1,5 @@
 <?php
-    $titre = "Bowling du Front de Mer - Inscription";
+    $titre = "Inscription - Bowling du Front de Mer";
     $contenu = "<div class='h-auto w-screen ml-20 mr-10 visible' id='edition'>
                     <form action='?url=Inscription/Inscription' method='POST'>
                         <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Mes informations :</h1>

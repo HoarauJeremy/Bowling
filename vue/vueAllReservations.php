@@ -3,7 +3,7 @@
     date_default_timezone_set('Europe/Paris');
     require_once("modele/administration.php");
 
-    $titre = "Bowling du Front de Mer - Reservations";
+    $titre = "Reservations - Bowling du Front de Mer";
     
     $contenu ="<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
                     <div class='px-1 flex flex-row md:justify-between justify-around'>

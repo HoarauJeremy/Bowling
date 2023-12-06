@@ -1,5 +1,5 @@
 <?php
-    $titre = "Bowling du Front de Mer - Connexion";
+    $titre = "Connexion - Bowling du Front de Mer";
     $ErreurConnexion = (isset($ErreurConnexion)) ? '<p class="font-Roboto font-bold text-xl text-red-500 text-center mt-2   ">' . $ErreurConnexion . '</p>' : NULL ;
     $contenu = "<div class='w-5/6 md:w-3/5 mx-auto text-center'>";
         $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center rounded-md mb-10' action='?url=Connexion/Connexion' method='POST'>";

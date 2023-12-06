@@ -4,7 +4,7 @@
 
     $reservationTab = json_encode($reservations);
 
-    $titre = "Reserver";
+        $titre = "Reserver - Bowling du Front de Mer";
     $contenu ="<div class='w-full md:w-3/5 md:mx-auto mt-4 font-Roboto'>
             <div class='px-1 flex flex-row md:justify-between justify-around'>
                 <h2 class='text-2xl font-bold'>Quelques information ! </h2>

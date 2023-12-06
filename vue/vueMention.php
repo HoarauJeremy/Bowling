@@ -1,5 +1,5 @@
     <?php
-    $titre = "Mention Légales";
+    $titre = "Mention Légales - Bowling du Front de Mer";
 
     $contenu = "bonjour";
 

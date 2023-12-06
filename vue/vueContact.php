@@ -1,5 +1,5 @@
 <?php
-    $titre = "Bowling du Front de Mer - Contact";
+    $titre = "Contact - Bowling du Front de Mer";
     $contenu = "<div class='h-auto mx-auto'>";
     $contenu .= "<section>";
     $contenu .= "<div class='w-full text-4xl font-NotoSans font-extrabold'>

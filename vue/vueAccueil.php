@@ -1,6 +1,6 @@
 <?php
 
-    $titre = "Accueil";
+    $titre = "Accueil - Bowling du Front de Mer";
 
     $contenu = "
         <div class='w-full h-full'>

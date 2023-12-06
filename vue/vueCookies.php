@@ -1,5 +1,5 @@
 <?php
-    $titre = "Cookies";
+    $titre = "Cookies - Bowling du Front de Mer";
 
     $contenu = "aurevoir";
 

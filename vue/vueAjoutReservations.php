@@ -2,7 +2,7 @@
 
     require_once("modele/administration.php");
     
-    $titre = "Bowling du Front de Mer - Ajout d'une Reservation";
+    $titre = "Reservations - Bowling du Front de Mer";
     
     $reservations = $this->manageReservations->getReservations();
     
