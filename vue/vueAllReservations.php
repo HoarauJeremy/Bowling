@@ -76,7 +76,7 @@
     $contenu .= "</div>";
 
     // Affichage du tableau horaire avec des classes Tailwind pour les styles
-    $contenu .= "<table class='border-collapse border border-gray-400'>";
+    $contenu .= "<table class='border-collapse border mx-auto border-gray-400'>";
     $contenu .= "<tr><th class='border border-gray-400'></th>"; // Cellule vide en haut à gauche
 
     $dateComp = new DateTime($semaineActuelle ?? '2023-11-28 00:00:00');
@@ -107,13 +107,13 @@
             /* if($reservations < 2 ){
                 
 
-            }elseif ($reservations < 4) {
+            // }elseif ($reservations < 4) {
                 
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-orange-500'></td>"; // Cellule verte
+            //     $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-orange-500'></td>"; // Cellule verte
                 
-            }else{
-                $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-red-800'></td>"; // Cellule verte
-            } *//*
+            // }else{
+            //     $contenu .= "<td class='border border-gray-400 px-4 py-2 bg-red-800'></td>"; // Cellule verte
+            // } *//*
         }
         $dateComp->modify('-7 day');
         $contenu .= "</tr>";

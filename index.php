@@ -6,6 +6,7 @@ require_once('controler/controleurClients.php');
 require_once('controler/controleurContacter.php');
 require_once('controler/controleurReservations.php');
 require_once('controler/controleurProfil.php');
+require_once('controler/controleurInscription.php');
 
 $url = isset($_GET['url']) ? $_GET['url'] : 'Acceuil';
 $urlParts = explode('/', $url);

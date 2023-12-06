@@ -25,22 +25,17 @@
                 $managerProfil = new managerProfil();
             
                 $verifMDP = $managerProfil->getMDP($username);
-            // --- 
-            $type = $managerProfil->getType($username);
-            // --- 
+
+                $type = $managerProfil->getType($username);
 
                 if (password_verify($password, $verifMDP)) {
                     
                     require_once('modele/managerConnexion.php');
                     $managerConnexion = new ManagerConnexion();
-                
                     $count = $managerConnexion->getUtilisateur($username, $verifMDP);
         
                     if ($count['count(*)'] == "1") {
                         $_SESSION['username'] = $username;
-                    // --- 
-                    $_SESSION['type'] = $type;
-                    // ---
                         $_SESSION['CONNECTER'] = "OK";
                         include('vue/vueProfil.php'); 
                     } else { //En cas d'entrée de faux identifiants

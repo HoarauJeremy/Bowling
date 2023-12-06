@@ -10,6 +10,7 @@
             $contenu .= "<input class='font-NotoSans text-xl h-20 w-1/2 px-3 py-4 pr-5 mr-0 inline-block border-spacing-2 border-solid bg-gray-100 box-border' type='password' placeholder='Mot de passe' name='password' required>";
             $contenu .= "<br>";
             $contenu .= "<input class='font-Roboto font-extrabold first-letter:text-2xl bg-red-800 text-white my-3.5 px-10 h-16 w-auto border-none cursor-pointer rounded-full hover:bg-red-900 hover:border-solid hover:border-spacing-0.5' type='submit' id='submit' value='Se Connecter'>";  
+            $contenu .= "<a href='?url=Inscription/PageInscription'>Créer un compte</a>";
         $contenu .= "</form>";
     $contenu .= "</div>";
 
