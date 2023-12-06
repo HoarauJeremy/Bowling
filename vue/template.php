@@ -6,16 +6,16 @@
     <meta name="description" content="Description of your website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Ajout d'un potentielle fichier CSS personnalisé -->
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-    
     <!-- Ajout de Tailwind CSS -->
     <link rel="stylesheet" href="./media/css/output.css">
+    <!-- Ajout de l'icon -->
     <link rel="shortcut icon" href="./media/images/LogoBowling.ico" type="image/x-icon">
-
-
+    <!-- Ajout de datatables -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <!-- Ajout des fichiers JS -->
+    <script src="./js/menu.js"></script>
+    <script src="./js/calendrier.js"></script>
 
 </head>
 <body class="flex flex-col min-h-screen">
@@ -29,21 +29,17 @@
                     <img src="media/images/LogoBowling.png" alt="Logo" width="150" height="150">
                 </span> 
             </a>
-            <!-- Logo -->
 
-            
             <div id="toggled-menu" class="w-full h-screen md:h-28 absolute top-full left-0 -translate-y-full -z-10
                 text-white border-b backdrop-blur-lg md:backdrop-blur-none md:bg-transparent border-gray-200 flex flex-col items-center
                 md:static md:z-10 md:transform-none md:border-none md:flex-row">
                 
                 <ul class="w-11/12 h-5/6 mt-4 mx-auto py-4 px-2 bg-background rounded-xl text-center text-2xl font-bold font-Roboto 
                 md:px-0 md:flex md:flex-row md:items-center md:rounded-none md:w-9/12 md:p-0 md:mt-0">
-            
-                    <!-- A quoi sert cet item ? -->
+
                     <li id="nav-item" class="py-4 text-text font-NotoSans font-extrabold text-5xl mx-auto w-11/12 mt-8 md:hidden">
                         <h1>Menu</h1>
                     </li>
-                    <!-- A quoi sert cet item ? -->
 
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0
                     border-r border-black ">
@@ -63,16 +59,6 @@
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
                         <a href="<?php echo (isset($_SESSION['CONNECTER']) != "OK") ? 'index.php?url=Connexion/PageConnexion' : 'index.php?url=Connexion/EspaceClient'; ?>" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
                     </li>
-         
-                    <!-- Menu déroulant Langue -->
-                    <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
-                        <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
-                        <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
-                            <li><a href="?action=langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
-                            <li><a href="?action=langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
-                        </ul>
-                    </li>
-                    <!-- Menu déroulant Langue -->
                 </ul>
             </div>
 
@@ -143,15 +129,6 @@
                     <li id="nav-item" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0 border-r border-black ">
                         <a href="<?php echo (isset($_SESSION['CONNECTER']) != "OK") ? 'index.php?url=Connexion/PageConnexion' : 'index.php?url=Connexion/EspaceClient'; ?>" class="w-full h-full flex justify-center items-center md:text-xl">Espace Client</a>
                     </li>
-         
-                    <!-- Menu déroulant Langue -->
-                    <!-- <li id="nav-item group relative" class="py-4 bg-primary mx-auto rounded-md w-11/12 mt-8 md:w-full md:h-full md:rounded-none md:py-0 md:mt-0">
-                        <a href="?action=" id="group-hover:text-gray-300" class="w-full h-full flex justify-center items-center md:text-xl">Langue</a>
-                        <ul class="dropdown-content hidden absolute right-0 mt-2 py-2 bg-black border border-gray-200 rounded-lg">
-                            <li><a href="?action=langue=francais" class="block px-4 py-2 text-gray-800">Français</a></li>
-                            <li><a href="?action=langue=english" class="block px-4 py-2 text-gray-800">English</a></li>
-                        </ul>
-                    </li> -->
                 </ul>
             </div>
 
@@ -188,13 +165,6 @@
     <!-- Conteneur du contenue principale -->
     <div class="w-full mt-48 pt-4 md:p-4">
         <main>
-            <!-- Nom de l'entreprise 
-            <div class="hidden md:flex md:bg-gray-300 md:py-2 md:text-center md:text-black md:w-2/5 md:h-14 md:justify-center md:items-center">
-            <div class="bg-gray-300 inline-block px-4 py-2 rounded-md"> 
-            <h1 class="text-2xl font-semibold">Le Bowling du Front de Mer</h1>
-            <</div>
-            </div> -->
-
             <section>
                 <article>
                     <div id="message">
@@ -208,32 +178,12 @@
             </section>
         </main>
     </div>
-<footer class="mt-auto py-6 bg-gray-300 flex items-center justify-evenly md:flex-row flex-col text-lg">
-    <a class='pt-1' href="index.php?action=mention">Mention légales</a>
-    <p class='pt-1'>&copy; Le Bowling du Front de Mer</p>
-    <a class='pt-1' href="index.php?action=cookie">Cookies</a>
-</footer>
+
+    <footer class="mt-auto py-6 bg-gray-300 flex items-center justify-evenly md:flex-row flex-col text-lg">
+        <a class='pt-1' href="index.php?url=Acceuil/mention">Mention légales</a>
+        <p class='pt-1'>&copy; Le Bowling du Front de Mer</p>
+        <a class='pt-1' href="index.php?url=Acceuil/cookie">Cookies</a>
+    </footer>
+
 </body>
 </html>
-
-<script>
-    function toggleNav(){
-        const toggleMenuBtn = document.querySelector("#menu-btn");
-        const toggleMenuImg = document.querySelector("#menu-btn img");
-        const toggledMenu = document.querySelector("#toggled-menu");
-        // const menuLinks = document.querySelector("#main-nav ul a");
-
-        // toggleMenuBtn.addEventListener("click", toggleNav);
-
-        toggledMenu.classList.toggle("-translate-y-full")
-
-        if(toggledMenu.classList.contains("-translate-y-full")) {
-            toggleMenuImg.setAttribute("src", "./media/images/burger-menu-svgrepo-com.svg")
-            toggleMenuBtn.setAttribute("aria-expanded", "false")
-        } 
-        else {
-            toggleMenuImg.setAttribute("src", "./media/images/times-svgrepo-com.svg")
-            toggleMenuBtn.setAttribute("aria-expanded", "true")
-        }
-    } 
-</script>

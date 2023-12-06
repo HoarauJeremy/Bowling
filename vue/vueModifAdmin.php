@@ -72,5 +72,3 @@
 
     include "template.php";
 ?>
-
-<!-- <h3>Réservation du client : ".$reservation->getClient()."</h3> -->
