@@ -6,10 +6,10 @@
             parent :: __construct();
         }
 
-        public function insertClient($iduser, $prenom, $nom, $naissance, $email, $ptsfidelite, $password){
-            $sql = "INSERT INTO Clients (IdUser, NomClients, PrenomClients, DateNaissClients, EmailClients, PointClients) VALUES (IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=?)";
+        public function insertClient($prenom, $nom, $naissance, $email, $ptsfidelite, $password){
+            $sql = "INSERT INTO Clients (IdUser, NomClients, PrenomClients, DateNaissClients, EmailClients, PointClients) VALUES (NULL, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=?)";
             $rqt = $this->cnx->prepare($sql);
-            $rqt->execute([$iduser, $prenom, $nom, $naissance, $email, $ptsfidelite]);
+            $rqt->execute([$prenom, $nom, $naissance, $email, $ptsfidelite]);
             
             //Mettre dans un IF pour le client pour vérifier qu'on insère pour le BON idUser
 

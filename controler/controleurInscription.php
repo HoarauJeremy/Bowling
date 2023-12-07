@@ -6,7 +6,6 @@
 
         public function Inscription() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $iduser = 0;
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];
                 $naissance = $_POST["naissance"];
@@ -17,7 +16,7 @@
 
             require_once('modele/managerInscription.php');
             $managerInscription = new managerInscription();
-            $managerInscription->updateClients($id, $prenom, $nom, $naissance, $email, $ptsfidelite);
+            $managerInscription->insertClient($prenom, $nom, $naissance, $email, $ptsfidelite, $password);
         }
 
     }
