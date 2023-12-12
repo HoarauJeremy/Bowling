@@ -6,17 +6,21 @@
             parent :: __construct();
         }
 
-        public function insertClient($prenom, $nom, $naissance, $email, $ptsfidelite, $password){
-            $sql = "INSERT INTO Clients (IdUser, NomClients, PrenomClients, DateNaissClients, EmailClients, PointClients) VALUES (NULL, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=?)";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute([$prenom, $nom, $naissance, $email, $ptsfidelite]);
-            
-            //Mettre dans un IF pour le client pour vérifier qu'on insère pour le BON idUser
+        public function insertUtilisateur($prenom, $nom, $naissance, $email, $ptsfidelite, $password){  
 
-            // $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-            // $sql = "INSERT INTO Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
-            // $rqt = $this->cnx->prepare($sql);
-            // $rqt->execute([$email, $hashedPassword, $username]);
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+            $sql = "INSERT INTO Utilisateur (IdUser, LoginUser, MdpUser, typeUser) VALUES (?, ?, ?, ?)";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute([NULL, $email, $hashedPassword, 1]);
+
+            $sql = "INSERT INTO Clients (NomClients, PrenomClients, DateNaissClients, EmailClients, PointClients) VALUES (?, ?, ?, ?, ?)";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute([$nom, $prenom, $naissance, $email, $ptsfidelite]);
+
+            require_once("controler/controleurConnexion.php");
+            $controleurConnexion = new controleurConnexion();
+            $controleurConnexion->PageConnexion();
         }
     }
 ?>

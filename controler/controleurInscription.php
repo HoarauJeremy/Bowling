@@ -16,7 +16,7 @@
 
             require_once('modele/managerInscription.php');
             $managerInscription = new managerInscription();
-            $managerInscription->insertClient($prenom, $nom, $naissance, $email, $ptsfidelite, $password);
+            $managerInscription->insertUtilisateur($prenom, $nom, $naissance, $email, $ptsfidelite, $password);
         }
 
     }
