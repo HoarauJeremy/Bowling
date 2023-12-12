@@ -8,7 +8,13 @@
             parent::__construct();
         }
 
-        // Récupère l'nesemble des réservation ainsi que leurs informations
+        /**
+         * Récupère l'ensemble des réservation ainsi que leurs informations
+         *
+         * @param   None
+         *
+         * @return  array        $reservation       Table des réservation
+        */
         public function getReservations()
         {
             $sql = "SELECT * FROM Reservation;";
@@ -19,7 +25,13 @@
             return $reservations;
         }
 
-        // Récupère les données d'une reservation et du client déterminé par le numero de la reservation
+        /**
+         * Récupère les données d'une reservation
+         * 
+         * @param   int         $id                 Identifiant de la réservation
+         *
+         * @return  array        $reservation       Table d'informations de la réservation
+        */
         public function getReservation($id)
         {
             $sql = "SELECT * FROM vueReservation WHERE NumReservation = ?;";
@@ -30,7 +42,14 @@
             return $reservation;
         }
         
-        // Récupère les données d'une reservation déterminé par le numero de la reservation
+
+        /**
+         * Récupère les données d'une reservation déterminé par le numero de la reservation
+         *
+         * @param   int         $id                 Identifiant de la réservation
+         *
+         * @return  array       $reservation        Table d'informations de la réservation
+        */
         public function getRes($id)
         {
             $sql = "SELECT * FROM Reservation WHERE IdReservation = ?;";
@@ -41,38 +60,58 @@
             return $reservation;
         }
 
-        // Supprime les données d'une reservation déterminé par son id
+
+        /**
+         * Supprime les données d'une reservation déterminé par son id
+         *
+         * @param   int         $id                 Identifiant de la réservation
+         *
+         * @return  None
+        */
         public function deleteReservation($id)
         {
             $sql = "DELETE FROM Reservation WHERE IdReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
-            $resultat = $rqt->execute(array($id));
-            return $resultat;
+            $rqt->execute(array($id));
         }
 
-        // Ajouter une reservation
+
+        /**
+         * Ajout d'une reservation par ses informations
+         *
+         * @param   array       $reservation        Information concernant la réservation
+         *
+         * @return  None
+        */
         public function addReservation(array $reservation)
         {
             $sql = "INSERT INTO adherent(IdReservation, NbrPersonne, PrixReservation, DateDebutReservation, DateDeFinReservation, IdFormule, IdPiste) VALUES(?,?,?,?,?,?,?,?)";
             $rqt = $this->cnx->prepare($sql);
-            $resultat  = $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6]));
-            return $resultat;
+            $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6]));
         }
 
 
-        // Modifier une reservation
+
+        /**
+         * Modifier les informations d'une reservation
+         *
+         * @param   int         $id                 Identifiant de la réservation
+         *
+         * @return  None
+        */
         public function updateReservation(array $reservation)
         {
-            $sql = "UPDATE Reservation SET PrixReservation = ?, PrixReservation = ?, DateDebutReservation = ?, DateDeReservation = ? IdPiste = ?";
+            $sql = "UPDATE Reservation SET DateDebutReservation = ?, DateDeReservation = ? IdPiste = ?";
             $rqt = $this->cnx->prepare($sql);
-            $resultat  = $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4]));
-            return $resultat;
+            $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4]));
         }
 
         /**
          * definit le format de la date en version française
-         * @param $dateCreate
-         * @return string
+         * 
+         * @param   DateTime    $dateCreate         Date de départ
+         * 
+         * @return  string                          String de la date dans le format souhaiter
          */
         static function formatDate(DateTime $dateCreate) {
             $jour = $dateCreate->format('d');
@@ -81,7 +120,8 @@
             $mois = array(1=>" janvier "," février "," mars "," avril "," mai "," juin "," juillet "," août "," septembre "," octobre "," novembre "," décembre ");
             return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
         }
-
+        
+        
         public function ShowReservations(){
             $sql = "SELECT DebutReservation, FinReservation FROM Reservation;";
             $rqt = $this->cnx->prepare($sql);
@@ -93,6 +133,7 @@
             return $reservations;
         }
 
+        
         public function IsThereReservation($date){
             $sql = "SELECT count(IdPiste) FROM Reservation WHERE DebutReservation > timestamp('$date');";
             $rqt = $this->cnx->prepare($sql);
