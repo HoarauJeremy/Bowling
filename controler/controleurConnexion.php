@@ -54,6 +54,7 @@
             
             public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
             {
+                session_unset();
                 session_destroy();
                 session_abort();
                 header('Location: index.php');

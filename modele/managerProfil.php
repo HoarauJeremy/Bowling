@@ -51,7 +51,7 @@
             }
 
         // Fonction permettant la mise à jour des informations d'un utilisateur
-        public function updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite) {
+        public function updateClient($prenom, $nom, $naissance, $email, $username) {
             require_once('controler/controleurProfil.php');
         
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -64,24 +64,31 @@
             $rqt->execute([$email]);
         
             if ($rqt->fetchColumn() < 1) {
-                $sql = "UPDATE Clients SET IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=?, PointClients=? WHERE EmailClients=?";
+                $sql = "UPDATE Utilisateur SET LoginUser=? WHERE LoginUser=?";
                 $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$iduser, $nom, $prenom, $naissance, $email, $ptsfidelite, $username]);
-        
-                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-                $sql = "UPDATE Utilisateur SET LoginUser=?, MdpUser=? WHERE LoginUser=?";
+                $rqt->execute([$email, $username]);
+
+                $sql = "UPDATE Clients SET IdUser=?, NomClients=?, PrenomClients=?, DateNaissClients=?, EmailClients=? WHERE EmailClients=?";
                 $rqt = $this->cnx->prepare($sql);
-                $rqt->execute([$email, $hashedPassword, $username]);
-        
+                $rqt->execute([$iduser, $nom, $prenom, $naissance, $email, $username]);
+
                 require_once('controler/controleurConnexion.php');
                 $managerConnexion = new ControleurConnexion();
-        
                 $managerConnexion->Deconnexion();
             } else {
-                $ErreurEmail = "L'email saisi est déjà utilisé par un autre compte !";
+                $ErreurEmail = "L'email saisi est déjà utilisé !";
                 include("vue/vueProfil.php");
             }
         }
-        
+
+        public function newMDP($hashedPassword, $username) {
+            $sql = "UPDATE Utilisateur SET MdpUser=? WHERE LoginUser=?";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute([$hashedPassword, $username]);
+
+            require_once('controler/controleurConnexion.php');
+            $managerConnexion = new ControleurConnexion();
+            $managerConnexion->Deconnexion();
+        }
     }
 ?>
