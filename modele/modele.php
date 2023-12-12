@@ -21,11 +21,12 @@
             $this->dbname = "bowlingdufrontdemer_db";                       // Nom de la BD            
             $this->user   = $type;                                          // Utilisateur
 
-            if ($type == 'client') {
-                $this->passwd = "Client_123";                               // Mot de Passe Client
+           /*  if ($type == '329923_') {
+                $this->passwd = "Abc_1234";                               // Mot de Passe Client
             } else {
-                $this->passwd = "Abc_1234";                                 // Mot de Passe Admin
-            }
+                $this->passwd = "Client_123";                                 // Mot de Passe Admin
+            } */
+            $this->passwd = "Abc_1234";
 
             $this->sgbd   = "mysql";                                        // Server de Gestion de Base de donnée
 
