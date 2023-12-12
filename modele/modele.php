@@ -1,5 +1,5 @@
 <?php
-    /* Accès à la base de données *************************/
+    /* Accès à la base de données */
     class Connexiondb {
         // Définition des attributs
         protected $host;
@@ -11,12 +11,22 @@
         protected $cnx;
 
         // Constructeur initialisation des données
-        public function __construct(){
+        /*
+        Rappel : 2 compte utilisateur (Admin / Client général)
+        Le client n'a acces qu'à ces informations et ce qu'il à le droit de modifier
+        */
+        public function __construct($type){
             $this->host   = "mysql-bowlingdufrontdemer.alwaysdata.net";     // Hôte de la base de donnée
             $this->port   = 3306;                                           // Port
             $this->dbname = "bowlingdufrontdemer_db";                       // Nom de la BD            
-            $this->user   = "329923";                                       // Utilisateur 
-            $this->passwd = "Abc_1234";                                     // Mot de Passe
+            $this->user   = $type;                                          // Utilisateur
+
+            if ($type == 'client') {
+                $this->passwd = "Client_123";                               // Mot de Passe Client
+            } else {
+                $this->passwd = "Abc_1234";                                 // Mot de Passe Admin
+            }
+
             $this->sgbd   = "mysql";                                        // Server de Gestion de Base de donnée
 
             $this->cnx = null;                                              // Initialisation de la connexion à NULL
