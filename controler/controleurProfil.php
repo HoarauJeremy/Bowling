@@ -6,12 +6,11 @@
         }
 
         public function getProfil() {      
-            $username = $_SESSION['username'];
+            $login = $_SESSION['login'];
 
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
-            
-            $informationsUtilisateur = $managerProfil->getInformationsUtilisateur($username);
+            $informationsUtilisateur = $managerProfil->getInformationsUtilisateur($login);
 
             if (is_array($informationsUtilisateur)) {
                 $iduser = $informationsUtilisateur['IdUser'];
@@ -30,22 +29,30 @@
             }
         }
 
-        public function updateClient() {
+        public function updateInfos() {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $iduser = $_POST["iduser"];
                 $prenom = $_POST["prenom"];
                 $nom = $_POST["nom"];
                 $naissance = $_POST["naissance"];
                 $email = $_POST["email"];
-                $password = $_POST["password"];
-                $ptsfidelite = $_POST["ptsfidelite"];
-                $username = $_SESSION['username'];
+                $login = $_SESSION["login"];
             }
 
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
-            
-            $managerProfil->updateUtilisateur($prenom, $nom, $naissance, $email, $password, $ptsfidelite);
+            $managerProfil->updateClient($prenom, $nom, $naissance, $email, $login);
+        }
+
+        public function updateMDP() {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $password = $_POST["password"];
+                $login = $_SESSION['login'];
+            }
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            require_once('modele/managerProfil.php');
+            $managerProfil = new ManagerProfil();
+            $managerProfil->newMDP($hashedPassword, $login);
         }
     }
 ?>
