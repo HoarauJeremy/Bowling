@@ -13,10 +13,11 @@
     $contenu .= "<table id='reservations' class='table w-full mt-2 border border-gray-500'>
                 <thead>
                     <tr class='text-lg'>
-                        <th scope='col' class='p-1 w-1/4 break-all md:p-3'>Reservation</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Début de la réservation</th>
-                        <th scope='col' class='p-1 w-1/4 break-keep'>Fin de la réservation</th>
-                        <th scope='col' class='p-1 w-1/4'>Action</th>
+                        <th scope='col' class='p-1 w-1/5 break-all md:p-3'>Reservation</th>
+                        <th scope='col' class='p-1 w-1/5 break-keep'>Début de la réservation</th>
+                        <th scope='col' class='p-1 w-1/5 break-all'>Heure de debut de la réservation</th>
+                        <th scope='col' class='p-1 w-1/5 break-all'>Heure de fin de la réservation</th>
+                        <th scope='col' class='p-1 w-1/5'>Action</th>
                     </tr>
                 </thead>
                 <tbody>"; 
@@ -24,14 +25,14 @@
     foreach ($reservations as $cle => $ligne)
     {
         $reservation = new administration($ligne);
-        $dateDebutReservation = $this->manageReservations->formatDate(date_create($reservation->getDebutReservation()));
-        $dateFinReservation = $this->manageReservations->formatDate(date_create($reservation->getFinReservation()));
+        $dateReservation = $this->manageReservations->formatDate(date_create($reservation->getDateReservation()));
 
 
         $contenu .="<tr class='border-t h-16 border-black md:hover:bg-accent odd:bg-gray-200 text-center group'>
                         <th scope='row' class='p-2'>".$reservation->getIdReservation()."</th>
-                        <td class='p-1'>".$dateDebutReservation."</td>
-                        <td class='p-1'>".$dateFinReservation."</td>
+                        <td class='p-1'>".$dateReservation."</td>
+                        <td class='p-1'>".$reservation->getHeureDebut()."</td>
+                        <td class='p-1'>".$reservation->getHeureFin()."</td>
                         <td class='p-1'>
                             <a class='px-2 py-1 bg-primary rounded shadow shadow-secondary text-background font-bold group-hover:shadow-primary' title='Détails' href='?url=Reservations/reservation/".$reservation->getIdReservation()."'>Détails</a>
                         </td>

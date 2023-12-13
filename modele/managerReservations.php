@@ -116,9 +116,13 @@
         static function formatDate(DateTime $dateCreate) {
             $jour = $dateCreate->format('d');
             $annee = $dateCreate->format('Y');
-            $heure = $dateCreate->format('H\hi');        
             $mois = array(1=>" janvier "," février "," mars "," avril "," mai "," juin "," juillet "," août "," septembre "," octobre "," novembre "," décembre ");
-            return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee .' à '. $heure;
+            return $jour.' '. $mois[$dateCreate->format('m')] .' '. $annee;
+        }
+        
+        static function formatHeure(DateTime $HeureCreate) {
+            $heure = $HeureCreate->format('H\hi');
+            return $heure;
         }
         
         

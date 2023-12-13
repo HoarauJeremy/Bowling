@@ -10,7 +10,7 @@ $(document).ready( function () {
             infoPostFix: "",
             loadingRecords: "Chargement en cours...",
             zeroRecords: "Aucun &eacute;l&eacute;ment &agrave afficher",
-            emptyTable: "Aucune donnée disponible dans le tableu",
+            emptyTable: "Aucune donnée disponible dans le tableau",
             paginate: {
                 first: "Premier",
                 previous: "Précedent ",
@@ -33,7 +33,7 @@ $(document).ready( function () {
             infoPostFix: "",
             loadingRecords: "Chargement en cours...",
             zeroRecords: "Aucun &eacute;l&eacute;ment &agrave afficher",
-            emptyTable: "Aucune donnée disponible dans le tableu",
+            emptyTable: "Aucune donnée disponible dans le tableau",
             paginate: {
                 first: "Premier",
                 previous: "Précedent ",

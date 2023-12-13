@@ -29,8 +29,10 @@
             return $client;
         }
 
-        public function addClient() {
-
+        public function deleteClient($id) {
+            $sql = "DELETE FROM Clients where idUser = ?";
+            $rqt = $this->cnx->prepare($sql);
+            $rqt->execute(array($id));
         }
         
         /**
