@@ -5,7 +5,7 @@
         $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center rounded-md mb-10' action='?url=Connexion/Connexion' method='POST'>";
             $contenu .= "<img src='media/images/LogoConnexion.png' alt='Your Logo' width='120' height='120'>";
             $contenu .= "$ErreurConnexion";
-            $contenu .= "<input class='font-NotoSans text-xl h-20 w-1/2 px-3 py-4 pr-5 mt-5 mr-0 inline-block border-spacing-0.5 border-solid bg-gray-100 box-border' type='email' placeholder='Utilisateur' name='username' required>";
+            $contenu .= "<input class='font-NotoSans text-xl h-20 w-1/2 px-3 py-4 pr-5 mt-5 mr-0 inline-block border-spacing-0.5 border-solid bg-gray-100 box-border' type='email' placeholder='Utilisateur' name='login' required>";
             $contenu .= "<br>";
             $contenu .= "<input class='font-NotoSans text-xl h-20 w-1/2 px-3 py-4 pr-5 mr-0 inline-block border-spacing-2 border-solid bg-gray-100 box-border' type='password' placeholder='Mot de passe' name='password' required>";
             $contenu .= "<br>";

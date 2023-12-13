@@ -878,14 +878,6 @@ video {
   width: 20%;
 }
 
-.table-fixed {
-  table-layout: fixed;
-}
-
-.border-collapse {
-  border-collapse: collapse;
-}
-
 .border-spacing-0 {
   --tw-border-spacing-x: 0px;
   --tw-border-spacing-y: 0px;
@@ -1208,11 +1200,6 @@ video {
   padding-right: 0.75rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -1347,6 +1334,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
 .underline {
