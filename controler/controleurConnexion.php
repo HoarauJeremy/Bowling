@@ -18,24 +18,24 @@
 
             public function Connexion() //Gère la connexion de l'utilisateur sur la page
             {
-                $username = ($_POST['username']); 
+                $login = ($_POST['login']); 
                 $password = ($_POST['password']);
 
                 require_once('modele/managerProfil.php');
                 $managerProfil = new managerProfil();
             
-                $verifMDP = $managerProfil->getMDP($username);
+                $verifMDP = $managerProfil->getMDP($login);
 
-                $type = $managerProfil->getType($username);
+                $type = $managerProfil->getType($login);
 
                 if (password_verify($password, $verifMDP)) {
                     
                     require_once('modele/managerConnexion.php');
                     $managerConnexion = new ManagerConnexion();
-                    $count = $managerConnexion->getUtilisateur($username, $verifMDP);
+                    $count = $managerConnexion->getUtilisateur($login, $verifMDP);
         
                     if ($count['count(*)'] == "1") {
-                        $_SESSION['username'] = $username;
+                        $_SESSION['login'] = $login;
                         $_SESSION['CONNECTER'] = "OK";
                         include('vue/vueProfil.php'); 
                     } else { //En cas d'entrée de faux identifiants
