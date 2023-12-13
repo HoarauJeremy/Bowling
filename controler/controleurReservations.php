@@ -26,13 +26,13 @@ class controleurReservations
         }
     }
 
-    public function ajouter() {
-        $reservations = $this->manageReservations->getReservations();
-        include 'vue/vueAjoutReservations.php';
-    }
+    public function addReservation() {
+        $currentDateTime = new DateTime('now');
+        $currentDate = $currentDateTime->format('Y-m-d H:m:s');
 
-    public function add() {
-        $reservation = $this->manageReservations->addReservation();
+        $data = array($_POST['NbPers'],$currentDate,$_POST['HD'],$_POST['HF'],$_POST['Formule'],$_POST['mailClient']);
+        $reservation = $this->manageReservations->addReservation($data);
+        include 'vue/vueAllReservations.php';
 
     }
 
@@ -59,7 +59,7 @@ class controleurReservations
 
     public function ShowReservations () {
         $reservations = $this->manageReservations->ShowReservations();
-        include 'vue/vueTest.php';
+        include 'vue/vueAllReservations.php';
     }
 
     public function IsThereReservation($date){

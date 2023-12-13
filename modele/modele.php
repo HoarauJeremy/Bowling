@@ -15,17 +15,11 @@
         Rappel : 2 compte utilisateur (Admin / Client général)
         Le client n'a acces qu'à ces informations et ce qu'il à le droit de modifier
         */
-        public function __construct($type){
+        public function __construct(){
             $this->host   = "mysql-bowlingdufrontdemer.alwaysdata.net";     // Hôte de la base de donnée
             $this->port   = 3306;                                           // Port
             $this->dbname = "bowlingdufrontdemer_db";                       // Nom de la BD            
-            $this->user   = $type;                                          // Utilisateur
-
-           /*  if ($type == '329923_') {
-                $this->passwd = "Abc_1234";                               // Mot de Passe Client
-            } else {
-                $this->passwd = "Client_123";                                 // Mot de Passe Admin
-            } */
+            $this->user   = '329923';                                       // Utilisateur
             $this->passwd = "Abc_1234";
 
             $this->sgbd   = "mysql";                                        // Server de Gestion de Base de donnée

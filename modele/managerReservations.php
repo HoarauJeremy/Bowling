@@ -83,11 +83,11 @@
          *
          * @return  None
         */
-        public function addReservation(array $reservation)
+        public function addReservation(array $data)
         {
-            $sql = "INSERT INTO adherent(IdReservation, NbrPersonne, PrixReservation, DateDebutReservation, DateDeFinReservation, IdFormule, IdPiste) VALUES(?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO Reservation (NbrPersonne, PrixReservation,DateReservation, HeureDebut, HeureFin,IdFormule, MailReservation) VALUES(?,?,?,?,?,?,?)";
             $rqt = $this->cnx->prepare($sql);
-            $rqt->execute(array($reservation[0], $reservation[1], $reservation[2], $reservation[3], $reservation[4], $reservation[5], $reservation[6]));
+            $rqt->execute(array($data[0], 1 ,$data[1], $data[2], $data[3], $data[4], $data[5]));
         }
 
 
@@ -123,7 +123,7 @@
         
         
         public function ShowReservations(){
-            $sql = "SELECT DebutReservation, FinReservation FROM Reservation;";
+            $sql = "SELECT HeureDebut, HeureFin FROM Reservation;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute();
             $reservations = $rqt->fetchAll(PDO::FETCH_ASSOC);
