@@ -11,6 +11,11 @@
                 include("vue/vueConnexion.php");
             }
 
+            public function MDPOublie() //Redirige vers l'espace client de l'utilisateur
+            {
+                include("vue/vueMDPOublie.php");
+            }
+
             public function EspaceClient() //Redirige vers l'espace client de l'utilisateur
             {
                 include("vue/vueProfil.php");

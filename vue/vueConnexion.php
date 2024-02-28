@@ -11,6 +11,8 @@
             $contenu .= "<br>";
             $contenu .= "<input class='font-Roboto font-extrabold first-letter:text-2xl bg-red-800 text-white my-3.5 px-10 h-16 w-auto border-none cursor-pointer rounded-full hover:bg-red-900 hover:border-solid hover:border-spacing-0.5' type='submit' id='submit' value='Se Connecter'>";  
             $contenu .= "<a href='?url=Inscription/PageInscription'>Créer un compte</a>";
+            $contenu .= "<br>";
+            $contenu .= "<a href='?url=Connexion/MDPOublie'>J'ai oublié mon mot de passe !</a>";
         $contenu .= "</form>";
     $contenu .= "</div>";
 
