@@ -5,9 +5,7 @@
 
         }
 
-        public function getProfil() {      
-            $login = $_SESSION['login'];
-
+        public function getProfil($login) {      
             require_once('modele/managerProfil.php');
             $managerProfil = new ManagerProfil();
             $informationsUtilisateur = $managerProfil->getInformationsUtilisateur($login);

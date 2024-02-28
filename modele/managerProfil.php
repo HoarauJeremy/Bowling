@@ -72,6 +72,7 @@
                 $rqt = $this->cnx->prepare($sql);
                 $rqt->execute([$iduser, $nom, $prenom, $naissance, $email, $login]);
 
+                $_SESSION['login'] = $email;
                 $UpdateInfos = "Informations mises à jour avec succès !";
                 include('vue/vueProfil.php');
             } else {

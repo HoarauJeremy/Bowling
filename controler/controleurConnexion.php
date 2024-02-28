@@ -37,8 +37,10 @@
                     if ($count['count(*)'] == "1") {
                         $_SESSION['login'] = $login;
                         $_SESSION['CONNECTER'] = "OK";
+                        $_SESSION['type'] = $type;
                         include('vue/vueProfil.php'); 
                     } else { //En cas d'entrée de faux identifiants
+                        $_SESSION['type'] = 0;
                         $ErreurConnexion = "Identifiant ou mot de passe incorrect !";
                         include("vue/vueConnexion.php");
                         session_destroy();
