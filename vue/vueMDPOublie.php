@@ -32,14 +32,14 @@ if(isset($_POST['send_code'])) {
         $mail = new PHPMailer(true); // Paramètre true activera les exceptions
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.example.com'; // Remplacez par le serveur SMTP approprié
+            $mail->Host = 'smtp-bowlingdufrontdemer.alwaysdata.net'; // Remplacez par le serveur SMTP approprié
             $mail->SMTPAuth = true;
-            $mail->Username = 'your_email@example.com'; // Remplacez par votre adresse e-mail
-            $mail->Password = 'your_password'; // Remplacez par le mot de passe de votre adresse e-mail
-            $mail->SMTPSecure = 'tls'; // Vous pouvez utiliser 'tls' ou 'ssl' selon votre serveur SMTP
+            $mail->Username = 'bowlingdufrontdemer@alwaysdata.net'; // Remplacez par votre adresse e-mail
+            $mail->Password = 'Abc_1234'; // Remplacez par le mot de passe de votre adresse e-mail
+            //$mail->SMTPSecure = 'tls'; // Vous pouvez utiliser 'tls' ou 'ssl' selon votre serveur SMTP
             $mail->Port = 587; // Port SMTP approprié
 
-            $mail->setFrom('your_email@example.com', 'Your Name'); // Remplacez par votre adresse e-mail et votre nom
+            $mail->setFrom('bowlingdufrontdemer@alwaysdata.net', 'Bowling Du Front de Mer'); // Remplacez par votre adresse e-mail et votre nom
             $mail->addAddress($to); // Adresse e-mail de destination
 
             $mail->isHTML(false); // Définir le format de l'e-mail sur texte brut
