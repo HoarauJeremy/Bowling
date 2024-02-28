@@ -41,35 +41,14 @@ class controleurClients
         include 'vue/vueAjoutClients.php';
     }
 
-    public function add() {
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $dateN = $_POST['date'];
-        $email = $_POST['email'];
-        
-        $this->manageClients->addClient($nom, $prenom, $dateN, $email);
-    }
-    
-    /*
-    public function modifier ($id) {
-        $element = $this->manageClients->getClient($id);
-        if ($element != null) {
-            require_once("modele/client.php");
-            $modifreservation = new client($element);
-            include 'vue/vueModifAdmin.php';
-        } else {
-            include 'vue/vueErreur.php';
-        }
-    } */
-
-/*     public function supprimer ($id) {
+    public function supprimer ($id) {
         $element = $this->manageClients->deleteClient($id);
         if ($element != null) {
             $message = "La réservation n° ".$id." a été supprimé avec succès!";
-            header('Location: index.php?url=Reservations/');
+            header('Location: index.php?url=Clients/clients');
         } else {
-            include 'vue/vueReservations.php';
+            include 'vue/vueErreur.php';
         }
-    } */
+    }
 
 }

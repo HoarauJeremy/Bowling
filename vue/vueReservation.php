@@ -7,18 +7,19 @@
     
     $reservation = new administration($element);
 
+    $dateCreaReservation = $this->manageReservations->formatDate(new DateTime($reservation->getDateCreaRes()));
     $dateDeReservation = $this->manageReservations->formatDate(new DateTime($reservation->getDateReservation()));
-    $dateDebutReservation = $this->manageReservations->formatDate(new DateTime($reservation->getDebutReservation()));
-    $dateFinReservation = $this->manageReservations->formatDate(new DateTime($reservation->getFinReservation()));
+    $HeureDebutReservation = $this->manageReservations->formatHeure(new DateTime($reservation->getHeureDebut()));
+    $HeureFinReservation = $this->manageReservations->formatHeure(new DateTime($reservation->getHeureFin()));
 
     $contenu = "<div class='w-5/6 md:w-3/5 mx-auto p-3'>
                     <h2 class='text-2xl font-bold underline'>Fiche Reservation n° : ".$reservation->getIdReservation()."</h2>
                     <section class='my-2 md:pl-2'> 
                         <ul>
-                            
-                            <li class=''><strong> Date de reservation : </strong>" . $dateDeReservation . " </li> 
+                            <li class=''><strong> Date de la creation de la reservation : </strong>" . $dateCreaReservation . " </li> 
                             <li class=''><strong> Nombre de personne : </strong>" . $reservation->getNbrPersonne() . " </li>
-                            <li class=''><strong> Reservation du : </strong>" . $dateDebutReservation . " <strong>au : </strong>" . $dateFinReservation . " </li>";
+                            <li class=''><strong> Reservation du : </strong>".  $dateDeReservation 
+                            ."<strong> de </strong>" . $HeureDebutReservation . " <strong>à : </strong>" . $HeureFinReservation . " </li>";
 
                             $resTab = [1 => "Classique", 2 => "Anniversaire", 3 => "Professionnel"];
                             foreach ($resTab as $key => $value) {

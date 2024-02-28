@@ -24,7 +24,6 @@
 
                         <div class='w-full h-auto p-3 flex justify-end items-center font-medium'>
                             <a title='Modification' class='bg-green-500 hover:bg-green-600 py-2 px-3 mx-1 rounded shadow shadow-secondary' href='?url=Clients/reservations/".$client->getIdUser()."'>Voir les réservation</a>
-                            <a title='Modification' class='bg-orange-500 hover:bg-orange-600 py-2 px-3 mx-1 rounded shadow shadow-secondary' href='?url=Clients/modifier/".$client->getIdUser()."'>Modifier</a>
                             <a title='Suppression' class='bg-red-500 hover:bg-red-600 py-2 px-3 mx-1 rounded shadow shadow-secondary' href='?url=Clients/supprimer/".$client->getIdUser()."' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cette reservation?\");'>Supprimer</a>
                         </div>
 
