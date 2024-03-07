@@ -82,6 +82,18 @@
                 }
             }
             
+            public function NouvMDP()
+            {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $email = $_SERVER["email"];
+                    $password = $_POST["password"];
+                }
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                require_once('modele/managerProfil.php');
+                $managerProfil = new ManagerProfil();
+                $managerProfil->newMDP($hashedPassword, $login);
+            }
+
             public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
             {
                 session_unset();
