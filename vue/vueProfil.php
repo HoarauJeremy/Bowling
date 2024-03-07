@@ -10,8 +10,6 @@
     $nom = $profilInfo['nom'];
     $naissance = $profilInfo['naissance'];
     $ptsfidelite = $profilInfo['ptsfidelite'];
-    var_dump($_SESSION['login']);
-    var_dump($controleurProfil->getProfil($login));
 
     $ErreurEmail = (isset($ErreurEmail)) ? '<p class="font-Roboto font-bold text-xl text-red-500 text-center mt-2">' . $ErreurEmail . '</p>' : NULL ;
     $UpdateInfos = (isset($UpdateInfos)) ? '<p class="font-Roboto font-bold text-xl text-green-500 text-center mt-2">' . $UpdateInfos . '</p>' : NULL ;

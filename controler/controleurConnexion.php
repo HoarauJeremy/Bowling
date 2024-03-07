@@ -25,26 +25,25 @@
             
             function ValidCode() 
             {
-                require 'vendor/autoload.php'; // Inclure l'autoloader de Composer
-            
-                // Vérification si le formulaire a été soumis
-                if(isset($_POST['email']) && isset($_POST['code'])) {
-                    $email = $_POST['email'];
+                if (empty($_POST['code'])) {
+                    $ErreurCode = "Aucun code n'a été rentré.";
+                    include("vue/vueMDPOublie.php");
+                } else {
                     $code_entre = $_POST['code'];
+                    $email = $_SESSION['email'];
                     $code_envoye = $_SESSION['confirmationCode'];
                     
                     if($code_entre == $code_envoye) {
                         include("vue/vueNouvMDP.php");
                         exit();
                     } else {
-                        //echo "<p style='color:red;'>Le code de confirmation est incorrect. Veuillez réessayer.</p>";
-                        include("index.php");
-                        exit();
+                        $ErreurCode = "Les codes ne correspondent pas !";
+                        include("vue/vueMDPOublie.php");
                     }
                 }
             }
-            
-
+        
+    
             public function Connexion() //Gère la connexion de l'utilisateur sur la page
             {
                 $login = ($_POST['login']); 
