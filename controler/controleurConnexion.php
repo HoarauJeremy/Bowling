@@ -21,30 +21,6 @@
                 include("vue/vueProfil.php");
             }
 
-
-            
-            function ValidCode() 
-            {
-                require 'vendor/autoload.php'; // Inclure l'autoloader de Composer
-            
-                // Vérification si le formulaire a été soumis
-                if(isset($_POST['email']) && isset($_POST['code'])) {
-                    $email = $_POST['email'];
-                    $code_entre = $_POST['code'];
-                    $code_envoye = $_SESSION['confirmationCode'];
-                    
-                    if($code_entre == $code_envoye) {
-                        include("vue/vueNouvMDP.php");
-                        exit();
-                    } else {
-                        //echo "<p style='color:red;'>Le code de confirmation est incorrect. Veuillez réessayer.</p>";
-                        include("index.php");
-                        exit();
-                    }
-                }
-            }
-            
-
             public function Connexion() //Gère la connexion de l'utilisateur sur la page
             {
                 $login = ($_POST['login']); 
@@ -83,6 +59,18 @@
                 }
             }
             
+            public function NouvMDP()
+            {
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $email = $_SERVER["email"];
+                    $password = $_POST["password"];
+                }
+                $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+                require_once('modele/managerProfil.php');
+                $managerProfil = new ManagerProfil();
+                $managerProfil->newMDP($hashedPassword, $login);
+            }
+
             public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
             {
                 session_unset();
