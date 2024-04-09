@@ -15,6 +15,5 @@
             $contenu .= "<a href='?url=Connexion/MDPOublie'>J'ai oublié mon mot de passe !</a>";
         $contenu .= "</form>";
     $contenu .= "</div>";
-
     include "template.php";
 ?>
