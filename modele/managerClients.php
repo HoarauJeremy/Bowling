@@ -29,10 +29,30 @@
             return $client;
         }
 
+        /**
+         * Supprime un client
+         * 
+         * @param $id du client
+         */
         public function deleteClient($id) {
             $sql = "DELETE FROM Clients where idUser = ?";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute(array($id));
+        }
+
+        /**
+         * Récupere les reservation d'un client
+         * 
+         * @param $idClient du client
+         * @return - la reservation d'un clients
+         */
+        public function getReservationClient($idClient) {
+            $sql = "SELECT r.* FROM Clients c INNER JOIN Reservation r ON c.IdUser = r.IdUser  where c.idUser = ?";
+            $rqt = $this->executeRequete($sql, [$idClient]);
+            $reservationClient = $rqt->fetchAll(PDO::FETCH_ASSOC);
+            $rqt->closeCursor();
+
+            return $reservationClient;
         }
         
         /**

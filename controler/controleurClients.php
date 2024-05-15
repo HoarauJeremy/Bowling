@@ -30,15 +30,11 @@ class controleurClients
         $reservation = $this->manageClients->getReservationClient($id);
         if ($reservation != null) {
             require_once("modele/client.php");
-            $res = new client($reservation);
+            $res = new administration($reservation);
             include 'vue/vueReservationsClients.php';
         } else {
             include 'vue/vueErreur.php';
         }
-    }
-
-    public function ajouter() {
-        include 'vue/vueAjoutClients.php';
     }
 
     public function supprimer ($id) {

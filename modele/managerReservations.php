@@ -32,7 +32,7 @@
          *
          * @return  array        $reservation       Table d'informations de la réservation
         */
-        public function getReservation($id)
+/*         public function getReservation($id)
         {
             $sql = "SELECT * FROM vueReservation WHERE NumReservation = ?;";
             $rqt = $this->cnx->prepare($sql);
@@ -40,7 +40,7 @@
             $reservation = $rqt->fetch();
             $rqt->closeCursor();
             return $reservation;
-        }
+        } */
         
 
         /**
@@ -127,7 +127,7 @@
         
         
         public function ShowReservations(){
-            $sql = "SELECT HeureDebut, HeureFin FROM Reservation;";
+            $sql = "SELECT DateReservation, HeureDebut, HeureFin FROM Reservation;";
             $rqt = $this->cnx->prepare($sql);
             $rqt->execute();
             $reservations = $rqt->fetchAll(PDO::FETCH_ASSOC);

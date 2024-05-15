@@ -20,7 +20,7 @@ function updateCalendar() {
         const row = document.createElement('tr'); // Créer une nouvelle ligne
 
         const timeCell = document.createElement('td'); // Créer une nouvelle cellule
-        timeCell.textContent = `${hour.toString().padStart(2, '0')}:00`;
+        timeCell.textContent = `${hour.toString().padStart(2, '0')}:00 à ${(hour+1).toString().padStart(2, '0')}:00`;
         
         reservationTab.forEach(res => {
             const r = new Date(res['DebutReservation']); // Créer une nouvelle date avec les information récuperer depuis le Tab reservationTab
@@ -34,7 +34,8 @@ function updateCalendar() {
         row.appendChild(timeCell);
 
         const infoCell = document.createElement('td'); // Créer une nouvelle cellule
-        infoCell.textContent = `Info for ${selectedDate} ${hour.toString().padStart(2, '0')}:00`;
+        // infoCell.textContent = `Info for ${selectedDate} ${hour.toString().padStart(2, '0')}:00`;
+        infoCell.innerHTML = `<input type="checkbox" id="time" name="time">`;
         row.appendChild(infoCell);
 
         calendarBody.appendChild(row);

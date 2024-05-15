@@ -27,13 +27,13 @@ $contenu ="
                     <thead class='bg-primary border border-black'>
                         <tr>
                             <th colspan='2' class='border border-black'>
-                                <label for='datePicker' id='jourNom'></label>
-                                <input type='date' id='datePicker' value='". date("Y-m-d") ."' onchange='updateCalendar()'>    
+                                <label for='datePicker' id='jourNom' class='text-white'></label>
+                                <input type='date' id='datePicker' value='". date("Y-m-d") ."' onchange='updateCalendar()' class='bg-primary text-background'>    
                             </th>
                         </tr>
-                        <tr>
-                            <td>Heure</td>
-                            <td>Informations</td>
+                        <tr class='text-center text-lg font-medium text-white font-NotoSans'>
+                            <td class='px-2 py-1'>Heure</td>
+                            <td class='px-2 py-1'>Informations</td>
                         </tr>
                     </thead>
                     <tbody id='calendarBody'></tbody>
