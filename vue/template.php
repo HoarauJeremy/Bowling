@@ -23,7 +23,7 @@
 <body class="flex flex-col min-h-screen">
     <header class="bg-background z-50 fixed top-0 w-full shadow md:h-auto">
         <!-- Bar de navigation -->
-        <?php if (isset($_SESSION['type']) && $_SESSION['type'] != 2) { ?>
+        <?php if (isset($_SESSION['type']) && $_SESSION['type'] != 2 && $_SESSION['CONNECTER'] != "OK") { ?>
         <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
