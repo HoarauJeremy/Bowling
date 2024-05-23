@@ -47,7 +47,7 @@
                 $rqt->bindParam(':login', $login, PDO::PARAM_STR);
                 $rqt->execute();
                 $result = $rqt->fetch(PDO::FETCH_ASSOC);
-                return $result;
+                return $result["typeUser"];
             }
 
         // Fonction permettant la mise à jour des informations d'un utilisateur
