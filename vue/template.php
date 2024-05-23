@@ -93,7 +93,7 @@
 
         <!-- Bar de navigation -->
         </nav>
-        <?php } else if { ?>
+        <?php } else { ?>
             <nav class="bg-accent md:bg-transparent w-full font-Roboto p-6 md:p-0 flex items-center justify-between">
             <!-- Logo -->
             <a href="index.php" class="flex md:ml-10 md:mr-16">
