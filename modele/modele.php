@@ -27,7 +27,7 @@
                 $this->passwd = "Abc_1234";                                 // Mot de Passe Admin
             } */
 
-            $this->passwd = "dbpassword";
+            $this->passwd = "Abc_1234";
             $this->sgbd   = "mysql";                                        // Server de Gestion de Base de donnée
 
             $this->cnx = null;                                              // Initialisation de la connexion à NULL
