@@ -33,9 +33,8 @@ class controleurClients
             include 'vue/vueAccueil.php';
         }
     }
-
     public function reservations ($id) {
-        if ($_SESSION['type'] == 1 && $_SESSION['CONNECTER'] == "OK") {
+        if ($_SESSION["type"] == 1 && $_SESSION['CONNECTER'] == "OK") {
             $reservation = $this->manageClients->getReservationClient($id);
             if ($reservation != null) {
                 require_once("modele/client.php");
@@ -45,6 +44,7 @@ class controleurClients
                 include 'vue/vueErreur.php';
             }
         } else {
+            var_dump($_SESSION["type"]['typeUser']);
             include 'vue/vueAccueil.php';
         }
     }
