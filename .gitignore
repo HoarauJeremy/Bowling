@@ -8,7 +8,7 @@ node_modules/
 *.html
 .htaccess
 error.php
-modele.php
+*/modele.php
 
 #fonts
 fonts/*

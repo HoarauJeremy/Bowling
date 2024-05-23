@@ -16,10 +16,10 @@
         Le client n'a acces qu'à ces informations et ce qu'il à le droit de modifier
         */
         public function __construct(){
-            $this->host   = "DBHost";     // Hôte de la base de donnée
+            $this->host   = "mysql-bowlingdufrontdemer.alwaysdata.net";     // Hôte de la base de donnée
             $this->port   = 3306;                                           // Port
-            $this->dbname = "DBName";                       // Nom de la BD            
-            $this->user   = "DBUser";                                          // Utilisateur
+            $this->dbname = "bowlingdufrontdemer_db";                       // Nom de la BD            
+            $this->user   = "329923";                                          // Utilisateur
 
             /* if ($type == 'client') {
                 $this->passwd = "Client_123";                               // Mot de Passe Client
@@ -27,7 +27,7 @@
                 $this->passwd = "Abc_1234";                                 // Mot de Passe Admin
             } */
 
-            $this->passwd = "DBPsw";
+            $this->passwd = "Abc_1234";
             $this->sgbd   = "mysql";                                        // Server de Gestion de Base de donnée
 
             $this->cnx = null;                                              // Initialisation de la connexion à NULL
