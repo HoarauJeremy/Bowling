@@ -184,7 +184,7 @@
     <footer class="mt-auto py-6 bg-gray-300 flex items-center justify-evenly md:flex-row flex-col text-lg">
         <a class='pt-1' href="index.php?url=Acceuil/mention">Mention légales</a>
         <p class='pt-1'>&copy; Le Bowling du Front de Mer</p>
-        <a class='pt-1' href="index.php?url=Acceuil/cookie">Cookies</a>
+        <!-- <a class='pt-1' href="index.php?url=Acceuil/cookie">Cookies</a> -->
     </footer>
 
 </body>
