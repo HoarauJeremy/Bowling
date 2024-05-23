@@ -33,10 +33,10 @@ function updateCalendar() {
         
         row.appendChild(timeCell);
 
-        const infoCell = document.createElement('td'); // Créer une nouvelle cellule
+        // const infoCell = document.createElement('td'); // Créer une nouvelle cellule
         // infoCell.textContent = `Info for ${selectedDate} ${hour.toString().padStart(2, '0')}:00`;
-        infoCell.innerHTML = `<input type="checkbox" id="time" name="time">`;
-        row.appendChild(infoCell);
+        // infoCell.innerHTML = `<input type="checkbox" id="time" name="time">`;
+        // row.appendChild(infoCell);
 
         calendarBody.appendChild(row);
     } 

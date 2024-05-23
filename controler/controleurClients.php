@@ -41,10 +41,9 @@ class controleurClients
                 $res = new administration($reservation);
                 include 'vue/vueReservationsClients.php';
             } else {
-                include 'vue/vueErreur.php';
+                include 'vue/vueAucuneReservation.php';
             }
         } else {
-            var_dump($_SESSION["type"]['typeUser']);
             include 'vue/vueAccueil.php';
         }
     }

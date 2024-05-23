@@ -33,7 +33,6 @@ $contenu ="
                         </tr>
                         <tr class='text-center text-lg font-medium text-white font-NotoSans'>
                             <td class='px-2 py-1'>Heure</td>
-                            <td class='px-2 py-1'>Informations</td>
                         </tr>
                     </thead>
                     <tbody id='calendarBody'></tbody>

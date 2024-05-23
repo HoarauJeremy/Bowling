@@ -8,10 +8,6 @@
         function mention() {
             include "vue/vueMention.php";
         }
-
-        function cookie() {
-            include "vue/vueCookies.php";
-        }
         
     }
 ?>
