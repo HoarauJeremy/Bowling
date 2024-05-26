@@ -8,7 +8,7 @@
                         <input type='date' name='naissance' id='naissance' placeholder='Naissance' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required oninput='validationAge()'><br>
                         <input type='email' name='email' placeholder='Email' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required><br>
                         <h1 class='font-NotoSans font-extrabold text-left ml-5 mt-5 text-xl'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>
-                        <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^-_/&*])[A-Za-z\d!@#$%^-_/&*]{8,}$' required oninput='passwordStrengh(this)'>
+                        <input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' pattern='(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&_])[A-Za-z\d!@#$%^&_]{8,}' required oninput='passwordStrengh(this)'>
                         <div class='passwordBar h-5 w-52 rounded ml-16 mt-2'></div>
                         <input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left ml-16 mt-2 text-lg border border-black rounded-sm p-1' required oninput='checkPasswordMatch(this)'><br>
                         <p class='font-NotoSans text-left ml-16 mt-2' id='passwordMatchMessage'></p>
