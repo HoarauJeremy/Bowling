@@ -4,7 +4,7 @@
         $contenu .= "<form class='p-p7_5 border border-solid border-slate-50 bg-gray-200 shadow-xl h-auto flex flex-col items-center rounded-md mb-10' action='?url=Connexion/NouvMDP' method='POST'>";
             $contenu .= "<p class='font-NotoSans font-bold text-xl text-left mt-2 mb-2''>Veuillez entrer un nouveau mot de passe.</p>";
             $contenu .= "<h1 class='font-NotoSans font-extrabold text-left ml-5 mb-5 mt-5'>Prérequis : 8 caractères minimum, un chiffre, une minuscule, une majuscule et un caractère spécial</h1>";
-            $contenu .= "<input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left mt-2 text-lg border border-black rounded-sm p-1' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^-_/&*])[A-Za-z\d!@#$%^-_/&*]{8,}$' required oninput='passwordStrengh(this)'>";
+            $contenu .= "<input type='password' name='password' placeholder='Nouveau mot de passe' class='font-Roboto text-left mt-2 text-lg border border-black rounded-sm p-1' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&_*])[A-Za-z\d@$!%?#&_*]{8,}$' required oninput='passwordStrengh(this)'>";
             $contenu .= "<div class='passwordBar h-5 w-52 rounded mt-2'></div>";
             $contenu .= "<input type='password' name='confirmPassword' placeholder='Confirmer le mot de passe' class='font-Roboto text-left mt-2 text-lg border border-black rounded-sm p-1' required oninput='checkPasswordMatch(this)'><br>";
             $contenu .= "<p class='font-NotoSans text-left mt-2' id='passwordMatchMessage'></p>";
@@ -13,6 +13,7 @@
             $contenu .= "<p class='text-left'>*Il est recommandé d'utiliser un mot passe sécurisé mais simple à retenir !</p>";
         $contenu .= "</form>";
     $contenu .= "</div>";
+
     include "template.php";
 ?>
 
@@ -23,7 +24,7 @@
         var minuscule = /[a-z]/.test(password);
         var majuscule = /[A-Z]/.test(password);
         var nombre = /\d/.test(password);
-        var caracspecial = /[!@#$%^-_/&*]/.test(password);
+        var caracspecial = /[!@#$%^&_*]/.test(password);
         var securite = 0;
         if (longueur) securite++;
         if (minuscule) securite++;

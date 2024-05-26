@@ -62,13 +62,33 @@
             public function NouvMDP()
             {
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $email = $_SERVER["email"];
+                    $email = $_SESSION["email"];
                     $password = $_POST["password"];
                 }
                 $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
                 require_once('modele/managerProfil.php');
                 $managerProfil = new ManagerProfil();
-                $managerProfil->newMDP($hashedPassword, $login);
+                $managerProfil->newMDP($hashedPassword, $email);
+            }
+
+            function ValidCode() 
+            {
+                if (empty($_POST['code'])) {
+                    $ErreurCode = "Aucun code n'a été rentré.";
+                    include("vue/vueMDPOublie.php");
+                } else {
+                    $code_entre = $_POST['code'];
+                    $email = $_SESSION['email'];
+                    $code_envoye = $_SESSION['confirmationCode'];
+                    
+                    if($code_entre == $code_envoye) {
+                        include("vue/vueNouvMDP.php");
+                        exit();
+                    } else {
+                        $ErreurCode = "Les codes ne correspondent pas !";
+                        include("vue/vueMDPOublie.php");
+                    }
+                }
             }
 
             public function Deconnexion() //Déconnecte le client de la page (Destruction de la session en cours)
