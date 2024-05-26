@@ -1,10 +1,18 @@
 <?php
-    require_once("modele/managerClient");
 
-    class managerClient extends Connexiondb {
+require_once("modele/managerClient");
 
-        public function __construct() {
-            parent::__construct();
-        }
+/**
+ * Gère les clients en accédant à la base de données
+ */
+class managerClient extends Connexiondb {
+
+    /**
+     * Constructeur de la classe
+     */
+    public function __construct() {
+        parent::__construct();
     }
+}
+
 ?>

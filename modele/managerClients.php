@@ -1,70 +1,86 @@
 <?php
-    require_once("modele/modele.php");
 
-    class managerClients extends Connexiondb {
-        public function __construct() {
-            parent :: __construct();
-        }
+require_once("modele/modele.php");
 
-        // Extraction des données des adhérents depuis la base de données.
-        public function getClients()
-        {
-            $sql = "SELECT * FROM Clients;";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute();
-            $clients = $rqt->fetchAll(PDO::FETCH_ASSOC);
-            $rqt->closeCursor(); // Achève le traitement de la requête
-            return $clients;
-        }
+/**
+ * Gère les opérations liées aux clients en accédant à la base de données.
+ */
+class managerClients extends Connexiondb {
 
-        // Extraction des données d'un adhérent définit par son identifiant
-        public function getClient($id) {
-            $sql = "SELECT * FROM Clients where idUser = ?";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute(array($id));
-            $client = $rqt->fetch(PDO::FETCH_ASSOC);
-            $rqt->closeCursor();
-
-            // Renvoie du résultat de la requête sous forme de tableau
-            return $client;
-        }
-
-        /**
-         * Supprime un client
-         * 
-         * @param $id du client
-         */
-        public function deleteClient($id) {
-            $sql = "DELETE FROM Clients where idUser = ?";
-            $rqt = $this->cnx->prepare($sql);
-            $rqt->execute(array($id));
-        }
-
-        /**
-         * Récupere les reservation d'un client
-         * 
-         * @param $idClient du client
-         * @return - la reservation d'un clients
-         */
-        public function getReservationClient($idClient) {
-            $sql = "SELECT r.* FROM Clients c INNER JOIN Reservation r ON c.IdUser = r.IdUser  where c.idUser = ?";
-            $rqt = $this->executeRequete($sql, [$idClient]);
-            $reservationClient = $rqt->fetchAll(PDO::FETCH_ASSOC);
-            $rqt->closeCursor();
-
-            return $reservationClient;
-        }
-        
-        /**
-         * Definit le format de la date de naissance
-         * @param $dateNaiss
-         * @return string
-         */
-        static function formatDateNaiss($dateNaiss) {
-            $jour = $dateNaiss->format('d');
-            $annee = $dateNaiss->format('Y');
-            $mois = $dateNaiss->format('m');
-            return $jour.'/'. $mois .'/'. $annee;
-        }
+    /**
+     * Constructeur de la classe.
+     */
+    public function __construct() {
+        parent::__construct();
     }
+
+    /**
+     * Récupère tous les clients depuis la base de données.
+     * 
+     * @return array Les données des clients
+     */
+    public function getClients() {
+        $sql = "SELECT * FROM Clients;";
+        $rqt = $this->cnx->prepare($sql);
+        $rqt->execute();
+        $clients = $rqt->fetchAll(PDO::FETCH_ASSOC);
+        $rqt->closeCursor();
+        return $clients;
+    }
+
+    /**
+     * Récupère les données d'un client en fonction de son identifiant.
+     * 
+     * @param int $id L'identifiant du client
+     * @return array|null Les données du client ou null si non trouvé
+     */
+    public function getClient($id) {
+        $sql = "SELECT * FROM Clients WHERE idUser = ?";
+        $rqt = $this->cnx->prepare($sql);
+        $rqt->execute(array($id));
+        $client = $rqt->fetch(PDO::FETCH_ASSOC);
+        $rqt->closeCursor();
+        return $client;
+    }
+
+    /**
+     * Supprime un client de la base de données.
+     * 
+     * @param int $id L'identifiant du client à supprimer
+     * @return void
+     */
+    public function deleteClient($id) {
+        $sql = "DELETE FROM Clients WHERE idUser = ?";
+        $rqt = $this->cnx->prepare($sql);
+        $rqt->execute(array($id));
+    }
+
+    /**
+     * Récupère les réservations d'un client en fonction de son identifiant.
+     * 
+     * @param int $idClient L'identifiant du client
+     * @return array Les réservations du client
+     */
+    public function getReservationClient($idClient) {
+        $sql = "SELECT r.* FROM Clients c INNER JOIN Reservation r ON c.IdUser = r.IdUser  WHERE c.idUser = ?";
+        $rqt = $this->executeRequete($sql, [$idClient]);
+        $reservationClient = $rqt->fetchAll(PDO::FETCH_ASSOC);
+        $rqt->closeCursor();
+        return $reservationClient;
+    }
+
+    /**
+     * Définit le format de la date de naissance.
+     * 
+     * @param DateTime $dateNaiss La date de naissance
+     * @return string La date de naissance formatée
+     */
+    public static function formatDateNaiss($dateNaiss) {
+        $jour = $dateNaiss->format('d');
+        $annee = $dateNaiss->format('Y');
+        $mois = $dateNaiss->format('m');
+        return $jour . '/' . $mois . '/' . $annee;
+    }
+}
+
 ?>

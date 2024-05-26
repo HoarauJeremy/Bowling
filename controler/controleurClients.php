@@ -1,16 +1,29 @@
 <?php
 
+/**
+ * Classe controleurClients
+ */
 class controleurClients
 {
-    
+    /**
+     * @var managerClients
+     */
     public $manageClients;
 
+    /**
+     * Constructeur de la classe controleurClients
+     */
     public function __construct() {
         require_once("modele/managerClients.php");
         $this->manageClients = new managerClients();
     }
 
-    public function clients () {
+    /**
+     * Affiche la liste des clients.
+     *
+     * @return void
+     */
+    public function clients() {
         if ($_SESSION['type'] == 2 && $_SESSION['CONNECTER'] == "OK") {
             $reservations = $this->manageClients->getClients();
             include 'vue/vueClients.php';
@@ -19,8 +32,15 @@ class controleurClients
         }
     }
 
-    public function client ($id) {
-        if ($_SESSION['type'] == 2 && $_SESSION['CONNECTER'] == "OK") {       
+    /**
+     * Affiche les détails d'un client spécifique.
+     *
+     * @param int $id L'ID du client.
+     *
+     * @return void
+     */
+    public function client($id) {
+        if ($_SESSION['type'] == 2 && $_SESSION['CONNECTER'] == "OK") {
             $client = $this->manageClients->getClient($id);
             if ($client != null) {
                 require_once("modele/client.php");
@@ -33,7 +53,15 @@ class controleurClients
             include 'vue/vueAccueil.php';
         }
     }
-    public function reservations ($id) {
+
+    /**
+     * Affiche les réservations d'un client spécifique.
+     *
+     * @param int $id L'ID du client.
+     *
+     * @return void
+     */
+    public function reservations($id) {
         if ($_SESSION["type"] == 1 && $_SESSION['CONNECTER'] == "OK") {
             $reservation = $this->manageClients->getReservationClient($id);
             if ($reservation != null) {
@@ -48,11 +76,18 @@ class controleurClients
         }
     }
 
-    public function supprimer ($id) {
+    /**
+     * Supprime un client spécifique.
+     *
+     * @param int $id L'ID du client.
+     *
+     * @return void
+     */
+    public function supprimer($id) {
         if ($_SESSION["type"] == 2 && $_SESSION['CONNECTER'] == "OK") {
             $element = $this->manageClients->deleteClient($id);
             if ($element != null) {
-                $message = "La réservation n° ".$id." a été supprimé avec succès!";
+                $message = "Le client n° ".$id." a été supprimé avec succès!";
                 header('Location: index.php?url=Clients/clients');
             } else {
                 include 'vue/vueErreur.php';
@@ -61,5 +96,5 @@ class controleurClients
             include 'vue/vueAccueil.php';
         }
     }
-
 }
+?>

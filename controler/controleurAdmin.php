@@ -1,14 +1,30 @@
 <?php
 
+/**
+ * Classe controleurAdmin
+ */
 class controleurAdmin {
+    /**
+     * @var managerAdministration
+     */
     public $manageAdmin;
 
-    
+    /**
+     * Constructeur de la classe controleurAdmin
+     */
     public function __construct() {
         require_once("modele/managerAdministration.php");
         $this->manageAdmin = new managerAdministration();
     }
 
+    /**
+     * Dispatch les actions administratives selon l'action spécifiée.
+     *
+     * @param string $action L'action à réaliser.
+     * @param int|null $id L'ID de l'élément (si applicable).
+     *
+     * @return void
+     */
     public function Dispatcher($action, $id = null) {
         switch ($action) {
             case 'modifier':
@@ -24,7 +40,7 @@ class controleurAdmin {
             
             case 'supprimer':
                 $element = $this->manageAdmin->deleteReservation($id);
-                $message = "La réservation n° ".$id." a été supprimé avec succès!";
+                $message = "La réservation n° ".$id." a été supprimée avec succès!";
                 header('Location: index.php?action=&val='.$message);
                 break;
             
@@ -44,24 +60,17 @@ class controleurAdmin {
                 include 'vue/vueReservations.php';
                 break;
 
-            /* case 'client':
-                $element = $this->manageAdmin->getClient($id);
-                require_once('modele/administration.php');
-                $client = new managerClient($element);
-                include 'vue/vueClient.php';
-                break; */ 
-
-            case 'clients':
+            /*case 'clients':
                 $clients = $this->manageAdmin->getClients();
                 include 'vue/vueClients.php';
-                break;
+                break;*/
 
-            case 'connnexion':                 
+            case 'connexion':                 
                 include 'vue/vueConnexion.php';
                 break;
             
             default:
-                // On appel la page d'accueil par défaut
+                // On appelle la page d'accueil par défaut
                 include 'vue/vueAccueil.php';
                 break;
         }
